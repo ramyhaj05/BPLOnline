@@ -1,8 +1,22 @@
-import React,{useState} from "react";
+import axios from "axios";
+import React,{useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
+import BusinessTableContent from './BusinessTableContent';
 const BusinessTable = () =>{
-    const tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5"
-    const tableB = "p-2 border border-white border-2 truncate font-bold"
+    const tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5";
+    const [businessApplicationList, setbusinessApplicationList] = useState([]);
+
+    //lifecycle method.
+    
+    useEffect(()=>{
+        getBusinesApplications();
+    },[])
+
+    function getBusinesApplications(){
+        axios.get('/get/businessapplication/list').then(function(response){
+            setbusinessApplicationList(response.data);
+        });
+    }
     return(
         <div className="w-full md:p-5 p-1">
             
@@ -15,21 +29,14 @@ const BusinessTable = () =>{
                 <tr className="p-3">
                     <th className={tableH + " md:w-3/4 w-3/4"}>Business Name</th>
                     <th className={tableH + " w-2/4 md:table-cell hidden"}>Owner Name</th>
-                    <th className={tableH + " w-1/4 md:table-cell hidden"}>Barangay</th>
-                    <th className={tableH + " md:w-2/4 w-1/4"}>Status</th>
+                    <th className={tableH + " w-2/4 md:table-cell hidden"}>Status</th>
+                    <th className={tableH + " md:w-1/4 w-1/4"}></th>
                 </tr>
             </thead>
             <tbody className="">
-                <tr className="p-2 hover:cursor-pointer hover:bg-blue-400 hover:text-white text-gray-500">
-                    <td className={tableB +" md:w-3/4 w-3/4"}>Esperer Esthetiques Beauty and Wellness Hub</td>
-                    <td className={tableB +" w-2/4 md:table-cell hidden"}>Ingal, Urush Duanne Manalili</td>
-                    <td className={tableB +" w-1/4 md:table-cell hidden"}>Dita</td>
-                    <td className={tableB + " w-1/4 md:w-2/4 w-1/4"}>
-                        <div className="w-3/4 bg-gray-400 rounded h-4 dark:bg-gray-200 ring-1 ring-blue-400">
-                            <div className="bg-green-400 font-bold text-xs font-medium text-green-800 text-center p-0.5 leading-none rounded" style={{"width": "45%"}}> 45%</div>
-                        </div>
-                    </td>
-                </tr>
+                {businessApplicationList.map((business)=>{
+                    return <BusinessTableContent key={business.id} business={business}/>
+                })}
             </tbody>
         </table>
     </div>

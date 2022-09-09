@@ -2,16 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\BusinessApplicationController;
+use Illuminate\Support\Facades\Request;
 
 Route::get('/', function () {
 
@@ -27,3 +19,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/addNew', [App\Http\Controllers\HomeController::class, 'index'])->name('addNew');
     Route::get('/trans/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('trans');
 });
+
+Route::get('/get/businessapplication/list', [BusinessApplicationController::class, 'getBusinessApplication'])->name('businessapplication.list');
