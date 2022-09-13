@@ -21,4 +21,6 @@ class BusinessApplicationController extends Controller
             Log::error($e);
         }
     }
+
+    
 }

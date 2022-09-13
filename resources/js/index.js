@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import App from './components/App';
-import NewApplication from './components/business/NewApplication'
-import Transaction from './components/business/Transaction'
+import NewApplication from './components/Transaction/NewApplication'
+import Transaction from './components/Transaction/Transaction'
 
 export default class MyApp extends Component{
     render(){return(
