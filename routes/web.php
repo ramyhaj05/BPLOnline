@@ -17,7 +17,6 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/addNew', [App\Http\Controllers\HomeController::class, 'index'])->name('addNew');
-    Route::get('/trans/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('trans');
+    
 });
 
-Route::get('/get/businessapplication/list', [BusinessApplicationController::class, 'getBusinessApplication'])->name('businessapplication.list');

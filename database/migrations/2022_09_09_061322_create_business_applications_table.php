@@ -16,9 +16,10 @@ class CreateBusinessApplicationsTable extends Migration
         Schema::create('business_applications', function (Blueprint $table) {
             $table->id();
             $table->string('business_name');
-            $table->double('capital_investment');
+            $table->double('capital_investment',10 ,2);
             $table->string('description');
             $table->string('franchise');
+            $table->string('leasing');
             $table->string('owner_name');
             $table->string('contact');
             $table->string('email');

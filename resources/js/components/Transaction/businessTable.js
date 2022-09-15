@@ -13,7 +13,7 @@ const BusinessTable = () =>{
     },[])
 
     function getBusinesApplications(){
-        axios.get('/get/businessapplication/list').then(function(response){
+        axios.get('/api/get/businessapplication/list').then(function(response){
             setbusinessApplicationList(response.data);
         });
     }

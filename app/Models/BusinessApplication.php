@@ -13,6 +13,7 @@ class BusinessApplication extends Model
         'capital_investment',
         'description',
         'franchise',
+        'leasing',
         'owner_name',
         'contact',
         'email'

@@ -1,12 +1,14 @@
 import React,{useState} from "react";
 import NewForm from "../Forms/NewForm";
 import Review from "./Review";
+import Uploading from "../Forms/Uploading";
 const NewBusiness = ({setTransactionType, transactiontype}) =>{
     const [bType, setBType] = useState(0);
     const [franchise, setFranchise] = useState(0);
     const [leasing, setLeasing] = useState(0);
     const [review, setReview] = useState(0);
-    const [disclaimer, setDisclaimer] = useState(1);
+    const [disclaimer, setDisclaimer] = useState(0);
+    const [uploading, setUploading] = useState(0);
     const [newData, setNewData] = useState([
         {
             businesname: "",
@@ -21,7 +23,7 @@ const NewBusiness = ({setTransactionType, transactiontype}) =>{
         <div className="w-full  ">
             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">NEW BUSINESS</div>
             <div className="card bg-white">
-                <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
+                <div className="card-header  text-lg font-semibold text-gray-700">APPLICATION FOR NEW BUSINESS</div>
                 <div className="p-2 md:p-3 flex flex-col w-full ">
                     {bType === 0 ? <BusinessType setBType={setBType} setTransactionType={setTransactionType}/> : ""}
                     
@@ -32,11 +34,13 @@ const NewBusiness = ({setTransactionType, transactiontype}) =>{
                     {bType !== 0 && franchise !== 0  && leasing !== 0 && review !== 1 ? 
                     <NewForm setLeasing={setLeasing} transactiontype={transactiontype} 
                     setReview={setReview} setDisclaimer={setDisclaimer} disclaimer={disclaimer} 
-                    setNewData={setNewData} newData={newData}/> : ""}
+                    setNewData={setNewData} newData={newData} franchise={franchise} leasing={leasing}/> : ""}
 
                     {review === 1 ? <Review franchise={franchise} 
-                    leasing={leasing} bType={bType} 
-                    setReview={setReview} setNewData={setNewData} newData={newData}/> : ""}
+                    leasing={leasing} setReview={setReview} 
+                    setNewData={setNewData} newData={newData} bType={bType} setUploading={setUploading}/> : ""}
+
+                    {uploading === 1 ? <Uploading /> :""}
                 </div>
             </div>
         </div>
