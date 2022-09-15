@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BusinessTable from './business/businessTable';
+import BusinessTable from './Transaction/businessTable';
 export default class App extends Component {
     render(){return (
         <div className="container w-full">
