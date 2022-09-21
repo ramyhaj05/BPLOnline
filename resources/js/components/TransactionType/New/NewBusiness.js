@@ -1,7 +1,7 @@
 import React,{useState} from "react";
-import NewForm from "../Forms/NewForm";
+import NewForm from "../../Forms/New/NewForm";
 import Review from "./Review";
-import Uploading from "../Forms/Uploading";
+import Uploading from "./Uploading";
 const NewBusiness = ({setTransactionType, transactiontype}) =>{
     const [bType, setBType] = useState(0);
     const [franchise, setFranchise] = useState(0);
@@ -9,6 +9,7 @@ const NewBusiness = ({setTransactionType, transactiontype}) =>{
     const [review, setReview] = useState(0);
     const [disclaimer, setDisclaimer] = useState(0);
     const [uploading, setUploading] = useState(0);
+    const [appID, setAppID] = useState("");
     const [newData, setNewData] = useState([
         {
             businesname: "",
@@ -31,16 +32,18 @@ const NewBusiness = ({setTransactionType, transactiontype}) =>{
                     
                     {leasing === 0 && bType !== 0 && franchise !== 0 ? <Leasing setFranchise={setFranchise} setBType={setBType} setLeasing={setLeasing}/> : ""}
                     
-                    {bType !== 0 && franchise !== 0  && leasing !== 0 && review !== 1 ? 
+                    {bType !== 0 && franchise !== 0  && leasing !== 0 && review !== 1  && uploading === 0 ? 
                     <NewForm setLeasing={setLeasing} transactiontype={transactiontype} 
                     setReview={setReview} setDisclaimer={setDisclaimer} disclaimer={disclaimer} 
-                    setNewData={setNewData} newData={newData} franchise={franchise} leasing={leasing}/> : ""}
+                    setNewData={setNewData} newData={newData} franchise={franchise} leasing={leasing}
+                    bType={bType}/> : ""}
 
                     {review === 1 ? <Review franchise={franchise} 
                     leasing={leasing} setReview={setReview} 
-                    setNewData={setNewData} newData={newData} bType={bType} setUploading={setUploading}/> : ""}
+                    setNewData={setNewData} newData={newData} bType={bType} 
+                    disclaimer={disclaimer} setDisclaimer={setDisclaimer} setUploading={setUploading} setAppID={setAppID}/> : ""}
 
-                    {uploading === 1 ? <Uploading /> :""}
+                    {uploading === 1 ? <Uploading appID={appID}/> :""}
                 </div>
             </div>
         </div>
@@ -80,7 +83,7 @@ const BusinessType = ({setTransactionType, setBType}) =>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                    <button onClick={(e)=>{setTransactionType(1)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
+                    <button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
                 </div>
         </div>
     )

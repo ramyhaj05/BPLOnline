@@ -2,16 +2,17 @@ import axios from "axios";
 import React from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
-const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise}) =>{
+const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise, bType}) =>{
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
     // const [disabled, setDisabled] = useState("1");
     const proceed = event =>{
         event.preventDefault();
-        setDisclaimer(1)
-        setTimeout(() => {
+        
+            setDisclaimer(1);
             axios.post('/api/add/addNewBusiness',{
                 businessname: newData.businessname,
+                bType: bType,
                 capital: newData.capital,
                 description: newData.description,
                 franchise: franchise,   
@@ -20,12 +21,14 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                 contact: newData.contact,
                 email: newData.email
             }).then(()=>{
-                setReview(1);
+                setTimeout(() => {
+                    setDisclaimer(0)
+                    setReview(1);
+                }, 3000);
             }).catch((error)=>{
                 console.log(error);
-            })
-        }, 3000);
-        setDisclaimer(0)
+            });
+        
     }
     // useEffect(()=>{
     //     if(newData.businessname != "" && newData.capital != "" && newData.description != "" && newData.ownersname != "" && newData.contact != "" && newData.email != ""){

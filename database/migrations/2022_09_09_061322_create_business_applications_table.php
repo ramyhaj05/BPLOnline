@@ -19,10 +19,13 @@ class CreateBusinessApplicationsTable extends Migration
             $table->double('capital_investment',10 ,2);
             $table->string('description');
             $table->string('franchise');
+            $table->string('business_type');
             $table->string('leasing');
             $table->string('owner_name');
             $table->string('contact');
             $table->string('email');
+            $table->string('user_id');
+            $table->string('status');
             $table->timestamps();
         });
     }

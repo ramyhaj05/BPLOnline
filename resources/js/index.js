@@ -12,7 +12,6 @@ export default class MyApp extends Component{
                 <Routes>
                     <Route exact path="/home" element={<App/> } />
                     <Route exact path="/addNew" element={<NewApplication/> } />
-                    <Route exact path="/trans/:id" element={<Transaction/> } />
                 </Routes>
         </div>
     )}

@@ -12,10 +12,13 @@ class BusinessApplication extends Model
         'business_name',
         'capital_investment',
         'description',
+        'business_type',
         'franchise',
         'leasing',
         'owner_name',
         'contact',
+        'user_id',
+        'status',
         'email'
     ];
 }

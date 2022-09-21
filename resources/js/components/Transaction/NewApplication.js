@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import NewBusiness from "../TransactionType/NewBusiness";
+import NewBusiness from "../TransactionType/New/NewBusiness";
 const NewApplication = () =>{
     const [transactiontype, setTransactionType] = useState(0);
     return(
         <div className="container w-full">
             <div className="row justify-content-center">
-                    {transactiontype === 0 ? <Select setTransactionType={setTransactionType}/> : ""}
-                    {transactiontype === 1 ? <NewBusiness setTransactionType={setTransactionType} transactiontype={transactiontype} /> : ""}
-                    {transactiontype === 2 ? <Renew setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
-                    {transactiontype === 3 ? <Change setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
-                    {transactiontype === 4 ? <Closure setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
+                {transactiontype === 0 ? <Select setTransactionType={setTransactionType}/> : ""}
+                {transactiontype === 1 ? <NewBusiness setTransactionType={setTransactionType} transactiontype={transactiontype} /> : ""}
+                {transactiontype === 2 ? <Renew setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
+                {transactiontype === 3 ? <Change setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
+                {transactiontype === 4 ? <Closure setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
             </div>
         </div>
     );

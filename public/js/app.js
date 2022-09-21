@@ -5373,7 +5373,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ App)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Transaction_businessTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Transaction/businessTable */ "./resources/js/components/Transaction/businessTable.js");
+/* harmony import */ var _table_businessTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./table/businessTable */ "./resources/js/components/table/businessTable.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -5432,7 +5432,7 @@ var App = /*#__PURE__*/function (_Component) {
                 children: "List of Application Submitted"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "card-body",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Transaction_businessTable__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_table_businessTable__WEBPACK_IMPORTED_MODULE_1__["default"], {})
               })]
             })]
           })
@@ -5448,10 +5448,10 @@ var App = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Forms/NewForm.js":
-/*!**************************************************!*\
-  !*** ./resources/js/components/Forms/NewForm.js ***!
-  \**************************************************/
+/***/ "./resources/js/components/Forms/New/NewForm.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Forms/New/NewForm.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5486,30 +5486,32 @@ var NewForm = function NewForm(_ref) {
       setDisclaimer = _ref.setDisclaimer,
       newData = _ref.newData,
       setNewData = _ref.setNewData,
-      franchise = _ref.franchise;
+      franchise = _ref.franchise,
+      bType = _ref.bType;
   var inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
   var inputLabel = "text-gray-500 text-md"; // const [disabled, setDisabled] = useState("1");
 
   var proceed = function proceed(event) {
     event.preventDefault();
     setDisclaimer(1);
-    setTimeout(function () {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/add/addNewBusiness', {
-        businessname: newData.businessname,
-        capital: newData.capital,
-        description: newData.description,
-        franchise: franchise,
-        leasing: leasing,
-        ownersname: newData.ownersname,
-        contact: newData.contact,
-        email: newData.email
-      }).then(function () {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/add/addNewBusiness', {
+      businessname: newData.businessname,
+      bType: bType,
+      capital: newData.capital,
+      description: newData.description,
+      franchise: franchise,
+      leasing: leasing,
+      ownersname: newData.ownersname,
+      contact: newData.contact,
+      email: newData.email
+    }).then(function () {
+      setTimeout(function () {
+        setDisclaimer(0);
         setReview(1);
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    }, 3000);
-    setDisclaimer(0);
+      }, 3000);
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }; // useEffect(()=>{
   //     if(newData.businessname != "" && newData.capital != "" && newData.description != "" && newData.ownersname != "" && newData.contact != "" && newData.email != ""){
   //         setDisabled("0");
@@ -5680,10 +5682,10 @@ var NewForm = function NewForm(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Forms/Uploading.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/Forms/Uploading.js ***!
-  \****************************************************/
+/***/ "./resources/js/components/TransactionType/New/NewBusiness.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/TransactionType/New/NewBusiness.js ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5692,36 +5694,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var Uploading = function Uploading() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "",
-    children: "Uploading"
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Uploading);
-
-/***/ }),
-
-/***/ "./resources/js/components/TransactionType/NewBusiness.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/components/TransactionType/NewBusiness.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Forms_NewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Forms/NewForm */ "./resources/js/components/Forms/NewForm.js");
-/* harmony import */ var _Review__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Review */ "./resources/js/components/TransactionType/Review.js");
-/* harmony import */ var _Forms_Uploading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Forms/Uploading */ "./resources/js/components/Forms/Uploading.js");
+/* harmony import */ var _Forms_New_NewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Forms/New/NewForm */ "./resources/js/components/Forms/New/NewForm.js");
+/* harmony import */ var _Review__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Review */ "./resources/js/components/TransactionType/New/Review.js");
+/* harmony import */ var _Uploading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Uploading */ "./resources/js/components/TransactionType/New/Uploading.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -5776,7 +5751,12 @@ var NewBusiness = function NewBusiness(_ref) {
       uploading = _useState12[0],
       setUploading = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState14 = _slicedToArray(_useState13, 2),
+      appID = _useState14[0],
+      setAppID = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
     businesname: "",
     capital: "",
     description: "",
@@ -5784,9 +5764,9 @@ var NewBusiness = function NewBusiness(_ref) {
     contact: "",
     email: ""
   }]),
-      _useState14 = _slicedToArray(_useState13, 2),
-      newData = _useState14[0],
-      setNewData = _useState14[1];
+      _useState16 = _slicedToArray(_useState15, 2),
+      newData = _useState16[0],
+      setNewData = _useState16[1];
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "w-full  ",
@@ -5810,7 +5790,7 @@ var NewBusiness = function NewBusiness(_ref) {
           setFranchise: setFranchise,
           setBType: setBType,
           setLeasing: setLeasing
-        }) : "", bType !== 0 && franchise !== 0 && leasing !== 0 && review !== 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Forms_NewForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        }) : "", bType !== 0 && franchise !== 0 && leasing !== 0 && review !== 1 && uploading === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Forms_New_NewForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
           setLeasing: setLeasing,
           transactiontype: transactiontype,
           setReview: setReview,
@@ -5819,7 +5799,8 @@ var NewBusiness = function NewBusiness(_ref) {
           setNewData: setNewData,
           newData: newData,
           franchise: franchise,
-          leasing: leasing
+          leasing: leasing,
+          bType: bType
         }) : "", review === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Review__WEBPACK_IMPORTED_MODULE_2__["default"], {
           franchise: franchise,
           leasing: leasing,
@@ -5827,8 +5808,13 @@ var NewBusiness = function NewBusiness(_ref) {
           setNewData: setNewData,
           newData: newData,
           bType: bType,
-          setUploading: setUploading
-        }) : "", uploading === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Forms_Uploading__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : ""]
+          disclaimer: disclaimer,
+          setDisclaimer: setDisclaimer,
+          setUploading: setUploading,
+          setAppID: setAppID
+        }) : "", uploading === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Uploading__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          appID: appID
+        }) : ""]
       })]
     })]
   });
@@ -5923,7 +5909,7 @@ var BusinessType = function BusinessType(_ref2) {
       className: "w-full flex flex-row justify-between p-1",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         onClick: function onClick(e) {
-          setTransactionType(1);
+          setTransactionType(0);
         },
         className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
         children: "Back"
@@ -6025,10 +6011,10 @@ var Leasing = function Leasing(_ref4) {
 
 /***/ }),
 
-/***/ "./resources/js/components/TransactionType/Review.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/TransactionType/Review.js ***!
-  \***********************************************************/
+/***/ "./resources/js/components/TransactionType/New/Review.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/TransactionType/New/Review.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6038,6 +6024,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -6047,71 +6045,111 @@ var Review = function Review(_ref) {
       franchise = _ref.franchise,
       setReview = _ref.setReview,
       newData = _ref.newData,
-      bType = _ref.bType;
+      bType = _ref.bType,
+      disclaimer = _ref.disclaimer,
+      setDisclaimer = _ref.setDisclaimer,
+      setUploading = _ref.setUploading,
+      setAppID = _ref.setAppID;
   var type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
   var reviewDetails = "text-gray-600 text-lg tracking-widest";
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      appDetails = _useState2[0],
+      setAppDetails = _useState2[1]; // const [businessApplicationList, setbusinessApplicationList] = useState([]);
+
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getApplicationDetails();
+  }, []);
+
+  function getApplicationDetails() {
+    axios.get('/api/get/appDetails/details', {
+      params: {
+        businessname: newData.businessname
+      }
+    }).then(function (response) {
+      setAppDetails(response.data);
+    }); // axios.get('/api/get/appDetails/details',{
+    //     params:{businessname: newData.businessname}
+    // }).then(function(response){
+    //     setAppDetails(response.data);
+    // });
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "w-full",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "w-full flex justify-center bg-gray-100 flex-wrap",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "w-full text-center p-3 text-xl font-black text-gray-700",
-        children: "Please review information before proceeding."
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "w-full md:w-1/2 p-2",
-          children: [franchise === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Business Type: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: type[bType - 1]
-            })]
-          }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Business Name: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: newData.businessname
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Capital Investment: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: newData.businessname
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Description: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: newData.description
-            })]
-          })]
+    children: [disclaimer === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ScaleLoader, {
+          color: "#36d7b7",
+          margin: 10
+        })
+      })
+    }) : "", appDetails.map(function (det) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "w-full flex justify-center bg-gray-100 flex-wrap",
+        children: [setAppID(det.id), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "w-full text-center p-3 text-xl font-black text-gray-700",
+          children: "Please review information before proceeding."
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "w-full md:w-1/2 p-2",
-          children: [franchise === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Franchise: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: "Yes"
-            })]
-          }) : "", leasing === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Leasing: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: "Yes"
-            })]
-          }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Owner's Name: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: newData.ownersname
+          className: "w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "w-full md:w-1/2 p-2",
+            children: [franchise === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Business Type: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: type[det.business_type - 1]
+              })]
+            }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Business Name: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: det.business_name
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Capital Investment: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: det.capital_investment
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Description: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: det.description
+              })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Contact #: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: newData.contact
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: reviewDetails,
-            children: ["Email: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-              children: newData.email
+            className: "w-full md:w-1/2 p-2",
+            children: [det.franchise === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Franchise: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: "Yes"
+              })]
+            }) : "", det.leasing === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Leasing: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: "Yes"
+              })]
+            }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Owner's Name: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: det.owner_name
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Contact #: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: det.contact
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: reviewDetails,
+              children: ["Email: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: det.email
+              })]
             })]
           })]
         })]
-      })]
+      }, det.id);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "w-full p-1 flex flex-row justify-between",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -6119,13 +6157,48 @@ var Review = function Review(_ref) {
         onClick: function onClick(e) {
           setReview(0);
         },
-        children: "Back"
+        children: "Edit"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
         onClick: function onClick(e) {
-          setReview(1);
+          setUploading(1);
+          setReview(0);
         },
-        children: "Back"
+        children: "Proceed"
+      })]
+    })]
+  });
+};
+
+var Uploading = function Uploading() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "text-xl",
+      children: "Requirements"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "pl-5",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "DTI Registration"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Barangay Clearance"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Security and Exchange Commision Registration (SEC)"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Tax Declaration"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Contract of Lease"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "CGL Insurance"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Business Cedula/Corporate Cedula"
       })]
     })]
   });
@@ -6135,10 +6208,10 @@ var Review = function Review(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Transaction/BusinessTableContent.js":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/Transaction/BusinessTableContent.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/components/TransactionType/New/Uploading.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/TransactionType/New/Uploading.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6152,37 +6225,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var businessTableContent = function businessTableContent(_ref) {
-  var business = _ref.business;
-  var tableB = "p-2 border border-white border-2 truncate font-bold";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-    className: "p-2 hover:cursor-pointer hover:bg-blue-400 hover:text-white text-gray-500",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " md:w-3/4 w-3/4",
-      children: business.business_name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " w-2/4 md:table-cell hidden",
-      children: business.owner_name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " w-1/4 md:table-cell hidden",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "w-3/4 bg-gray-400 rounded h-4 dark:bg-gray-200 ring-1 ring-blue-400 md:w-2/4 w-1/4 ",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "bg-green-400 font-bold text-xs font-medium text-green-800 text-center p-0.5 leading-none rounded",
-          style: {
-            "width": "45%"
-          },
-          children: " 45%"
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " w-1/4 md:table-cell hidden",
-      children: "Add/Edit/Delete"
+var Uploading = function Uploading() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "text-xl",
+      children: "Requirements"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "pl-5",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "DTI Registration"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Barangay Clearance"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Security and Exchange Commision Registration (SEC)"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Tax Declaration"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Contract of Lease"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "CGL Insurance"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "",
+        children: "Business Cedula/Corporate Cedula"
+      })]
     })]
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (businessTableContent);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Uploading);
 
 /***/ }),
 
@@ -6198,7 +6275,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _TransactionType_NewBusiness__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../TransactionType/NewBusiness */ "./resources/js/components/TransactionType/NewBusiness.js");
+/* harmony import */ var _TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../TransactionType/New/NewBusiness */ "./resources/js/components/TransactionType/New/NewBusiness.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -6229,7 +6306,7 @@ var NewApplication = function NewApplication() {
       className: "row justify-content-center",
       children: [transactiontype === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Select, {
         setTransactionType: setTransactionType
-      }) : "", transactiontype === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TransactionType_NewBusiness__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }) : "", transactiontype === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setTransactionType: setTransactionType,
         transactiontype: transactiontype
       }) : "", transactiontype === 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Renew, {
@@ -6438,6 +6515,36 @@ var Closure = function Closure(_ref4) {
 /*!************************************************************!*\
   !*** ./resources/js/components/Transaction/Transaction.js ***!
   \************************************************************/
+/***/ (() => {
+
+// import React, { Component } from "react";
+// class Transaction extends Component{
+//     render()
+//     {
+//     return(
+//         <div className="container w-full">
+//             <div className="row justify-content-center">
+//                 <div className="w-full  ">
+//                     <div className="w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-pink-500">NEW FORM</div>
+//                     <div className="card bg-white">
+//                         <div className="card-header  text-lg font-semibold text-gray-700">Please select transaction</div>
+//                         <div className="card-body p-3 flex flex-col md:flex-row md:justify-around">{this.props.id}
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+//     }
+// }
+// export default Transaction;
+
+/***/ }),
+
+/***/ "./resources/js/components/table/BusinessTableContent.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/table/BusinessTableContent.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6447,82 +6554,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
 
-
-var Transaction = /*#__PURE__*/function (_Component) {
-  _inherits(Transaction, _Component);
-
-  var _super = _createSuper(Transaction);
-
-  function Transaction() {
-    _classCallCheck(this, Transaction);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Transaction, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "container w-full",
+var businessTableContent = function businessTableContent(_ref) {
+  var business = _ref.business;
+  var tableB = "p-2 border border-white border-2 truncate font-bold";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
+    className: "p-2 hover:cursor-pointer hover:bg-blue-400 hover:text-white text-gray-500",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+      className: tableB + " md:w-3/4 w-3/4",
+      children: business.business_name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+      className: tableB + " w-2/4 md:table-cell hidden",
+      children: business.owner_name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+      className: tableB + " w-1/4 md:table-cell hidden",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "w-3/4 bg-gray-400 rounded h-4 dark:bg-gray-200 ring-1 ring-blue-400 md:w-2/4 w-1/4 ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "row justify-content-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "w-full  ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-pink-500",
-              children: "NEW FORM"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "card bg-white",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "card-header  text-lg font-semibold text-gray-700",
-                children: "Please select transaction"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "card-body p-3 flex flex-col md:flex-row md:justify-around",
-                children: this.props.id
-              })]
-            })]
-          })
+          className: "bg-green-400 font-bold text-xs font-medium text-green-800 text-center p-0.5 leading-none rounded",
+          style: {
+            "width": "45%"
+          },
+          children: " 45%"
         })
-      });
-    }
-  }]);
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+      className: tableB + " w-1/4 md:table-cell hidden",
+      children: "Add/Edit/Delete"
+    })]
+  });
+};
 
-  return Transaction;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Transaction);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (businessTableContent);
 
 /***/ }),
 
-/***/ "./resources/js/components/Transaction/businessTable.js":
-/*!**************************************************************!*\
-  !*** ./resources/js/components/Transaction/businessTable.js ***!
-  \**************************************************************/
+/***/ "./resources/js/components/table/businessTable.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/table/businessTable.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6534,7 +6607,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var _BusinessTableContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BusinessTableContent */ "./resources/js/components/Transaction/BusinessTableContent.js");
+/* harmony import */ var _BusinessTableContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BusinessTableContent */ "./resources/js/components/table/BusinessTableContent.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -6561,15 +6634,24 @@ var BusinessTable = function BusinessTable() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       businessApplicationList = _useState2[0],
-      setbusinessApplicationList = _useState2[1]; //lifecycle method.
+      setbusinessApplicationList = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("2022"),
+      _useState4 = _slicedToArray(_useState3, 2),
+      year = _useState4[0],
+      setYear = _useState4[1]; //lifecycle method.
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getBusinesApplications();
-  }, []);
+  }, [year]);
 
   function getBusinesApplications() {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/get/businessapplication/list').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/get/businessapplication/list', {
+      params: {
+        year: year
+      }
+    }).then(function (response) {
       setbusinessApplicationList(response.data);
     });
   }
@@ -6578,9 +6660,25 @@ var BusinessTable = function BusinessTable() {
     className: "w-full md:p-5 p-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "w-full p-2 py-3 flex flex-row justify-between",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "font-bold tracking-widest",
-        children: "Permit Application: 2022"
+        children: ["Permit Application:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          name: "",
+          id: "",
+          onChange: function onChange(e) {
+            setYear(e.target.value);
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2022",
+            children: "2022"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2021",
+            children: "2021"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2020",
+            children: "2020"
+          })]
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         to: "../addNew",
         className: "w-8 rounded font-bold text-xl text-center text-green-500 ring ring-green-500 hover:bg-green-400 hover:ring-green-400 hover:text-white",
@@ -6640,6 +6738,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 /* harmony import */ var _components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Transaction/NewApplication */ "./resources/js/components/Transaction/NewApplication.js");
 /* harmony import */ var _components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Transaction/Transaction */ "./resources/js/components/Transaction/Transaction.js");
+/* harmony import */ var _components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -6697,10 +6796,6 @@ var MyApp = /*#__PURE__*/function (_Component) {
             exact: true,
             path: "/addNew",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-            exact: true,
-            path: "/trans/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4__["default"], {})
           })]
         })
       });

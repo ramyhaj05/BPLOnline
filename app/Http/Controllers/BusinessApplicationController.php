@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Log;
 use Exception;
+use App\Models\User;
 use App\Models\BusinessApplication;
 
 class BusinessApplicationController extends Controller
@@ -16,16 +17,38 @@ class BusinessApplicationController extends Controller
             'capital_investment' => ['required', 'string', 'max:10'],
             'description' => ['required', 'string', 'max:255'],
             'franchise' => ['required', 'string', 'max:1'],
+            'business_type' => ['required', 'string', 'max:1'],
             'leasing' => ['required', 'string', 'max:1'],
             'owner_name' => ['required', 'string', 'min:255'],
             'contact' => ['required', 'string', 'max:11'],
             'email' => ['required', 'string', 'email', 'max:255'],
         ]);
     }
-    public function getBusinessApplication(){
+    public function getBusinessApplication(Request $request){
+        
+        $year = $request->year;
+        $user = User::pluck('id');
+        $user_id = trim($user,'[]');
         try 
         {
-            $businessapplications =  BusinessApplication::orderBy('id', 'desc')->get();
+            $businessapplications =  BusinessApplication::where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
+            return response()->json($businessapplications);
+        } 
+        catch (Exception $e) 
+        {
+            Log::error($e);
+        }
+    }
+
+    public function getApplicationDetails(Request $request){
+        // dd($request->all());
+        $businessname = $request->businessname;
+        try 
+        {
+            $businessapplications =  BusinessApplication::where('business_name', $businessname)->orderBy('id', 'desc')->limit(1)->get();
+            // dd($businessapplications);
+            // throw new Exception($businessapplications);
+            
             return response()->json($businessapplications);
         } 
         catch (Exception $e) 
@@ -38,8 +61,8 @@ class BusinessApplicationController extends Controller
     //store data 
     public function store(Request $request){
         // throw new Exception($request->businessname);
-        
-        $businessname = $request->businessname;
+
+            $businessname = $request->businessname;
             $capital = $request->capital;
             $description = $request->description;
             $ownersname = $request->ownersname;
@@ -47,6 +70,11 @@ class BusinessApplicationController extends Controller
             $email = $request->email;
             $franchise = $request->franchise;
             $leasing = $request->leasing;
+            $bType = $request->bType;
+            $user = User::pluck('id');
+            $user_id = trim($user,'[]');
+            
+            
         try {
             
             BusinessApplication::create([
@@ -55,9 +83,12 @@ class BusinessApplicationController extends Controller
                 'description' => $description,
                 'franchise' => $franchise,
                 'leasing' => $leasing,
+                'business_type' => $bType,
                 'owner_name' => $ownersname,
                 'contact' => $contact,
                 'email' => $email,
+                'user_id' => $user_id,
+                'status' => '0',
             ]);
             return "OK";
         } catch (Exception $e) {
