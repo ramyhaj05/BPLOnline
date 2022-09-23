@@ -1,8 +1,9 @@
 import React,{useState} from "react";
-import NewForm from "../../Forms/New/NewForm";
+import NewForm from "./NewForm";
 import Review from "./Review";
 import Uploading from "./Uploading";
-const NewBusiness = ({setTransactionType, transactiontype}) =>{
+import {Link} from 'react-router-dom';
+const NewBusiness = () =>{
     const [bType, setBType] = useState(0);
     const [franchise, setFranchise] = useState(0);
     const [leasing, setLeasing] = useState(0);
@@ -26,24 +27,21 @@ const NewBusiness = ({setTransactionType, transactiontype}) =>{
             <div className="card bg-white">
                 <div className="card-header  text-lg font-semibold text-gray-700">APPLICATION FOR NEW BUSINESS</div>
                 <div className="p-2 md:p-3 flex flex-col w-full ">
-                    {bType === 0 ? <BusinessType setBType={setBType} setTransactionType={setTransactionType}/> : ""}
+                    {bType === 0 ? <BusinessType setBType={setBType} /> : ""}
                     
                     {franchise === 0 && bType !== 0 ? <Franchise setFranchise={setFranchise} setBType={setBType}/> : ""}
                     
                     {leasing === 0 && bType !== 0 && franchise !== 0 ? <Leasing setFranchise={setFranchise} setBType={setBType} setLeasing={setLeasing}/> : ""}
                     
-                    {bType !== 0 && franchise !== 0  && leasing !== 0 && review !== 1  && uploading === 0 ? 
-                    <NewForm setLeasing={setLeasing} transactiontype={transactiontype} 
-                    setReview={setReview} setDisclaimer={setDisclaimer} disclaimer={disclaimer} 
+                    {bType !== 0 && franchise !== 0  && leasing !== 0 && review === 0  && uploading === 0 ? 
+                    <NewForm setLeasing={setLeasing} setReview={setReview} 
+                    setDisclaimer={setDisclaimer} disclaimer={disclaimer} 
                     setNewData={setNewData} newData={newData} franchise={franchise} leasing={leasing}
                     bType={bType}/> : ""}
 
-                    {review === 1 ? <Review franchise={franchise} 
-                    leasing={leasing} setReview={setReview} 
-                    setNewData={setNewData} newData={newData} bType={bType} 
-                    disclaimer={disclaimer} setDisclaimer={setDisclaimer} setUploading={setUploading} setAppID={setAppID}/> : ""}
-
-                    {uploading === 1 ? <Uploading appID={appID}/> :""}
+                    {review === 1 ? <Review setReview={setReview} appID={appID}
+                    setNewData={setNewData} newData={newData} disclaimer={disclaimer} 
+                    setDisclaimer={setDisclaimer} setAppID={setAppID}/> : ""}
                 </div>
             </div>
         </div>
@@ -60,6 +58,7 @@ const BusinessType = ({setTransactionType, setBType}) =>{
                 <div className={bTypeContainer}>
                     <div className={bTypeButton} onClick={(e)=>{setBType(1)}}>Association</div>
                 </div>
+                
                 <div className={bTypeContainer}>
                     <div className={bTypeButton} onClick={(e)=>{setBType(2)}}>Cooperative</div>
                 </div>
@@ -83,7 +82,7 @@ const BusinessType = ({setTransactionType, setBType}) =>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                    <button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
+                    <Link to="/addNew" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</Link>
                 </div>
         </div>
     )
@@ -125,7 +124,7 @@ const Leasing = ({setFranchise, setLeasing}) =>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                    <button onClick={(e)=>{setFranchise(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
+                    <Link to='/addNew' className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</Link>
                 </div>
         </div>
     )

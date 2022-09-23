@@ -14,9 +14,11 @@ Auth::routes(['verify' => true]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth', 'verified']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/addNew', [App\Http\Controllers\HomeController::class, 'index'])->name('addNew');
+    Route::get('/addNew', [App\Http\Controllers\HomeController::class, 'addNew'])->name('addNew');
+    Route::get('/new-business', [App\Http\Controllers\HomeController::class, 'index'])->name('new.business');
+    Route::get('//new-business/upload/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('new.upload');
     
 });
 

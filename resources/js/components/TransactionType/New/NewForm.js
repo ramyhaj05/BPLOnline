@@ -20,8 +20,9 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                 ownersname: newData.ownersname,
                 contact: newData.contact,
                 email: newData.email
-            }).then(()=>{
+            }).then((response)=>{
                 setTimeout(() => {
+                    alert(response);
                     setDisclaimer(0)
                     setReview(1);
                 }, 3000);

@@ -4,7 +4,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import App from './components/App';
 import NewApplication from './components/Transaction/NewApplication'
-import Transaction from './components/Transaction/Transaction'
+import NewBusiness from './components/TransactionType/New/NewBusiness';
+import Uploading from './components/TransactionType/New/Uploading';
 
 export default class MyApp extends Component{
     render(){return(
@@ -12,6 +13,9 @@ export default class MyApp extends Component{
                 <Routes>
                     <Route exact path="/home" element={<App/> } />
                     <Route exact path="/addNew" element={<NewApplication/> } />
+                    <Route exact path="/new-business" element={<NewBusiness/> } />
+                    <Route exact path="/new-business/upload/:id" element={<Uploading/> } />
+
                 </Routes>
         </div>
     )}

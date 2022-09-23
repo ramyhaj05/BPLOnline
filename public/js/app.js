@@ -5448,10 +5448,327 @@ var App = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Forms/New/NewForm.js":
-/*!******************************************************!*\
-  !*** ./resources/js/components/Forms/New/NewForm.js ***!
-  \******************************************************/
+/***/ "./resources/js/components/TransactionType/New/NewBusiness.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/TransactionType/New/NewBusiness.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _NewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewForm */ "./resources/js/components/TransactionType/New/NewForm.js");
+/* harmony import */ var _Review__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Review */ "./resources/js/components/TransactionType/New/Review.js");
+/* harmony import */ var _Uploading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Uploading */ "./resources/js/components/TransactionType/New/Uploading.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+var NewBusiness = function NewBusiness() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      bType = _useState2[0],
+      setBType = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      franchise = _useState4[0],
+      setFranchise = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      leasing = _useState6[0],
+      setLeasing = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState8 = _slicedToArray(_useState7, 2),
+      review = _useState8[0],
+      setReview = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState10 = _slicedToArray(_useState9, 2),
+      disclaimer = _useState10[0],
+      setDisclaimer = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState12 = _slicedToArray(_useState11, 2),
+      uploading = _useState12[0],
+      setUploading = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState14 = _slicedToArray(_useState13, 2),
+      appID = _useState14[0],
+      setAppID = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+    businesname: "",
+    capital: "",
+    description: "",
+    ownersname: "",
+    contact: "",
+    email: ""
+  }]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      newData = _useState16[0],
+      setNewData = _useState16[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "w-full  ",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
+      children: "NEW BUSINESS"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "card bg-white",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "card-header  text-lg font-semibold text-gray-700",
+        children: "APPLICATION FOR NEW BUSINESS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "p-2 md:p-3 flex flex-col w-full ",
+        children: [bType === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(BusinessType, {
+          setBType: setBType
+        }) : "", franchise === 0 && bType !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Franchise, {
+          setFranchise: setFranchise,
+          setBType: setBType
+        }) : "", leasing === 0 && bType !== 0 && franchise !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Leasing, {
+          setFranchise: setFranchise,
+          setBType: setBType,
+          setLeasing: setLeasing
+        }) : "", bType !== 0 && franchise !== 0 && leasing !== 0 && review === 0 && uploading === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NewForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          setLeasing: setLeasing,
+          setReview: setReview,
+          setDisclaimer: setDisclaimer,
+          disclaimer: disclaimer,
+          setNewData: setNewData,
+          newData: newData,
+          franchise: franchise,
+          leasing: leasing,
+          bType: bType
+        }) : "", review === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Review__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          setReview: setReview,
+          appID: appID,
+          setNewData: setNewData,
+          newData: newData,
+          disclaimer: disclaimer,
+          setDisclaimer: setDisclaimer,
+          setAppID: setAppID
+        }) : ""]
+      })]
+    })]
+  });
+};
+
+var BusinessType = function BusinessType(_ref) {
+  var setTransactionType = _ref.setTransactionType,
+      setBType = _ref.setBType;
+  var bTypeContainer = "w-1/2 md:w-1/4 p-3";
+  var bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "w-full flex flex-col justify-content-center items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      className: "font-black tracking-widest text-xl text-gray-500",
+      children: "PLEASE SELECT BUSINESS TYPE:"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "w-full flex flex-wrap",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(1);
+          },
+          children: "Association"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(2);
+          },
+          children: "Cooperative"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(3);
+          },
+          children: "Corporation"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(4);
+          },
+          children: "Foundation"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(5);
+          },
+          children: "Partnership"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(6);
+          },
+          children: "PEZA"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(7);
+          },
+          children: "Single Proprietor"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setBType(8);
+          },
+          children: "Tax Exempt"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "w-full flex flex-row justify-between p-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+        to: "/addNew",
+        className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
+        children: "Back"
+      })
+    })]
+  });
+};
+
+var Franchise = function Franchise(_ref2) {
+  var setFranchise = _ref2.setFranchise,
+      setBType = _ref2.setBType;
+  var bTypeContainer = "w-1/2 md:w-1/6 p-3";
+  var bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "w-full flex flex-col justify-content-center items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      className: "font-black tracking-widest text-xl text-gray-500",
+      children: "FRANCHISING?"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "w-full flex flex-wrap justify-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setFranchise(1);
+          },
+          children: "Yes"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setFranchise(2);
+          },
+          children: "No"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "w-full flex flex-row justify-between p-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        onClick: function onClick(e) {
+          setBType(0);
+          setFranchise(0);
+        },
+        className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
+        children: "Back"
+      })
+    })]
+  });
+};
+
+var Leasing = function Leasing(_ref3) {
+  var setFranchise = _ref3.setFranchise,
+      setLeasing = _ref3.setLeasing;
+  var bTypeContainer = "w-1/2 md:w-1/6 p-3";
+  var bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "w-full flex flex-col justify-content-center items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      className: "font-black tracking-widest text-xl text-gray-500",
+      children: "Leasing?"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "w-full flex flex-wrap justify-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setLeasing(1);
+          },
+          children: "Yes"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: bTypeContainer,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: bTypeButton,
+          onClick: function onClick(e) {
+            setLeasing(2);
+          },
+          children: "No"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "w-full flex flex-row justify-between p-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+        to: "/addNew",
+        className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
+        children: "Back"
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewBusiness);
+
+/***/ }),
+
+/***/ "./resources/js/components/TransactionType/New/NewForm.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/TransactionType/New/NewForm.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5504,8 +5821,9 @@ var NewForm = function NewForm(_ref) {
       ownersname: newData.ownersname,
       contact: newData.contact,
       email: newData.email
-    }).then(function () {
+    }).then(function (response) {
       setTimeout(function () {
+        alert(response);
         setDisclaimer(0);
         setReview(1);
       }, 3000);
@@ -5682,335 +6000,6 @@ var NewForm = function NewForm(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/TransactionType/New/NewBusiness.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/TransactionType/New/NewBusiness.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Forms_New_NewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Forms/New/NewForm */ "./resources/js/components/Forms/New/NewForm.js");
-/* harmony import */ var _Review__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Review */ "./resources/js/components/TransactionType/New/Review.js");
-/* harmony import */ var _Uploading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Uploading */ "./resources/js/components/TransactionType/New/Uploading.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-var NewBusiness = function NewBusiness(_ref) {
-  var setTransactionType = _ref.setTransactionType,
-      transactiontype = _ref.transactiontype;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      bType = _useState2[0],
-      setBType = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      franchise = _useState4[0],
-      setFranchise = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState6 = _slicedToArray(_useState5, 2),
-      leasing = _useState6[0],
-      setLeasing = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState8 = _slicedToArray(_useState7, 2),
-      review = _useState8[0],
-      setReview = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState10 = _slicedToArray(_useState9, 2),
-      disclaimer = _useState10[0],
-      setDisclaimer = _useState10[1];
-
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState12 = _slicedToArray(_useState11, 2),
-      uploading = _useState12[0],
-      setUploading = _useState12[1];
-
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState14 = _slicedToArray(_useState13, 2),
-      appID = _useState14[0],
-      setAppID = _useState14[1];
-
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
-    businesname: "",
-    capital: "",
-    description: "",
-    ownersname: "",
-    contact: "",
-    email: ""
-  }]),
-      _useState16 = _slicedToArray(_useState15, 2),
-      newData = _useState16[0],
-      setNewData = _useState16[1];
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "w-full  ",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
-      children: "NEW BUSINESS"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "card bg-white",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "card-header  text-lg font-semibold text-gray-700",
-        children: "APPLICATION FOR NEW BUSINESS"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "p-2 md:p-3 flex flex-col w-full ",
-        children: [bType === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(BusinessType, {
-          setBType: setBType,
-          setTransactionType: setTransactionType
-        }) : "", franchise === 0 && bType !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Franchise, {
-          setFranchise: setFranchise,
-          setBType: setBType
-        }) : "", leasing === 0 && bType !== 0 && franchise !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Leasing, {
-          setFranchise: setFranchise,
-          setBType: setBType,
-          setLeasing: setLeasing
-        }) : "", bType !== 0 && franchise !== 0 && leasing !== 0 && review !== 1 && uploading === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Forms_New_NewForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          setLeasing: setLeasing,
-          transactiontype: transactiontype,
-          setReview: setReview,
-          setDisclaimer: setDisclaimer,
-          disclaimer: disclaimer,
-          setNewData: setNewData,
-          newData: newData,
-          franchise: franchise,
-          leasing: leasing,
-          bType: bType
-        }) : "", review === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Review__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          franchise: franchise,
-          leasing: leasing,
-          setReview: setReview,
-          setNewData: setNewData,
-          newData: newData,
-          bType: bType,
-          disclaimer: disclaimer,
-          setDisclaimer: setDisclaimer,
-          setUploading: setUploading,
-          setAppID: setAppID
-        }) : "", uploading === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Uploading__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          appID: appID
-        }) : ""]
-      })]
-    })]
-  });
-};
-
-var BusinessType = function BusinessType(_ref2) {
-  var setTransactionType = _ref2.setTransactionType,
-      setBType = _ref2.setBType;
-  var bTypeContainer = "w-1/2 md:w-1/4 p-3";
-  var bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "w-full flex flex-col justify-content-center items-center",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-      className: "font-black tracking-widest text-xl text-gray-500",
-      children: "PLEASE SELECT BUSINESS TYPE:"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "w-full flex flex-wrap",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(1);
-          },
-          children: "Association"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(2);
-          },
-          children: "Cooperative"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(3);
-          },
-          children: "Corporation"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(4);
-          },
-          children: "Foundation"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(5);
-          },
-          children: "Partnership"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(6);
-          },
-          children: "PEZA"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(7);
-          },
-          children: "Single Proprietor"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setBType(8);
-          },
-          children: "Tax Exempt"
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "w-full flex flex-row justify-between p-1",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        onClick: function onClick(e) {
-          setTransactionType(0);
-        },
-        className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-        children: "Back"
-      })
-    })]
-  });
-};
-
-var Franchise = function Franchise(_ref3) {
-  var setFranchise = _ref3.setFranchise,
-      setBType = _ref3.setBType;
-  var bTypeContainer = "w-1/2 md:w-1/6 p-3";
-  var bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "w-full flex flex-col justify-content-center items-center",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-      className: "font-black tracking-widest text-xl text-gray-500",
-      children: "FRANCHISING?"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "w-full flex flex-wrap justify-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setFranchise(1);
-          },
-          children: "Yes"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setFranchise(2);
-          },
-          children: "No"
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "w-full flex flex-row justify-between p-1",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        onClick: function onClick(e) {
-          setBType(0);
-          setFranchise(0);
-        },
-        className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-        children: "Back"
-      })
-    })]
-  });
-};
-
-var Leasing = function Leasing(_ref4) {
-  var setFranchise = _ref4.setFranchise,
-      setLeasing = _ref4.setLeasing;
-  var bTypeContainer = "w-1/2 md:w-1/6 p-3";
-  var bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "w-full flex flex-col justify-content-center items-center",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-      className: "font-black tracking-widest text-xl text-gray-500",
-      children: "Leasing?"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "w-full flex flex-wrap justify-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setLeasing(1);
-          },
-          children: "Yes"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: bTypeContainer,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: bTypeButton,
-          onClick: function onClick(e) {
-            setLeasing(2);
-          },
-          children: "No"
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "w-full flex flex-row justify-between p-1",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        onClick: function onClick(e) {
-          setFranchise(0);
-        },
-        className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-        children: "Back"
-      })
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewBusiness);
-
-/***/ }),
-
 /***/ "./resources/js/components/TransactionType/New/Review.js":
 /*!***************************************************************!*\
   !*** ./resources/js/components/TransactionType/New/Review.js ***!
@@ -6023,6 +6012,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -6040,16 +6030,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Review = function Review(_ref) {
-  var leasing = _ref.leasing,
-      franchise = _ref.franchise,
-      setReview = _ref.setReview,
+  var setReview = _ref.setReview,
       newData = _ref.newData,
-      bType = _ref.bType,
       disclaimer = _ref.disclaimer,
-      setDisclaimer = _ref.setDisclaimer,
-      setUploading = _ref.setUploading,
-      setAppID = _ref.setAppID;
+      setAppID = _ref.setAppID,
+      appID = _ref.appID;
   var type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
   var reviewDetails = "text-gray-600 text-lg tracking-widest";
 
@@ -6070,11 +6057,7 @@ var Review = function Review(_ref) {
       }
     }).then(function (response) {
       setAppDetails(response.data);
-    }); // axios.get('/api/get/appDetails/details',{
-    //     params:{businessname: newData.businessname}
-    // }).then(function(response){
-    //     setAppDetails(response.data);
-    // });
+    });
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -6158,47 +6141,10 @@ var Review = function Review(_ref) {
           setReview(0);
         },
         children: "Edit"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: "/new-business/upload/" + appID,
         className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-        onClick: function onClick(e) {
-          setUploading(1);
-          setReview(0);
-        },
         children: "Proceed"
-      })]
-    })]
-  });
-};
-
-var Uploading = function Uploading() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "text-xl",
-      children: "Requirements"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "pl-5",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "DTI Registration"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "Barangay Clearance"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "Security and Exchange Commision Registration (SEC)"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "Tax Declaration"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "Contract of Lease"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "CGL Insurance"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "",
-        children: "Business Cedula/Corporate Cedula"
       })]
     })]
   });
@@ -6220,12 +6166,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
+
 var Uploading = function Uploading() {
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)(),
+      id = _useParams.id; // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt
+
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -6233,7 +6185,7 @@ var Uploading = function Uploading() {
       children: "Requirements"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "pl-5",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: [id, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "",
         children: "DTI Registration"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -6275,114 +6227,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../TransactionType/New/NewBusiness */ "./resources/js/components/TransactionType/New/NewBusiness.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
 var NewApplication = function NewApplication() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      transactiontype = _useState2[0],
-      setTransactionType = _useState2[1];
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "container w-full",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "row justify-content-center",
-      children: [transactiontype === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Select, {
-        setTransactionType: setTransactionType
-      }) : "", transactiontype === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        setTransactionType: setTransactionType,
-        transactiontype: transactiontype
-      }) : "", transactiontype === 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Renew, {
-        setTransactionType: setTransactionType,
-        transactiontype: transactiontype
-      }) : "", transactiontype === 3 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Change, {
-        setTransactionType: setTransactionType,
-        transactiontype: transactiontype
-      }) : "", transactiontype === 4 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Closure, {
-        setTransactionType: setTransactionType,
-        transactiontype: transactiontype
-      }) : ""]
-    })
-  });
-};
-
-var Select = function Select(_ref) {
-  var setTransactionType = _ref.setTransactionType;
   var TranButtons = "border-4 w-full p-2 rounded font-bold text-md tracking-widest text-center ";
   var ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "w-full  ",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
       children: "ADD NEW TRANSACTION"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "card bg-white",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "card-header text-lg font-semibold text-gray-700",
         children: "Please select transaction"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "p-2 md:p-3 flex flex-col md:flex-row md:justify-around",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "w-full",
-            onClick: function onClick(e) {
-              setTransactionType(1);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              to: "/new-business",
               className: TranButtons + "border-green-400 text-green-500",
               children: "New"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "w-full",
-            onClick: function onClick(e) {
-              setTransactionType(2);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              to: "/re-newal",
               className: TranButtons + "border-teal-500 text-teal-600",
               children: "Re-newal"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "w-full",
-            onClick: function onClick(e) {
-              setTransactionType(3);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              to: "/change",
               className: TranButtons + "border-orange-500 text-orange-600",
               children: "Change"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "w-full",
-            onClick: function onClick(e) {
-              setTransactionType(4);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              to: "/closure",
               className: TranButtons + "border-red-500 text-red-600",
               children: "Closure"
             })
@@ -6391,153 +6293,97 @@ var Select = function Select(_ref) {
       })]
     })]
   });
-};
-
-var Renew = function Renew(_ref2) {
-  var transactiontype = _ref2.transactiontype,
-      setTransactionType = _ref2.setTransactionType;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "w-full  ",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
-      children: "RE-NEWAL OF BUSINESS PERMIT"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "card bg-white",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "card-header  text-lg font-semibold text-gray-700",
-        children: "FILL UP THE INFORMATION NEEDED"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "w-full flex flex-col justify-start",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            onClick: function onClick(e) {
-              setTransactionType(0);
-            },
-            className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-            children: "Back"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-          action: "",
-          method: "post",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "hidden",
-            name: "",
-            value: transactiontype
-          })
-        })]
-      })]
-    })]
-  });
-};
-
-var Change = function Change(_ref3) {
-  var transactiontype = _ref3.transactiontype,
-      setTransactionType = _ref3.setTransactionType;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "w-full  ",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
-      children: "CHANGE BUSINESS INFO"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "card bg-white",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "card-header  text-lg font-semibold text-gray-700",
-        children: "FILL UP THE INFORMATION NEEDED"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "w-full flex flex-col justify-start",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            onClick: function onClick(e) {
-              setTransactionType(0);
-            },
-            className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-            children: "Back"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-          action: "",
-          method: "post",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "hidden",
-            name: "",
-            value: transactiontype
-          })
-        })]
-      })]
-    })]
-  });
-};
-
-var Closure = function Closure(_ref4) {
-  var transactiontype = _ref4.transactiontype,
-      setTransactionType = _ref4.setTransactionType;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "w-full  ",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
-      children: "CLOSURE"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "card bg-white",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "card-header  text-lg font-semibold text-gray-700",
-        children: "FILL UP THE INFORMATION NEEDED"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "w-full flex flex-col justify-start",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            onClick: function onClick(e) {
-              setTransactionType(0);
-            },
-            className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
-            children: "Back"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-          action: "",
-          method: "post",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "hidden",
-            name: "",
-            value: transactiontype
-          })
-        })]
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewApplication);
-
-/***/ }),
-
-/***/ "./resources/js/components/Transaction/Transaction.js":
-/*!************************************************************!*\
-  !*** ./resources/js/components/Transaction/Transaction.js ***!
-  \************************************************************/
-/***/ (() => {
-
-// import React, { Component } from "react";
-// class Transaction extends Component{
-//     render()
-//     {
+}; // const NewApplication = () =>{
+//     const [transactiontype, setTransactionType] = useState(0);
 //     return(
 //         <div className="container w-full">
 //             <div className="row justify-content-center">
-//                 <div className="w-full  ">
-//                     <div className="w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-pink-500">NEW FORM</div>
-//                     <div className="card bg-white">
-//                         <div className="card-header  text-lg font-semibold text-gray-700">Please select transaction</div>
-//                         <div className="card-body p-3 flex flex-col md:flex-row md:justify-around">{this.props.id}
-//                         </div>
-//                     </div>
+//                 {transactiontype === 0 ? <Select setTransactionType={setTransactionType}/> : ""}
+//                 {transactiontype === 1 ? <NewBusiness setTransactionType={setTransactionType} transactiontype={transactiontype} /> : ""}
+//                 {transactiontype === 2 ? <Renew setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
+//                 {transactiontype === 3 ? <Change setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
+//                 {transactiontype === 4 ? <Closure setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
+//             </div>
+//         </div>
+//     );
+// }
+// const Select= ({setTransactionType})=>{
+//     const TranButtons = "border-4 w-full p-2 rounded font-bold text-md tracking-widest text-center ";
+//     const ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
+//     return(
+//     <div className="w-full  ">
+//         <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">ADD NEW TRANSACTION</div>
+//         <div className="card bg-white">
+//             <div className="card-header text-lg font-semibold text-gray-700">Please select transaction</div>
+//             <div className="p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
+//                 <div className={ButtonContainer}>
+//                     <div className="w-full" onClick={(e)=>{setTransactionType(1);}}><button className={TranButtons +"border-green-400 text-green-500"}>New</button></div>
+//                 </div>
+//                 <div className={ButtonContainer}>
+//                     <div className="w-full" onClick={(e)=>{setTransactionType(2);}}><button className={TranButtons +"border-teal-500 text-teal-600"}>Re-newal</button></div>
+//                 </div>
+//                 <div className={ButtonContainer}>
+//                     <div className="w-full" onClick={(e)=>{setTransactionType(3);}}><button className={TranButtons +"border-orange-500 text-orange-600"}>Change</button></div>
+//                 </div>
+//                 <div className={ButtonContainer}>
+//                     <div className="w-full" onClick={(e)=>{setTransactionType(4);}}><button className={TranButtons +"border-red-500 text-red-600"}>Closure</button></div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     );
+// }
+// const Renew = ({transactiontype, setTransactionType}) =>{
+//     return(
+//         <div className="w-full  ">
+//             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">RE-NEWAL OF BUSINESS PERMIT</div>
+//             <div className="card bg-white">
+//                 <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
+//             <div className="card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
+//                     <div className="w-full flex flex-col justify-start"><button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button></div>
+//                     <form action="" method="post">
+//                         <input type="hidden" name="" value={transactiontype}/>
+//                     </form>
 //                 </div>
 //             </div>
 //         </div>
 //     )
-//     }
 // }
-// export default Transaction;
+// const Change = ({transactiontype, setTransactionType}) =>{
+//     return(
+//         <div className="w-full  ">
+//             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">CHANGE BUSINESS INFO</div>
+//             <div className="card bg-white">
+//                 <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
+//             <div className="card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
+//                     <div className="w-full flex flex-col justify-start"><button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button></div>
+//                     <form action="" method="post">
+//                         <input type="hidden" name="" value={transactiontype}/>
+//                     </form>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+// const Closure = ({transactiontype, setTransactionType}) =>{
+//     return(
+//         <div className="w-full  ">
+//             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">CLOSURE</div>
+//             <div className="card bg-white">
+//                 <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
+//                 <div className="card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
+//                     <div className="w-full flex flex-col justify-start"><button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button></div>
+//                     <form action="" method="post">
+//                         <input type="hidden" name="" value={transactiontype}/>
+//                     </form>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewApplication);
 
 /***/ }),
 
@@ -6733,13 +6579,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 /* harmony import */ var _components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Transaction/NewApplication */ "./resources/js/components/Transaction/NewApplication.js");
-/* harmony import */ var _components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Transaction/Transaction */ "./resources/js/components/Transaction/Transaction.js");
-/* harmony import */ var _components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TransactionType/New/NewBusiness */ "./resources/js/components/TransactionType/New/NewBusiness.js");
+/* harmony import */ var _components_TransactionType_New_Uploading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/TransactionType/New/Uploading */ "./resources/js/components/TransactionType/New/Uploading.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6771,6 +6617,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var MyApp = /*#__PURE__*/function (_Component) {
   _inherits(MyApp, _Component);
 
@@ -6785,17 +6632,25 @@ var MyApp = /*#__PURE__*/function (_Component) {
   _createClass(MyApp, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Routes, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
             exact: true,
             path: "/home",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
             exact: true,
             path: "/addNew",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+            exact: true,
+            path: "/new-business",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+            exact: true,
+            path: "/new-business/upload/:id",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TransactionType_New_Uploading__WEBPACK_IMPORTED_MODULE_5__["default"], {})
           })]
         })
       });
@@ -6808,8 +6663,8 @@ var MyApp = /*#__PURE__*/function (_Component) {
 
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(MyApp, {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(MyApp, {})
   }), document.getElementById('app'));
 }
 

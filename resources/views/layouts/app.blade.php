@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="">
-    <div class="bg-gradient-to-t from-pink-500 via-white to-white min-h-screen">
+    <div class="bg-gradient-to-t from-gray-200   via-white to-white min-h-screen">
         <nav class="navbar navbar-expand-md navbar-light bg-white">
             <div class="container">
                 <a class="navbar-brand font-bold text-pink-400 text-2xl tracking-widest" href="{{ url('/home') }}">

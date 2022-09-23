@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
+import {Link} from 'react-router-dom';
 
-const Review = ({leasing, franchise, setReview, newData, bType, disclaimer, setDisclaimer, setUploading, setAppID}) =>{
+const Review = ({setReview, newData, disclaimer, setAppID, appID}) =>{
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
     const reviewDetails = "text-gray-600 text-lg tracking-widest";
     const [appDetails, setAppDetails] = useState([]);
@@ -16,11 +17,6 @@ const Review = ({leasing, franchise, setReview, newData, bType, disclaimer, setD
         axios.get('/api/get/appDetails/details',{params:{businessname: newData.businessname}}).then(function(response){
             setAppDetails(response.data);
         });
-        // axios.get('/api/get/appDetails/details',{
-        //     params:{businessname: newData.businessname}
-        // }).then(function(response){
-        //     setAppDetails(response.data);
-        // });
     }
     return(
         <div className="w-full">
@@ -58,27 +54,11 @@ const Review = ({leasing, franchise, setReview, newData, bType, disclaimer, setD
             
             <div className="w-full p-1 flex flex-row justify-between">
                 <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={(e)=>{setReview(0)}}>Edit</div>
-                <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={(e)=>{setUploading(1);setReview(0)}}>Proceed</div>
+                <Link to={`/new-business/upload/`+appID} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
             </div>
         </div>
     )
 }
 
-const Uploading = () =>{
-    return(
-        <div className="">
-            <div className="text-xl">Requirements</div>
-            <div className="pl-5">
-                <div className="">DTI Registration</div>
-                <div className="">Barangay Clearance</div>
-                <div className="">Security and Exchange Commision Registration (SEC)</div>
-                <div className="">Tax Declaration</div>
-                <div className="">Contract of Lease</div>
-                <div className="">CGL Insurance</div>
-                <div className="">Business Cedula/Corporate Cedula</div>
-            </div>
-        </div>
-    )
-}
 
 export default Review;
