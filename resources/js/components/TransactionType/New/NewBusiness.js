@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import NewForm from "./NewForm";
 import Review from "./Review";
-import Uploading from "./Uploading";
 import {Link} from 'react-router-dom';
 const NewBusiness = () =>{
     const [bType, setBType] = useState(0);
@@ -9,7 +8,6 @@ const NewBusiness = () =>{
     const [leasing, setLeasing] = useState(0);
     const [review, setReview] = useState(0);
     const [disclaimer, setDisclaimer] = useState(0);
-    const [uploading, setUploading] = useState(0);
     const [appID, setAppID] = useState("");
     const [newData, setNewData] = useState([
         {
@@ -33,22 +31,22 @@ const NewBusiness = () =>{
                     
                     {leasing === 0 && bType !== 0 && franchise !== 0 ? <Leasing setFranchise={setFranchise} setBType={setBType} setLeasing={setLeasing}/> : ""}
                     
-                    {bType !== 0 && franchise !== 0  && leasing !== 0 && review === 0  && uploading === 0 ? 
+                    {bType !== 0 && franchise !== 0  && leasing !== 0 && review === 0 ? 
                     <NewForm setLeasing={setLeasing} setReview={setReview} 
                     setDisclaimer={setDisclaimer} disclaimer={disclaimer} 
                     setNewData={setNewData} newData={newData} franchise={franchise} leasing={leasing}
                     bType={bType}/> : ""}
 
-                    {review === 1 ? <Review setReview={setReview} appID={appID}
-                    setNewData={setNewData} newData={newData} disclaimer={disclaimer} 
-                    setDisclaimer={setDisclaimer} setAppID={setAppID}/> : ""}
+                    {review === 1 ? <Review appID={appID} setAppID={setAppID}
+                    setNewData={setNewData} newData={newData} 
+                    disclaimer={disclaimer} setDisclaimer={setDisclaimer} review={review} /> : ""}
                 </div>
             </div>
         </div>
     )
 }
 
-const BusinessType = ({setTransactionType, setBType}) =>{
+const BusinessType = ({setBType}) =>{
     const bTypeContainer = "w-1/2 md:w-1/4 p-3";
     const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
     return(
@@ -124,7 +122,8 @@ const Leasing = ({setFranchise, setLeasing}) =>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                    <Link to='/addNew' className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</Link>
+                <button onClick={(e)=>{setFranchise(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
+
                 </div>
         </div>
     )

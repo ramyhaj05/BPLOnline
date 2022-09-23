@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
+import ScaleLoader from "react-spinners/ScaleLoader";
 
-const Review = ({setReview, newData, disclaimer, setAppID, appID}) =>{
+const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
     const reviewDetails = "text-gray-600 text-lg tracking-widest";
     const [appDetails, setAppDetails] = useState([]);
@@ -10,7 +11,7 @@ const Review = ({setReview, newData, disclaimer, setAppID, appID}) =>{
 
     useEffect(()=>{
         getApplicationDetails();
-    },[])
+    },[review]);
 
     function getApplicationDetails(){
         
@@ -30,13 +31,13 @@ const Review = ({setReview, newData, disclaimer, setAppID, appID}) =>{
             </div> : ""}
             {/* {appDetails.map((det)=>{return <div key={det.id}>{det.id}</div>})} */}
             {appDetails.map((det)=>{
+                
                 return(
                 <div className="w-full flex justify-center bg-gray-100 flex-wrap" key={det.id}>
-                    {setAppID(det.id)}
-                    <div className="w-full text-center p-3 text-xl font-black text-gray-700">Please review information before proceeding.</div>
+                    <div className="w-full text-center p-3 text-xl font-black text-gray-700">Please review information before proceeding.{setAppID(det.id)}</div>
                     <div className="w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col">
                         <div className="w-full md:w-1/2 p-2">
-                            {franchise === 1 ? <div className={reviewDetails}>Business Type: <b>{type[det.business_type-1]}</b></div> : ""}
+                            {det.franchise === 1 ? <div className={reviewDetails}>Business Type: <b>{type[det.business_type-1]}</b></div> : ""}
                             <div className={reviewDetails}>Business Name: <b>{det.business_name}</b></div>
                             <div className={reviewDetails}>Capital Investment: <b>{det.capital_investment}</b></div>
                             <div className={reviewDetails}>Description: <b>{det.description}</b></div>
@@ -53,7 +54,7 @@ const Review = ({setReview, newData, disclaimer, setAppID, appID}) =>{
             })}
             
             <div className="w-full p-1 flex flex-row justify-between">
-                <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={(e)=>{setReview(0)}}>Edit</div>
+                <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Edit</div>
                 <Link to={`/new-business/upload/`+appID} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
             </div>
         </div>

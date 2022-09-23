@@ -8,7 +8,6 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
     // const [disabled, setDisabled] = useState("1");
     const proceed = event =>{
         event.preventDefault();
-        
             setDisclaimer(1);
             axios.post('/api/add/addNewBusiness',{
                 businessname: newData.businessname,
@@ -20,11 +19,10 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                 ownersname: newData.ownersname,
                 contact: newData.contact,
                 email: newData.email
-            }).then((response)=>{
+            }).then(()=>{
                 setTimeout(() => {
-                    alert(response);
-                    setDisclaimer(0)
                     setReview(1);
+                    setDisclaimer(0)
                 }, 3000);
             }).catch((error)=>{
                 console.log(error);

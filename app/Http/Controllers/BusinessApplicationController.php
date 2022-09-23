@@ -57,6 +57,23 @@ class BusinessApplicationController extends Controller
         }
     }
 
+    public function getAppDet(Request $request){
+        
+        $app_id = $request->app_id;
+        $user = User::pluck('id');
+        $user_id = trim($user,'[]');
+        try 
+        {
+            $businessapplications =  BusinessApplication::where('id', $app_id)
+            ->where('user_id', $user_id)->get();
+            // dd($businessapplications);
+            return response()->json($businessapplications);
+        } 
+        catch (Exception $e) 
+        {
+            Log::error($e);
+        }
+    }
 
     //store data 
     public function store(Request $request){
@@ -77,7 +94,7 @@ class BusinessApplicationController extends Controller
             
         try {
             
-            BusinessApplication::create([
+            $insert = BusinessApplication::create([
                 'business_name' => $businessname,
                 'capital_investment' => $capital,
                 'description' => $description,
@@ -89,8 +106,8 @@ class BusinessApplicationController extends Controller
                 'email' => $email,
                 'user_id' => $user_id,
                 'status' => '0',
-            ]);
-            return "OK";
+            ])->id;
+            return $insert;
         } catch (Exception $e) {
             Log::error($e);
         }

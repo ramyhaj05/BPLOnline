@@ -24,4 +24,5 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/get/businessapplication/list', [BusinessApplicationController::class, 'getBusinessApplication'])->name('businessapplication.list');
     Route::get('/get/appDetails/details', [BusinessApplicationController::class, 'getApplicationDetails'])->name('appDetails.details');
     Route::post('/add/addNewBusiness', [BusinessApplicationController::class, 'store']);
+    Route::get('/get/appDetails/getdet', [BusinessApplicationController::class, 'getAppDet'])->name('appDetails.getdet');
 });
