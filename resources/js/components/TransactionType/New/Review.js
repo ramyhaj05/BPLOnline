@@ -34,10 +34,11 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
                 
                 return(
                 <div className="w-full flex justify-center bg-gray-100 flex-wrap" key={det.id}>
-                    <div className="w-full text-center p-3 text-xl font-black text-gray-700">Please review information before proceeding.{setAppID(det.id)}</div>
+                    <div className="w-full text-center p-3 text-xl font-black text-gray-700">Please review information before proceeding.</div>
                     <div className="w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col">
                         <div className="w-full md:w-1/2 p-2">
                             {det.franchise === 1 ? <div className={reviewDetails}>Business Type: <b>{type[det.business_type-1]}</b></div> : ""}
+                            <input type="hidden" name="id" onInput={setAppID(det.id)} value={det.id}/>
                             <div className={reviewDetails}>Business Name: <b>{det.business_name}</b></div>
                             <div className={reviewDetails}>Capital Investment: <b>{det.capital_investment}</b></div>
                             <div className={reviewDetails}>Description: <b>{det.description}</b></div>

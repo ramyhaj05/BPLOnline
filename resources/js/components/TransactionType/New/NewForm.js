@@ -19,6 +19,10 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                 ownersname: newData.ownersname,
                 contact: newData.contact,
                 email: newData.email
+            },{
+                
+                xsrfHeaderName: "X-XSRF-TOKEN", // change the name of the header to "X-XSRF-TOKEN" and it should works
+                withCredentials: true
             }).then(()=>{
                 setTimeout(() => {
                     setReview(1);
@@ -36,7 +40,7 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
     // },[newData.businessname, newData.capital, newData.description, newData.ownersname, newData.contact, newData.email]);
     return(
     <div className="w-full">
-        <form className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={proceed}>
+        <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={proceed}>
             {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
                 <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
                     <ScaleLoader

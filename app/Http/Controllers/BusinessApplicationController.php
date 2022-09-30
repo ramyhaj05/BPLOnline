@@ -7,7 +7,9 @@ use Log;
 use Exception;
 use App\Models\User;
 use App\Models\BusinessApplication;
-
+use Illuminate\Support\Facades\Storage;
+// use Illuminate\Http\File;
+use Illuminate\Support\Facades\File;
 class BusinessApplicationController extends Controller
 {
     protected function validator(array $data)
@@ -77,8 +79,8 @@ class BusinessApplicationController extends Controller
 
     //store data 
     public function store(Request $request){
-        // throw new Exception($request->businessname);
-
+        $user = $request->user();
+        if ($user->tokenCan('server:update')) {
             $businessname = $request->businessname;
             $capital = $request->capital;
             $description = $request->description;
@@ -90,27 +92,50 @@ class BusinessApplicationController extends Controller
             $bType = $request->bType;
             $user = User::pluck('id');
             $user_id = trim($user,'[]');
-            
-            
-        try {
-            
-            $insert = BusinessApplication::create([
-                'business_name' => $businessname,
-                'capital_investment' => $capital,
-                'description' => $description,
-                'franchise' => $franchise,
-                'leasing' => $leasing,
-                'business_type' => $bType,
-                'owner_name' => $ownersname,
-                'contact' => $contact,
-                'email' => $email,
-                'user_id' => $user_id,
-                'status' => '0',
-            ])->id;
-            return $insert;
-        } catch (Exception $e) {
-            Log::error($e);
+            try {
+                $insert = BusinessApplication::create([
+                    'business_name' => $businessname,
+                    'capital_investment' => $capital,
+                    'description' => $description,
+                    'franchise' => $franchise,
+                    'leasing' => $leasing,
+                    'business_type' => $bType,
+                    'owner_name' => $ownersname,
+                    'contact' => $contact,
+                    'email' => $email,
+                    'user_id' => $user_id,
+                    'status' => '0',
+                ])->id;
+                return $insert;
+            } catch (Exception $e) {
+                Log::error($e);
+            }
         }
+    }
+
+    public function UploadRequirements(Request $request){
+            $appID = $request->appID;
+            $year = $request->year;
+            // $path = storage_path().`/assets/$year/$appID`;
+            
+            $directory = "/Files"."/".$year."/".$appID;
+            
+            // !File::exist($directory) ? File::makeDirectory($directory, 0777, true, true) : "";
+            // !Storage::directories(`/Files/$year`) ? Storage::makeDirectory(`$year`) : "";
+            // !Storage::directories(`/Files/$year/$appID`) ? Storage::makeDirectory(`Files/$year/$appID`) : "";
+            // !File::isDirectory($directory) ? File::makeDirectory(directory, 0777, true, true) : "";
+            // Storage::putFileAs($directory, $request->file('file'), 'DTI-SEC.pdf');
+            // Storage::makeDirectory($directory);
+            File::makeDirectory($directory, 0777, true, true);
+            Storage::putFileAs($directory, $request->file('type'), 'DTI-SEC.pdf');
+            $request->file('brgy') ? Storage::putFileAs($directory, $request->file('brgy'), 'brgy.pdf') : "";
+            Storage::putFileAs($directory, $request->file('leasing'), 'CLease-TaxDec.pdf');
+            Storage::putFileAs($directory, $request->file('insurance'), 'Insurance.pdf');
+            $request->file('franchise') ? Storage::putFileAs($directory, $request->file('franchise'), 'franchise.pdf') : "";
+
+
+            return $request->file('type')->getClientOriginalName();
+        
     }
 
 
