@@ -19,6 +19,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/addNew', [App\Http\Controllers\HomeController::class, 'addNew'])->name('addNew');
     Route::get('/new-business', [App\Http\Controllers\HomeController::class, 'index'])->name('new.business');
     Route::get('/new-business/upload/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('new-business.upload');
+    Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('edit.new');
+    Route::get('/renewal', [App\Http\Controllers\HomeController::class, 'index'])->name('renewal');
+    Route::get('/renewal/form', [App\Http\Controllers\HomeController::class, 'index'])->name('renewal.form');
+    Route::get('/renewal/upload/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('renewal.upload');
+
     
 });
 

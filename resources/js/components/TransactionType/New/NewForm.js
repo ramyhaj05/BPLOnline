@@ -54,15 +54,15 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                     <span className="text-gray-400 text-xl underline">Business Information</span>
                     <input type="hidden" name="" value={transactiontype}/>
                     <div className="py-1 block">
-                        <div className={inputLabel}>Business Name {newData.businessname}</div>
+                        <div className={inputLabel}>Business Name</div>
                         <input type="text" className={inputField} name="businessname" id="" onChange={(e)=>{setNewData({...newData, businessname: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
-                        <div className={inputLabel}>Capital Investment {newData.capital}</div>
+                        <div className={inputLabel}>Capital Investment</div>
                         <input type="number" className={inputField} name="capital" id="" onChange={(e)=>{setNewData({...newData, capital: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
-                        <div className={inputLabel}>Description {newData.description}</div>
+                        <div className={inputLabel}>Description</div>
                         <textarea shape="square" coords="" href="" alt=""  name="description" className={inputField} onChange={(e)=>{setNewData({...newData, description: e.target.value})}} required/>
                     </div>
                 </div>
@@ -70,15 +70,15 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                     <span className="text-gray-400 text-xl underline">Owner's Information</span>
                     <input type="hidden" name="" value={transactiontype}/>
                     <div className="py-1">
-                        <div className={inputLabel}>Owner's Name {newData.ownersname}</div>
+                        <div className={inputLabel}>Owner's Name</div>
                         <input type="text" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
-                        <div className={inputLabel}>Contact Number {newData.contact}</div>
+                        <div className={inputLabel}>Contact Number</div>
                         <input type="number" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, contact: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
-                        <div className={inputLabel}>E-mail Address {newData.email}</div>
+                        <div className={inputLabel}>E-mail Address</div>
                         <input type="email" name="" id="" className={inputField} onChange={(e)=>{setNewData({...newData, email: e.target.value})}} required/>
                     </div>
                 </div>

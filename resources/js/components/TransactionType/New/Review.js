@@ -17,7 +17,10 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
         
         axios.get('/api/get/appDetails/details',{params:{businessname: newData.businessname}}).then(function(response){
             setAppDetails(response.data);
-        });
+            const key = response.data.map((det)=>{
+                setAppID(det.id)
+            })
+        })
     }
     return(
         <div className="w-full">
@@ -38,7 +41,7 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
                     <div className="w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col">
                         <div className="w-full md:w-1/2 p-2">
                             {det.franchise === 1 ? <div className={reviewDetails}>Business Type: <b>{type[det.business_type-1]}</b></div> : ""}
-                            <input type="hidden" name="id" onInput={setAppID(det.id)} value={det.id}/>
+                            {/* <input type="hidden" name="id" onInput={setAppID(det.id)} value={det.id}/> */}
                             <div className={reviewDetails}>Business Name: <b>{det.business_name}</b></div>
                             <div className={reviewDetails}>Capital Investment: <b>{det.capital_investment}</b></div>
                             <div className={reviewDetails}>Description: <b>{det.description}</b></div>
@@ -55,7 +58,7 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
             })}
             
             <div className="w-full p-1 flex flex-row justify-between">
-                <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Edit</div>
+                <Link to={`/edit/`+appID} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Edit</Link>
                 <Link to={`/new-business/upload/`+appID} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
             </div>
         </div>

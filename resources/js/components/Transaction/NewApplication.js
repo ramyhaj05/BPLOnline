@@ -14,7 +14,7 @@ const NewApplication= ()=>{
                     <div className="w-full"><Link to="/new-business" className={TranButtons +"border-green-400 text-green-500"}>New</Link></div>
                 </div>
                 <div className={ButtonContainer}>
-                    <div className="w-full"><Link to="/re-newal" className={TranButtons +"border-teal-500 text-teal-600"}>Re-newal</Link></div>
+                    <div className="w-full"><Link to="/renewal" className={TranButtons +"border-teal-500 text-teal-600"}>Re-newal</Link></div>
                 </div>
                 <div className={ButtonContainer}>
                     <div className="w-full"><Link to="/change" className={TranButtons +"border-orange-500 text-orange-600"}>Change</Link></div>

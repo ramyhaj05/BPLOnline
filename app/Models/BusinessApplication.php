@@ -22,4 +22,6 @@ class BusinessApplication extends Model
         'status',
         'email'
     ];
+
+    protected $primaryKey = 'id';
 }

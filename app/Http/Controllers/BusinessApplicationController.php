@@ -10,6 +10,7 @@ use App\Models\BusinessApplication;
 use Illuminate\Support\Facades\Storage;
 // use Illuminate\Http\File;
 use Illuminate\Support\Facades\File;
+
 class BusinessApplicationController extends Controller
 {
     protected function validator(array $data)
@@ -24,6 +25,7 @@ class BusinessApplicationController extends Controller
             'owner_name' => ['required', 'string', 'min:255'],
             'contact' => ['required', 'string', 'max:11'],
             'email' => ['required', 'string', 'email', 'max:255'],
+
         ]);
     }
     public function getBusinessApplication(Request $request){
@@ -113,30 +115,26 @@ class BusinessApplicationController extends Controller
         }
     }
 
-    public function UploadRequirements(Request $request){
-            $appID = $request->appID;
-            $year = $request->year;
-            // $path = storage_path().`/assets/$year/$appID`;
-            
-            $directory = "/Files"."/".$year."/".$appID;
-            
-            // !File::exist($directory) ? File::makeDirectory($directory, 0777, true, true) : "";
-            // !Storage::directories(`/Files/$year`) ? Storage::makeDirectory(`$year`) : "";
-            // !Storage::directories(`/Files/$year/$appID`) ? Storage::makeDirectory(`Files/$year/$appID`) : "";
-            // !File::isDirectory($directory) ? File::makeDirectory(directory, 0777, true, true) : "";
-            // Storage::putFileAs($directory, $request->file('file'), 'DTI-SEC.pdf');
-            // Storage::makeDirectory($directory);
-            File::makeDirectory($directory, 0777, true, true);
-            Storage::putFileAs($directory, $request->file('type'), 'DTI-SEC.pdf');
-            $request->file('brgy') ? Storage::putFileAs($directory, $request->file('brgy'), 'brgy.pdf') : "";
-            Storage::putFileAs($directory, $request->file('leasing'), 'CLease-TaxDec.pdf');
-            Storage::putFileAs($directory, $request->file('insurance'), 'Insurance.pdf');
-            $request->file('franchise') ? Storage::putFileAs($directory, $request->file('franchise'), 'franchise.pdf') : "";
-
-
-            return $request->file('type')->getClientOriginalName();
-        
+    public function patch(Request $request){
+        try {
+            $updateDetails = BusinessApplication::find($request->appID);
+            $updateDetails->business_name = $request->businessname;
+            $updateDetails->business_type = $request->type;
+            $updateDetails->leasing = $request->leasing;
+            $updateDetails->franchise = $request->franchise;
+            $updateDetails->description = $request->description;
+            $updateDetails->capital_investment = $request->capital;
+            $updateDetails->owner_name = $request->ownersname;
+            $updateDetails->contact = $request->contact;
+            $updateDetails->email = $request->email;
+            $updateDetails->update();
+            return "Success";
+        } catch (Error $e) {
+            return $e;
+        }
     }
+
+    
 
 
 }
