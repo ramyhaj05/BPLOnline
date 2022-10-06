@@ -20,6 +20,7 @@ class BusinessApplication extends Model
         'contact',
         'user_id',
         'status',
+        'trans_type',
         'email'
     ];
 

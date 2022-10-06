@@ -20,14 +20,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="">
-    <div class="bg-gradient-to-t from-gray-200   via-white to-white min-h-screen">
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
+    <div class="bg-gradient-to-t from-gray-200 via-white to-white min-h-screen">
+        <nav class="navbar navbar-expand-md navbar-light bg-gradient-to-t from-pink-300 to-white ring-4 ring-pink-400">
             <div class="container">
-                <a class="navbar-brand font-bold text-pink-400 text-2xl tracking-widest" href="{{ url('/home') }}">
+                <a class="navbar-brand font-black text-pink-500 text-2xl tracking-widest" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler bg-pink-300" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon text-white"></span>
+                <button class="navbar-toggler bg-pink-100 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,7 +53,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-gray-700 capitalize" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-pink-500 font-black tracking-widest capitalize" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 

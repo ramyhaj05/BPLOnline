@@ -32,7 +32,7 @@ const BusinessTable = () =>{
                 </div>
                 <Link to='../addNew' className="w-8 rounded font-bold text-xl text-center text-green-500 ring ring-green-500 hover:bg-green-400 hover:ring-green-400 hover:text-white">+</Link>
             </div>
-        <table border="1" className="w-full table-fixed ring ring-5 ring-gray-500 text-white font-normal tracking-widest b">
+        <table border="2" className="w-full table-fixed ring ring-4 ring-gray-500 text-white font-normal tracking-widest rounded-sm">
             <thead className="bg-gray-500 ">
                 <tr className="p-3">
                     <th className={tableH + " md:w-3/4 w-2/5"}>Business Name</th>

@@ -21,7 +21,7 @@ export default class MyApp extends Component{
                     <Route exact path="/new-business/upload/:id" element={<Uploading/> } />
                     <Route exact path="/edit/:id" element={<EditBusinessNew/> } />
                     <Route exact path="/renewal" element={<Renewal/> } />
-                    <Route exact path="/renewal/form" element={<RenewalForm/> } />
+                    {/* <Route exact path="/renewal/form" element={<RenewalForm/> } /> */}
                     <Route exact path="/renewal/upload/:id" element={<RenewalUpload/> } />
                 </Routes>
         </div>

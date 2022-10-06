@@ -107,6 +107,7 @@ class BusinessApplicationController extends Controller
                     'email' => $email,
                     'user_id' => $user_id,
                     'status' => '0',
+                    'trans_type' => '0',
                 ])->id;
                 return $insert;
             } catch (Exception $e) {

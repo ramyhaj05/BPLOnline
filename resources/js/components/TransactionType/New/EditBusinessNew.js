@@ -76,7 +76,7 @@ const EditBusinessNew = () =>{
             <div className="row justify-content-center">
                 <div className="w-full">
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">Edit Application {newData.id}</div>
+                        <div className="card-header text-lg font-semibold text-gray-700">Edit Application Information</div>
                         <div className="card-body">
                             <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={saveEdit}>
                             {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">

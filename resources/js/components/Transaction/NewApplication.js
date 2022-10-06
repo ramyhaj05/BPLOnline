@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {Link} from 'react-router-dom';
 
 const NewApplication= ()=>{
-    const TranButtons = "border-4 w-full p-2 rounded font-bold text-md tracking-widest text-center ";
+    const TranButtons = "w-full border-4 p-2 rounded font-bold text-md tracking-widest text-center ";
     const ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
     return(
     <div className="w-full  ">
@@ -11,16 +11,16 @@ const NewApplication= ()=>{
             <div className="card-header text-lg font-semibold text-gray-700">Please select transaction</div>
             <div className="p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
                 <div className={ButtonContainer}>
-                    <div className="w-full"><Link to="/new-business" className={TranButtons +"border-green-400 text-green-500"}>New</Link></div>
+                <Link to="/new-business" className={"border-green-400 text-green-500"}><div className={TranButtons +"border-green-400 text-green-500"}>New</div></Link>
                 </div>
                 <div className={ButtonContainer}>
-                    <div className="w-full"><Link to="/renewal" className={TranButtons +"border-teal-500 text-teal-600"}>Re-newal</Link></div>
+                <Link to="/renewal" className={"border-teal-500 text-teal-600"}><div className={TranButtons +"border-teal-500 text-teal-600"}>Re-newal</div></Link>
                 </div>
                 <div className={ButtonContainer}>
-                    <div className="w-full"><Link to="/change" className={TranButtons +"border-orange-500 text-orange-600"}>Change</Link></div>
+                <Link to="/change" className={"border-orange-500 text-orange-600"}><div className={TranButtons +"border-orange-500 text-orange-600"}>Change</div></Link>
                 </div>
                 <div className={ButtonContainer}>
-                    <div className="w-full"><Link to="/closure" className={TranButtons +"border-red-500 text-red-600"}>Closure</Link></div>
+                <Link to="/closure" className={"border-red-500 text-red-600"}><div className={TranButtons +"border-red-500 text-red-600"}>Closure</div></Link>
                 </div>
             </div>
         </div>

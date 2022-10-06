@@ -15,6 +15,7 @@ class CreateBusinessApplicationsTable extends Migration
     {
         Schema::create('business_applications', function (Blueprint $table) {
             $table->id();
+            $table->string('trans_type');
             $table->string('business_name');
             $table->double('capital_investment',10 ,2);
             $table->string('description');
