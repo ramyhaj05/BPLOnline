@@ -17,6 +17,11 @@ class CreateBusinessApplicationsTable extends Migration
             $table->id();
             $table->string('trans_type');
             $table->string('business_name');
+            $table->string('business_addres');
+            $table->string('blk');
+            $table->string('lot');
+            $table->string('barangay');
+            $table->string('subdivision');
             $table->double('capital_investment',10 ,2);
             $table->string('description');
             $table->string('franchise');

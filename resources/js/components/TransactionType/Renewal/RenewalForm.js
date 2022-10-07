@@ -20,7 +20,22 @@ const RenewalForm = () =>{
                 </div>
             </div> : ""}
             <div className="w-full flex md:flex-row flex-col flex-wrap">
-                
+                <div className="w-full md:w-1/2">
+                    <span className="text-gray-400 text-xl underline">Business Information</span>
+                    <input type="hidden" name="" value="2"/>
+                    <div className="py-1 block">
+                        <div className={inputLabel}>Business Name</div>
+                        <input type="text" className={inputField} name="businessname" id="" onChange={(e)=>{setNewData({...newData, businessname: e.target.value})}} required/>
+                    </div>
+                    <div className="py-1">
+                        <div className={inputLabel}>Capital Investment</div>
+                        <input type="number" className={inputField} name="capital" id="" onChange={(e)=>{setNewData({...newData, capital: e.target.value})}} required/>
+                    </div>
+                    <div className="py-1">
+                        <div className={inputLabel}>Description</div>
+                        <textarea shape="square" coords="" href="" alt=""  name="description" className={inputField} onChange={(e)=>{setNewData({...newData, description: e.target.value})}} required/>
+                    </div>
+                </div>
                 <div className="w-full p-1 flex flex-row justify-between">
                     <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" >Back</div>
                     <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</button>
