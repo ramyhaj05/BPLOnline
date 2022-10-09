@@ -21,9 +21,9 @@
 </head>
 <body class="">
     <div class="bg-gradient-to-t from-gray-200 via-white to-white min-h-screen">
-        <nav class="navbar navbar-expand-md navbar-light bg-gradient-to-t from-pink-300 to-white ring-4 ring-pink-400">
+        <nav class="navbar navbar-expand-md navbar-dark bg-pink-100 ring-4 ring-pink-500">
             <div class="container">
-                <a class="navbar-brand font-black text-pink-500 text-2xl tracking-widest" href="{{ url('/home') }}">
+                <a class="navbar-brand font-black text-pink-400 text-2xl tracking-widest hover:text-pink-500" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler bg-pink-100 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -37,24 +37,24 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto text-gray-400">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-pink-400 font-bold hover:text-pink-500" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-pink-400 font-bold hover:text-pink-500" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-pink-500 font-black tracking-widest capitalize" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                {{ Auth::user()->firstname  }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

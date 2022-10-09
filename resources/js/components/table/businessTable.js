@@ -15,7 +15,7 @@ const BusinessTable = () =>{
 
     function getBusinesApplications(){
         axios.get('/api/get/businessapplication/list',{params:{year: year}}).then(function(response){
-            setbusinessApplicationList(response.data);
+            response.lenght > 0 ? setbusinessApplicationList(response.data) : "";
         });
     }
     return(
@@ -42,9 +42,12 @@ const BusinessTable = () =>{
                 </tr>
             </thead>
             <tbody className="">
-                {businessApplicationList.map((business)=>{
-                    return <BusinessTableContent key={business.id} business={business}/>
-                })}
+                {
+                    businessApplicationList.lenght > 0 ? <BusinessTableContent key={business.id} business={business}/> :
+                    <tr className="p-2 hover:cursor-pointer text-gray-500">
+                        <td colSpan={4} className="text-center font-bold text-red-500">No record(s) found.</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

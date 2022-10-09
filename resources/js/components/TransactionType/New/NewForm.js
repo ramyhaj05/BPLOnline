@@ -5,6 +5,24 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise, bType}) =>{
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
+    const brgy = ["Aplaya",
+    "Balibago",
+    "Caingin",
+    "Dila",
+    "Dita",
+    "Don Jose",
+    "Ibaba",
+    "Kanluran",
+    "Labas",
+    "Macabling",
+    "Malitlit",
+    "Malusak",
+    "Market Area",
+    "Pooc",
+    "Pulong Santa Cruz",
+    "Sinalhan",
+    "Sto. Domingo",
+    "Tagapo"];
     // const [disabled, setDisabled] = useState("1");
     const proceed = event =>{
         event.preventDefault();
@@ -39,7 +57,7 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
     //     }
     // },[newData.businessname, newData.capital, newData.description, newData.ownersname, newData.contact, newData.email]);
     return(
-    <div className="w-full">
+    <div className="w-full md:p-5 p-1">
         <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={proceed}>
             {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
                 <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
@@ -49,14 +67,30 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                     />
                 </div>
             </div> : ""}
+            
             <div className="w-full flex md:flex-row flex-col flex-wrap">
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 pt-4 md:pt-0">
                     <span className="text-gray-400 text-xl underline">Business Information</span>
                     <input type="hidden" name="" value={transactiontype}/>
                     <div className="py-1 block">
                         <div className={inputLabel}>Business Name</div>
                         <input type="text" className={inputField} name="businessname" id="" onChange={(e)=>{setNewData({...newData, businessname: e.target.value})}} required/>
                     </div>
+                    <div className="py-1 block">
+                        <div className={inputLabel}>Business Address {newData.barangay}</div>
+                        <div className="p-2">
+                            <select name="barangay" id="barangay" className={inputField} onChange={(e)=>{setNewData({...newData, barangay: e.target.value})}} required>
+                                <option value="">- Select Barangay -</option>
+                                {brgy.map(object=>
+                                    <option value={object} key={object}>{object}</option>
+                                )}
+                            </select>
+                        </div>
+                        <div className="p-2">
+                            <input type="text" className={inputField+" tracking-widest"} name="business_address" id="" placeholder="Unit/Sub/Blk/Lot" onChange={(e)=>{setNewData({...newData, businessaddress: e.target.value})}} required/>
+                        </div>
+                    </div>
+                    
                     <div className="py-1">
                         <div className={inputLabel}>Capital Investment</div>
                         <input type="number" className={inputField} name="capital" id="" onChange={(e)=>{setNewData({...newData, capital: e.target.value})}} required/>
@@ -66,12 +100,25 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                         <textarea shape="square" coords="" href="" alt=""  name="description" className={inputField} onChange={(e)=>{setNewData({...newData, description: e.target.value})}} required/>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2 pt-4">
+                <div className="w-full md:w-1/2 pt-4 md:pt-0">
                     <span className="text-gray-400 text-xl underline">Owner's Information</span>
                     <input type="hidden" name="" value={transactiontype}/>
                     <div className="py-1">
                         <div className={inputLabel}>Owner's Name</div>
-                        <input type="text" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
+                        <div className="p-2">
+                            <input type="text" className={inputField} name="" id="" placeholder="First Name" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
+                        </div>
+                        <div className="p-2">
+                            <input type="text" className={inputField} name="" id="" placeholder="Middle Name" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
+                        </div>
+                        <div className="p-2">    
+                            <input type="text" className={inputField} name="" id="" placeholder="Last Name" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
+                        </div>
+                    </div>
+                    <div className="py-1">
+                        <div className={inputLabel}>Owners Address</div>
+                        <input type="text" className={inputField+" tracking-widest"} name="owners_address" id="" onChange={(e)=>{setNewData({...newData, businessaddress: e.target.value})}} required/>
+
                     </div>
                     <div className="py-1">
                         <div className={inputLabel}>Contact Number</div>

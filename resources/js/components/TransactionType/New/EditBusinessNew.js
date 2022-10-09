@@ -16,12 +16,17 @@ const EditBusinessNew = () =>{
         {
             id: "",
             businesname: "",
+            businessaddress: "",
+            barangay: "",
             type: "",
             franchise: "",
             leasing: "",
             capital: "",
             description: "",
-            ownersname: "",
+            owners_firstname: "",
+            owners_middlename: "",
+            owners_lastname: "",
+            owners_address: "",
             contact: "",
             email: ""
         }

@@ -145,6 +145,18 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'attribute-firstname' => [
+            'rule-name' => 'custom-message',
+        ],
+        'attribute-middlename' => [
+            'rule-name' => 'custom-message',
+        ],
+        'attribute-lastname' => [
+            'rule-name' => 'custom-message',
+        ],
+        'attribute-contact' => [
+            'rule-name' => 'custom-message',
+        ],
     ],
 
     /*

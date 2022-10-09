@@ -11,6 +11,8 @@ class BusinessApplication extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'business_name',
+        'business_address',
+        'barangay',
         'capital_investment',
         'description',
         'business_type',

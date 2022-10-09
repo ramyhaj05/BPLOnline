@@ -5523,12 +5523,17 @@ var EditBusinessNew = function EditBusinessNew() {
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([{
     id: "",
     businesname: "",
+    businessaddress: "",
+    barangay: "",
     type: "",
     franchise: "",
     leasing: "",
     capital: "",
     description: "",
-    ownersname: "",
+    owners_firstname: "",
+    owners_middlename: "",
+    owners_lastname: "",
+    owners_address: "",
     contact: "",
     email: ""
   }]),
@@ -5951,9 +5956,14 @@ var NewBusiness = function NewBusiness() {
 
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
     businesname: "",
+    businessaddress: "",
+    barangay: "",
     capital: "",
     description: "",
-    ownersname: "",
+    owners_firstname: "",
+    owners_middlename: "",
+    owners_lastname: "",
+    owners_address: "",
     contact: "",
     email: ""
   }]),
@@ -5962,7 +5972,7 @@ var NewBusiness = function NewBusiness() {
       setNewData = _useState14[1];
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "w-full  ",
+    className: "w-full md:p-5 p-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500",
       children: "NEW BUSINESS"
@@ -6235,7 +6245,8 @@ var NewForm = function NewForm(_ref) {
       franchise = _ref.franchise,
       bType = _ref.bType;
   var inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
-  var inputLabel = "text-gray-500 text-md"; // const [disabled, setDisabled] = useState("1");
+  var inputLabel = "text-gray-500 text-md";
+  var brgy = ["Aplaya", "Balibago", "Caingin", "Dila", "Dita", "Don Jose", "Ibaba", "Kanluran", "Labas", "Macabling", "Malitlit", "Malusak", "Market Area", "Pooc", "Pulong Santa Cruz", "Sinalhan", "Sto. Domingo", "Tagapo"]; // const [disabled, setDisabled] = useState("1");
 
   var proceed = function proceed(event) {
     event.preventDefault();
@@ -6270,7 +6281,7 @@ var NewForm = function NewForm(_ref) {
 
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "w-full",
+    className: "w-full md:p-5 p-1",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
       method: "post",
       className: "w-full py-3 flex md:flex-col p-3 md:p-1",
@@ -6287,7 +6298,7 @@ var NewForm = function NewForm(_ref) {
       }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "w-full flex md:flex-row flex-col flex-wrap",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "w-full md:w-1/2",
+          className: "w-full md:w-1/2 pt-4 md:pt-0",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
             className: "text-gray-400 text-xl underline",
             children: "Business Information"
@@ -6311,6 +6322,49 @@ var NewForm = function NewForm(_ref) {
                 }));
               },
               required: true
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "py-1 block",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: inputLabel,
+              children: ["Business Address ", newData.barangay]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "p-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                name: "barangay",
+                id: "barangay",
+                className: inputField,
+                onChange: function onChange(e) {
+                  setNewData(_objectSpread(_objectSpread({}, newData), {}, {
+                    barangay: e.target.value
+                  }));
+                },
+                required: true,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "",
+                  children: "- Select Barangay -"
+                }), brgy.map(function (object) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    value: object,
+                    children: object
+                  }, object);
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "p-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                className: inputField + " tracking-widest",
+                name: "business_address",
+                id: "",
+                placeholder: "Unit/Sub/Blk/Lot",
+                onChange: function onChange(e) {
+                  setNewData(_objectSpread(_objectSpread({}, newData), {}, {
+                    businessaddress: e.target.value
+                  }));
+                },
+                required: true
+              })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "py-1",
@@ -6350,7 +6404,7 @@ var NewForm = function NewForm(_ref) {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "w-full md:w-1/2 pt-4",
+          className: "w-full md:w-1/2 pt-4 md:pt-0",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
             className: "text-gray-400 text-xl underline",
             children: "Owner's Information"
@@ -6363,14 +6417,65 @@ var NewForm = function NewForm(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: inputLabel,
               children: "Owner's Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "p-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                className: inputField,
+                name: "",
+                id: "",
+                placeholder: "First Name",
+                onChange: function onChange(e) {
+                  setNewData(_objectSpread(_objectSpread({}, newData), {}, {
+                    ownersname: e.target.value
+                  }));
+                },
+                required: true
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "p-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                className: inputField,
+                name: "",
+                id: "",
+                placeholder: "Middle Name",
+                onChange: function onChange(e) {
+                  setNewData(_objectSpread(_objectSpread({}, newData), {}, {
+                    ownersname: e.target.value
+                  }));
+                },
+                required: true
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "p-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                className: inputField,
+                name: "",
+                id: "",
+                placeholder: "Last Name",
+                onChange: function onChange(e) {
+                  setNewData(_objectSpread(_objectSpread({}, newData), {}, {
+                    ownersname: e.target.value
+                  }));
+                },
+                required: true
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "py-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: inputLabel,
+              children: "Owners Address"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               type: "text",
-              className: inputField,
-              name: "",
+              className: inputField + " tracking-widest",
+              name: "owners_address",
               id: "",
               onChange: function onChange(e) {
                 setNewData(_objectSpread(_objectSpread({}, newData), {}, {
-                  ownersname: e.target.value
+                  businessaddress: e.target.value
                 }));
               },
               required: true
@@ -6500,7 +6605,7 @@ var Review = function Review(_ref) {
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "w-full",
+    className: "w-full md:p-5 p-1",
     children: [disclaimer === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -6771,7 +6876,7 @@ var Uploading = function Uploading() {
   }();
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "container w-full",
+    className: "container w-full md:p-5 p-1",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "row justify-content-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7499,7 +7604,7 @@ var BusinessTable = function BusinessTable() {
         year: year
       }
     }).then(function (response) {
-      setbusinessApplicationList(response.data);
+      response.lenght > 0 ? setbusinessApplicationList(response.data) : "";
     });
   }
 
@@ -7553,10 +7658,15 @@ var BusinessTable = function BusinessTable() {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
         className: "",
-        children: businessApplicationList.map(function (business) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_BusinessTableContent__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            business: business
-          }, business.id);
+        children: businessApplicationList.lenght > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_BusinessTableContent__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          business: business
+        }, business.id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tr", {
+          className: "p-2 hover:cursor-pointer text-gray-500",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+            colSpan: 4,
+            className: "text-center font-bold text-red-500",
+            children: "No record(s) found."
+          })
         })
       })]
     })]

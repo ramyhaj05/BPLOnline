@@ -71,7 +71,7 @@ const Uploading = () =>{
     }
     
     return(
-        <div className="container w-full">
+        <div className="container w-full md:p-5 p-1">
             <div className="row justify-content-center">
                 <div className="w-full">
                 
