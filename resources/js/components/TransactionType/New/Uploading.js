@@ -76,7 +76,7 @@ const Uploading = () =>{
                 <div className="w-full">
                 
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">List of Requirements</div>
+                        <div className="card-header text-lg font-semibold text-gray-700">List of Requirements - New</div>
 
                         <div className="card-body">
                         {disclaimer === 1 ?<div className="fixed z-100 left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-black/50 bg-opacity-1">

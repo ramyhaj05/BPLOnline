@@ -9,8 +9,8 @@ const businessTableContent = ({business}) =>{
     const fourth = business.status === "3" ? "text-red-500" : "";
     return(
             <tr className={first+second+third+fourth+" p-2 hover:cursor-pointer hover:bg-blue-400 hover:text-white text-gray-500"}>
-                <td className={tableB +" md:w-2/4 w-2/4"}>{business.business_name}</td>
-                <td className={tableB +" w-2/4 md:table-cell hidden"}>{business.owner_name}</td>
+                <td className={tableB +" md:w-2/4 w-2/4"}>{business.business_name ? business.business_name : business.account_number}</td>
+                <td className={tableB +" w-2/4 md:table-cell hidden capitalize"}>{business.owners_name}</td>
                 <td className={tableB + " md:w-1/4 w-2/4"}>
                     {business.status === "0" ? "Incomplete" : ""}
                     {business.status === "1" ? "For Verification" : ""}

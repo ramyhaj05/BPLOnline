@@ -16,9 +16,7 @@ const NewBusiness = () =>{
             barangay: "",
             capital: "",
             description: "",
-            owners_firstname: "",
-            owners_middlename: "",
-            owners_lastname: "",
+            owners_name: "",
             owners_address: "",
             contact: "",
             email: ""

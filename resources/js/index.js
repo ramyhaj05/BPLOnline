@@ -10,6 +10,7 @@ import EditBusinessNew from './components/TransactionType/New/EditBusinessNew';
 import Renewal from './components/TransactionType/Renewal/Renewal';
 import RenewalForm from './components/TransactionType/Renewal/RenewalForm';
 import RenewalUpload from './components/TransactionType/Renewal/RenewalUpload';
+import Review from './components/TransactionType/Renewal/Review';
 
 export default class MyApp extends Component{
     render(){return(
@@ -22,7 +23,8 @@ export default class MyApp extends Component{
                     <Route exact path="/edit/:id" element={<EditBusinessNew/> } />
                     <Route exact path="/renewal" element={<Renewal/> } />
                     {/* <Route exact path="/renewal/form" element={<RenewalForm/> } /> */}
-                    <Route exact path="/renewal/upload/:id" element={<RenewalUpload/> } />
+                    <Route exact path="/upload/renewal/:id" element={<RenewalUpload/> } />
+                    <Route exact path="/review/renewal/:id" element={<Review/> } />
                 </Routes>
         </div>
     )}

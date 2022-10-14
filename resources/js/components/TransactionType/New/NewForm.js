@@ -5,43 +5,30 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise, bType}) =>{
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
-    const brgy = ["Aplaya",
-    "Balibago",
-    "Caingin",
-    "Dila",
-    "Dita",
-    "Don Jose",
-    "Ibaba",
-    "Kanluran",
-    "Labas",
-    "Macabling",
-    "Malitlit",
-    "Malusak",
-    "Market Area",
-    "Pooc",
-    "Pulong Santa Cruz",
-    "Sinalhan",
-    "Sto. Domingo",
-    "Tagapo"];
+    const brgy = ["Aplaya","Balibago","Caingin","Dila","Dita","Don Jose","Ibaba","Kanluran","Labas","Macabling","Malitlit","Malusak","Market Area","Pooc","Pulong Santa Cruz","Sinalhan","Sto. Domingo","Tagapo"];
     // const [disabled, setDisabled] = useState("1");
-    const proceed = event =>{
+    const proceed = async event =>{
         event.preventDefault();
             setDisclaimer(1);
-            axios.post('/api/add/addNewBusiness',{
-                businessname: newData.businessname,
-                bType: bType,
-                capital: newData.capital,
-                description: newData.description,
-                franchise: franchise,   
-                leasing: leasing,
-                ownersname: newData.ownersname,
-                contact: newData.contact,
-                email: newData.email
-            },{
-                
-                xsrfHeaderName: "X-XSRF-TOKEN", // change the name of the header to "X-XSRF-TOKEN" and it should works
-                withCredentials: true
-            }).then(()=>{
+            const newApplication = new FormData();
+            newApplication.append('businessname', newData.businessname)
+            newApplication.append('business_address', newData.businessaddress)
+            newApplication.append('barangay', newData.barangay)
+            newApplication.append('capital', newData.capital)
+            newApplication.append('description', newData.description)
+            newApplication.append('owners_name', newData.owners_name)
+            newApplication.append('owners_address', newData.owners_address)
+            newApplication.append('contact', newData.contact)
+            newApplication.append('email', newData.email)
+            newApplication.append('leasing', leasing)
+            newApplication.append('franchise', franchise)
+            newApplication.append('bType', bType)
+            const addData = await axios({
+                method: "post",
+                url: "/api/add/addNewBusiness",
+                data: newApplication,
+                headers: { "Content-Type": "multipart/form-data" },
+              }).then(()=>{
                 setTimeout(() => {
                     setReview(1);
                     setDisclaimer(0)
@@ -49,16 +36,10 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
             }).catch((error)=>{
                 console.log(error);
             });
-        
     }
-    // useEffect(()=>{
-    //     if(newData.businessname != "" && newData.capital != "" && newData.description != "" && newData.ownersname != "" && newData.contact != "" && newData.email != ""){
-    //         setDisabled("0");
-    //     }
-    // },[newData.businessname, newData.capital, newData.description, newData.ownersname, newData.contact, newData.email]);
     return(
     <div className="w-full md:p-5 p-1">
-        <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={proceed}>
+        <form method="post" id="newApp" name='newApp' className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={proceed}>
             {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
                 <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
                     <ScaleLoader
@@ -77,7 +58,7 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                         <input type="text" className={inputField} name="businessname" id="" onChange={(e)=>{setNewData({...newData, businessname: e.target.value})}} required/>
                     </div>
                     <div className="py-1 block">
-                        <div className={inputLabel}>Business Address {newData.barangay}</div>
+                        <div className={inputLabel}>Business Address </div>
                         <div className="p-2">
                             <select name="barangay" id="barangay" className={inputField} onChange={(e)=>{setNewData({...newData, barangay: e.target.value})}} required>
                                 <option value="">- Select Barangay -</option>
@@ -105,24 +86,16 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                     <input type="hidden" name="" value={transactiontype}/>
                     <div className="py-1">
                         <div className={inputLabel}>Owner's Name</div>
-                        <div className="p-2">
-                            <input type="text" className={inputField} name="" id="" placeholder="First Name" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
-                        </div>
-                        <div className="p-2">
-                            <input type="text" className={inputField} name="" id="" placeholder="Middle Name" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
-                        </div>
-                        <div className="p-2">    
-                            <input type="text" className={inputField} name="" id="" placeholder="Last Name" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
-                        </div>
+                        <input type="text" className={inputField} name="owners_name" id="" onChange={(e)=>{setNewData({...newData, owners_name: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
-                        <div className={inputLabel}>Owners Address</div>
-                        <input type="text" className={inputField+" tracking-widest"} name="owners_address" id="" onChange={(e)=>{setNewData({...newData, businessaddress: e.target.value})}} required/>
+                        <div className={inputLabel}>Owner's/Company Address</div>
+                        <input type="text" className={inputField+" tracking-widest"} name="owners_address" id="" onChange={(e)=>{setNewData({...newData, owners_address: e.target.value})}} required/>
 
                     </div>
                     <div className="py-1">
                         <div className={inputLabel}>Contact Number</div>
-                        <input type="number" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, contact: e.target.value})}} required/>
+                        <input type="contact" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, contact: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
                         <div className={inputLabel}>E-mail Address</div>

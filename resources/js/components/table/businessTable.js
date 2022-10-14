@@ -6,22 +6,34 @@ const BusinessTable = () =>{
     const tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5";
     const [businessApplicationList, setbusinessApplicationList] = useState([]);
     const [year, setYear] = useState("2022");
-
+    const [typeOfTable, setTypeOfTable] = useState(1);
     //lifecycle method.
     
     useEffect(()=>{
-        getBusinesApplications();
+        if(typeOfTable === 1){
+            getBusinesApplications();
+        }
+        else{
+            getRenewals();
+        }
     },[year])
 
     function getBusinesApplications(){
+        setTypeOfTable(1);
         axios.get('/api/get/businessapplication/list',{params:{year: year}}).then(function(response){
-            response.lenght > 0 ? setbusinessApplicationList(response.data) : "";
+           setbusinessApplicationList(response.data)
+        });
+    }
+
+    function getRenewals(){
+        setTypeOfTable(2);
+        axios.get('/api/get/renewal/list',{params:{year: year}}).then(function(response){
+           setbusinessApplicationList(response.data)
         });
     }
     return(
         <div className="w-full md:p-5 p-1">
-            
-            <div className="w-full p-2 py-3 flex flex-row justify-between">
+            <div className="w-full p-2 pt-3 flex flex-row justify-between">
                 <div className="font-bold tracking-widest">Permit Application: 
                     <select name="" id="" onChange={(e)=>{setYear(e.target.value)}}>
                         <option value="2022">2022</option>
@@ -32,22 +44,26 @@ const BusinessTable = () =>{
                 </div>
                 <Link to='../addNew' className="w-8 rounded font-bold text-xl text-center text-green-500 ring ring-green-500 hover:bg-green-400 hover:ring-green-400 hover:text-white">+</Link>
             </div>
+            <div className="w-full p-1 flex flex-row justify-left">
+                <div className="p-2" onClick={getBusinesApplications}>New</div>
+                <div className="p-2" onClick={getRenewals}>Re-Newal</div>
+            </div>
+            <div className="w-full p-1 flex flex-row justify-center">
+                <div className="text-xl">List of {typeOfTable === 1 ? "New" : "Renewal of"} Business Permit Application/s Submitted.</div>
+            </div>
         <table border="2" className="w-full table-fixed ring ring-4 ring-gray-500 text-white font-normal tracking-widest rounded-sm">
             <thead className="bg-gray-500 ">
                 <tr className="p-3">
-                    <th className={tableH + " md:w-3/4 w-2/5"}>Business Name</th>
-                    <th className={tableH + " w-2/4 md:table-cell hidden"}>Owner Name</th>
+                    <th className={tableH + " md:w-3/4 w-2/5"}>{typeOfTable === 1 ? "Business Name" : "Account Number"}</th>
+                    <th className={tableH + " w-2/4 md:table-cell hidden"}>Owner/Representative Name</th>
                     <th className={tableH + " md:w-2/4 w-2/5"}>Status</th>
                     <th className={tableH + " md:w-1/4 w-1/5"}></th>
                 </tr>
             </thead>
             <tbody className="">
-                {
-                    businessApplicationList.lenght > 0 ? <BusinessTableContent key={business.id} business={business}/> :
-                    <tr className="p-2 hover:cursor-pointer text-gray-500">
-                        <td colSpan={4} className="text-center font-bold text-red-500">No record(s) found.</td>
-                    </tr>
-                }
+                {businessApplicationList.map((business)=>{
+                    return <BusinessTableContent key={business.id} business={business}/>
+                })}
             </tbody>
         </table>
     </div>

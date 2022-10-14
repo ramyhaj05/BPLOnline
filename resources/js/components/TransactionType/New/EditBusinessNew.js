@@ -4,44 +4,27 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
+import { layer } from "@fortawesome/fontawesome-svg-core";
 
 const EditBusinessNew = () =>{
     const navigate = useNavigate();
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
     const {id} = useParams();
-    const [appDet, setAppDet] = useState([])
     const [disclaimer, setDisclaimer] = useState(0);
-    const [newData, setNewData] = useState([
-        {
-            id: "",
-            businesname: "",
-            businessaddress: "",
-            barangay: "",
-            type: "",
-            franchise: "",
-            leasing: "",
-            capital: "",
-            description: "",
-            owners_firstname: "",
-            owners_middlename: "",
-            owners_lastname: "",
-            owners_address: "",
-            contact: "",
-            email: ""
-        }
-    ]);
+    const brgy = ["Aplaya","Balibago","Caingin","Dila","Dita","Don Jose","Ibaba","Kanluran","Labas","Macabling","Malitlit","Malusak","Market Area","Pooc","Pulong Santa Cruz","Sinalhan","Sto. Domingo","Tagapo"];
+    const [newData, setNewData] = useState([{id: "",businesname: "", business_address: "",barangay: "",type: "",franchise: "",leasing: "",capital: "",description: "", owners_name: "",owners_address: "",contact: "",email: ""}]);
     useEffect(()=>{
         getData();
     },[])
     const getData = () =>{
         setDisclaimer(1);
         axios.get("/api/get/appDetails/getdet",{params:{app_id:id}}).then(function(response){
-            setAppDet(response.data);
             const keys = response.data.map((key)=>{
-                setNewData({...newData, id: key.id, businessname: key.business_name, type: key.business_type, 
-                    franchise: key.franchise, leasing: key.leasing, capital: key.capital_investment, 
-                    description: key.description, ownersname: key.owner_name, contact: key.contact, email: key.email
+                setNewData({...newData, id: key.id, businessname: key.business_name, business_address: key.business_address,
+                    type: key.business_type, barangay: key.barangay, franchise: key.franchise, leasing: key.leasing, 
+                    capital: key.capital_investment, description: key.description, owners_name: key.owners_name, owners_address: key.owners_address,
+                    contact: key.contact, email: key.email
                 });
             })
             setDisclaimer(0);
@@ -52,12 +35,15 @@ const EditBusinessNew = () =>{
         const editData = new FormData();
         editData.append('appID', newData.id);
         editData.append('businessname', newData.businessname);
+        editData.append('business_address', newData.business_address);
+        editData.append('barangay', newData.barangay);
         editData.append('type', newData.type);
         editData.append('leasing', newData.leasing);
         editData.append('franchise', newData.franchise);
         editData.append('capital', newData.capital);
         editData.append('description', newData.description);
-        editData.append('ownersname', newData.ownersname);
+        editData.append('owners_name', newData.owners_name);
+        editData.append('owners_address', newData.owners_address);
         editData.append('contact', newData.contact);
         editData.append('email', newData.email);
         setDisclaimer(1)
@@ -99,6 +85,20 @@ const EditBusinessNew = () =>{
                                             <input type="text" className={inputField} name="businessname" id="businessname" value={newData.businessname} onChange={(e)=>{setNewData({...newData, businessname: e.target.value})}} required/>
                                         </div>
                                         <div className="py-1 block">
+                                            <div className={inputLabel}>Business Address</div>
+                                            <div className="p-2">
+                                                <select name="barangay" id="barangay" className={inputField} value={newData.barangay} onChange={(e)=>{setNewData({...newData, barangay: e.target.value})}} required>
+                                                    <option value="">- Select Barangay -</option>
+                                                    {brgy.map(object=>
+                                                        <option value={object} key={object}>{object}</option>
+                                                    )}
+                                                </select>
+                                            </div>
+                                            <div className="p-2">
+                                                <input type="text" className={inputField+" tracking-widest"} value={newData.business_address} name="business_address" id="" placeholder="Unit/Sub/Blk/Lot" onChange={(e)=>{setNewData({...newData, businessaddress: e.target.value})}} required/>
+                                            </div>
+                                        </div>
+                                        <div className="py-1 block">
                                             <div className={inputLabel}>Business Type</div>
                                             {/* // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt getAppDet */}
                                             <select name="type" id="type" value={newData.type} onChange={(e)=>{setNewData({...newData, type: e.target.value})}} className={inputField}>
@@ -110,14 +110,6 @@ const EditBusinessNew = () =>{
                                                 <option value="6">Peza</option>
                                                 <option value="7">Single Proprietor</option>
                                                 <option value="8">Tax Exempt</option>
-                                            </select>
-                                        </div>
-                                        <div className="py-1 block">
-                                            <div className={inputLabel}>Leasing</div>
-                                            {/* // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt getAppDet */}
-                                            <select name="leasing" id="leasing" value={newData.leasing} onChange={(e)=>{setNewData({...newData, leasing: e.target.value})}} className={inputField}>
-                                                <option value="1">Yes</option>
-                                                <option value="2">No</option>
                                             </select>
                                         </div>
                                         <div className="py-1 block">
@@ -139,8 +131,20 @@ const EditBusinessNew = () =>{
                                     </div>
                                     <div className="w-full md:w-1/2">
                                         <div className="py-1 block">
-                                            <div className={inputLabel}>Owners Name</div>
-                                            <input type="text" className={inputField} name="ownersname" value={newData.ownersname} id="" onChange={(e)=>{setNewData({...newData, ownersname: e.target.value})}} required/>
+                                            <div className={inputLabel}>Leasing</div>
+                                            {/* // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt getAppDet */}
+                                            <select name="leasing" id="leasing" value={newData.leasing} onChange={(e)=>{setNewData({...newData, leasing: e.target.value})}} className={inputField}>
+                                                <option value="1">Yes</option>
+                                                <option value="2">No</option>
+                                            </select>
+                                        </div>
+                                        <div className="py-1 block">
+                                            <div className={inputLabel}>Owner's/Company Name</div>
+                                            <input type="text" className={inputField} name="owners_name" value={newData.owners_name} id="" onChange={(e)=>{setNewData({...newData, owners_name: e.target.value})}} required/>
+                                        </div>
+                                        <div className="py-1 block">
+                                            <div className={inputLabel}>Owner's/Company Address</div>
+                                                <input type="text" className={inputField} name="owners_address" value={newData.owners_address} id="" onChange={(e)=>{setNewData({...newData, owners_address: e.target.value})}} required/>
                                         </div>
                                         <div className="py-1 block">
                                             <div className={inputLabel}>Contact</div>

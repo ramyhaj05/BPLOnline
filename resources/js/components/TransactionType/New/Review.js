@@ -14,7 +14,6 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
     },[review]);
 
     function getApplicationDetails(){
-        
         axios.get('/api/get/appDetails/details',{params:{businessname: newData.businessname}}).then(function(response){
             setAppDetails(response.data);
             const key = response.data.map((det)=>{
@@ -36,22 +35,34 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
             {appDetails.map((det)=>{
                 
                 return(
-                <div className="w-full flex justify-center bg-gray-100 flex-wrap" key={det.id}>
+                <div className="w-full flex justify-around bg-gray-100 flex-wrap" key={det.id}>
                     <div className="w-full text-center p-3 text-xl font-black text-gray-700">Please review information before proceeding.</div>
-                    <div className="w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col">
+                    <div className="w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col flex-wrap">
+                        <div className="w-full p-2 text-center text-xl font-bold tracking-widest">{type[det.business_type-1]}</div>
                         <div className="w-full md:w-1/2 p-2">
-                            {det.franchise === 1 ? <div className={reviewDetails}>Business Type: <b>{type[det.business_type-1]}</b></div> : ""}
+                            {det.franchise === 1 ? <div className={reviewDetails}>Business Type: <b className="capitalize">{type[det.business_type-1]}</b></div> : ""}
                             {/* <input type="hidden" name="id" onInput={setAppID(det.id)} value={det.id}/> */}
-                            <div className={reviewDetails}>Business Name: <b>{det.business_name}</b></div>
+                            <div className={reviewDetails}>Business Name: <span className="font-bold">{det.business_name}</span></div>
+                            <div className={reviewDetails+" capitalized flex flex-col"}>Business Address:
+                                <div className="pl-6 font-bold capitalize">{det.business_address}</div>
+                                <div className="pl-6 font-bold capitalize">{det.barangay}</div>
+                            </div>
                             <div className={reviewDetails}>Capital Investment: <b>{det.capital_investment}</b></div>
                             <div className={reviewDetails}>Description: <b>{det.description}</b></div>
+                            <div className={reviewDetails}>Email: <b>{det.email}</b></div>
+
                         </div>
                         <div className="w-full md:w-1/2 p-2">
-                            {det.franchise === 1 ? <div className={reviewDetails}>Franchise: <b>Yes</b></div> : ""}
-                            {det.leasing === 1 ? <div className={reviewDetails}>Leasing: <b>Yes</b></div> : ""}
-                            <div className={reviewDetails}>Owner's Name: <b>{det.owner_name}</b></div>
+                            {det.franchise === "1" ? <div className={reviewDetails}>Franchise: <b>Yes</b></div> : ""}
+                            {det.leasing === "1" ? <div className={reviewDetails}>Leasing: <b>Yes</b></div> : ""}
+                            <div className={reviewDetails+" flex flex-col"}>
+                                <span>Owner's/Company Name:</span> 
+                                <div className="pl-6 font-bold capitalize">{det.owners_name}</div>
+                            </div>
+                            <div className={reviewDetails}><span>Owner's/Company Address:</span> 
+                                <div className="pl-6 font-bold capitalize">{det.owners_address}</div>
+                            </div>
                             <div className={reviewDetails}>Contact #: <b>{det.contact}</b></div>
-                            <div className={reviewDetails}>Email: <b>{det.email}</b></div>
                         </div>
                     </div>
                 </div>)

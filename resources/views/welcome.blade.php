@@ -38,7 +38,7 @@
             @endif
             <div class="w-full flex flex-col md:flex-row">
                 <div class="md:w-1/2 w-full flex justify-center">
-                    <img src="{{asset('/images/Homebg2.png')}}" alt="" class=" w-full">
+                    <!-- <img src="{{asset('/images/Homebg2.png')}}" alt="" class=" w-full"> -->
                 </div>
                 
                 <div class="md:w-1/2 w-full">
