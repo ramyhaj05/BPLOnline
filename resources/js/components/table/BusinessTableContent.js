@@ -20,7 +20,7 @@ const businessTableContent = ({business}) =>{
                 <td className={tableB + " md:w-1/4 w-1/4 text-center"}>
                     <div className="flex flex-row justify-around text-2xl">
                         <Link to={`/edit/`+business.id} ><FaEdit className="text-gray-500"></FaEdit></Link>
-                        <Link to={`/edit/`+business.id} ><FaTrashAlt className="text-red-500"></FaTrashAlt></Link>
+                        <Link to={`/cancel/`+business.id} ><FaTrashAlt className="text-red-500"></FaTrashAlt></Link>
                     </div>
                 </td>
             </tr>

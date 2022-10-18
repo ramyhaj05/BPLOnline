@@ -56,7 +56,7 @@ const Review = () =>{
             
             <div className="w-full p-1 flex flex-row justify-between">
                 <Link to={`/edit/`+id} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Edit</Link>
-                <Link to={`/new-business/upload/`+id} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
+                <Link to={`/upload/renewal/`+id} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
             </div>
         </div>
     )

@@ -1,13 +1,21 @@
 import React,{useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { FaCheckSquare, FaTimes } from 'react-icons/fa';
 const RenewalUpload = () =>{
     const {id} = useParams();
     const [disclaimer, setDisclaimer] = useState(1);
+    const [gross, setGross] = useState(null);
+    const [appDet, setAppDet] = useState([]);
     const current_year = new Date().getFullYear();
     useEffect(()=>{
         setDisclaimer(0);
     },[])
+    
+    function handleFile(e){
+        let selectedFile = e.target.files[0];
+        e.target.name === "gross" ? setGross(selectedFile) : "";
+    }
     return(
         <div className="container w-full">
             <div className="row justify-content-center">
@@ -23,10 +31,23 @@ const RenewalUpload = () =>{
                                     />
                                 </div>
                             </div> : ""}
-                            <form className="pl-5 pt-3" key={det.id} encType="multipart/form-data" onSubmit={uploadReqs}>
-                                <input type="hidden" name="account_number" value={det.id}/>
-                                <input type="hidden" name="year" value={current_year}/>
-                            </form>
+                            {
+                                <form className="pl-5 pt-3" key={det.id} encType="multipart/form-data">
+                                    <input type="hidden" name="account_number" value={det.account_number}/>
+                                    <input type="hidden" name="year" value={current_year}/>
+                                    <div className="font-xl font-black">Gross Income of {current_year-1}</div>
+                                    <input type="file" name="gross" id="gross" onChange={handleFile} accept="application/pdf,application" className="text-transparent p-2" required/>
+                                    {gross ? 
+                                    <div className="flex flex-row p-1">
+                                        <FaCheckSquare className="text-green-500 text-lg"></FaCheckSquare>
+                                        <span className="pl-2 font-bold text-green-500">{gross.name}</span>
+                                    </div> : 
+                                    <div className="flex flex-row">
+                                        <FaTimes className="text-red-500 text-lg"></FaTimes>
+                                        <span className="pl-3 font-bold text-red-500">No File/s Selected.(REQUIRED)</span>
+                                    </div>}
+                                </form>
+                            }
                         </div>
                     </div>
                 </div>

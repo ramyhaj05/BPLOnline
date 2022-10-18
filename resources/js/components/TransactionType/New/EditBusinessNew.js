@@ -4,7 +4,6 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
-import { layer } from "@fortawesome/fontawesome-svg-core";
 
 const EditBusinessNew = () =>{
     const navigate = useNavigate();
@@ -156,7 +155,7 @@ const EditBusinessNew = () =>{
                                         </div>
                                     </div>
                                     <div className="w-full p-1 flex flex-row justify-between">
-                                        <Link to="/home" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={(e)=>{setLeasing(0)}}>Back</Link>
+                                        <Link to="/dashboard" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={(e)=>{setLeasing(0)}}>Back</Link>
                                         <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Save</button>
                                     </div>
                                 </div>

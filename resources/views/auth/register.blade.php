@@ -3,10 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="card border-none">
 
-                <div class="text-center py-10 rounded shadow">
+                <div class="text-center p-5 rounded shadow-md">
                     <span class="text-xl font-bold tracking-widest mt-3">{{ __('Registration Form') }}</span><br><br>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf

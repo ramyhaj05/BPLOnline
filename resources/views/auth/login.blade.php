@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center content-center">
         <div class="w-3/4 md:w-1/3 pt-16">
-            <div class="card ring ring-pink-300">
+            <div class="card bg-white rounded-md border-0 drop-shadow">
 
                 <div class="card-body pt-5">
                     <form method="POST" action="{{ route('login') }}" class="flex flex-col justify-content-center items-center">

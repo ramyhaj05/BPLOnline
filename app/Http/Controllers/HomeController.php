@@ -32,5 +32,8 @@ class HomeController extends Controller
     public function editNew(){
         return view('edit');
     }
+    public function dashboard(){
+        return view('dashboard');
+    }
 
 }

@@ -20,10 +20,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="">
-    <div class="bg-gradient-to-t from-gray-200 via-white to-white min-h-screen">
-        <nav class="navbar navbar-expand-md navbar-dark bg-pink-100 ring-4 ring-pink-500">
+    <div class="bg-gradient-to-t from-emerald-200 via-white to-white min-h-screen">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-emerald-500 to-emerald-200">
             <div class="container">
-                <a class="navbar-brand font-black text-pink-400 text-2xl tracking-widest hover:text-pink-500" href="{{ url('/home') }}">
+                <a class="navbar-brand font-black text-white text-2xl tracking-widest hover:text-pink-500" href="{{ url('/dashboard') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler bg-pink-100 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -42,18 +42,18 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-pink-400 font-bold hover:text-pink-500" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white font-bold tracking-widest" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-pink-400 font-bold hover:text-pink-500" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white font-bold tracking-widest" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-pink-500 font-black tracking-widest capitalize" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-black tracking-widest capitalize" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->firstname  }}
                                 </a>
 

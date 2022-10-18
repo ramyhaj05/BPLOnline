@@ -6,7 +6,7 @@ const NewApplication= ()=>{
     const ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
     return(
     <div className="w-full  ">
-        <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">ADD NEW TRANSACTION</div>
+        <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">ADD NEW TRANSACTION</div>
         <div className="card bg-white">
             <div className="card-header text-lg font-semibold text-gray-700">Please select transaction</div>
             <div className="p-2 md:p-3 flex flex-col md:flex-row md:justify-around">

@@ -27,5 +27,7 @@ class BusinessApplication extends Model
         'email'
     ];
 
+    protected $dates = ['deleted_at'];
+
     protected $primaryKey = 'id';
 }
