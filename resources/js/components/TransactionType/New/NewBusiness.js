@@ -24,7 +24,7 @@ const NewBusiness = () =>{
     ]);
     return(
         <div className="w-full md:p-5 p-1">
-            <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">NEW BUSINESS</div>
+            <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">APPLICATION FOR NEW BUSINESS PERMIT</div>
             <div className="card bg-white">
                 <div className="card-header  text-lg font-semibold text-gray-700">APPLICATION FOR NEW BUSINESS</div>
                 <div className="p-2 md:p-3 flex flex-col w-full ">

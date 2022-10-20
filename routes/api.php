@@ -22,13 +22,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::get('/get/businessapplication/list', [BusinessApplicationController::class, 'getBusinessApplication'])->name('businessapplication.list');
-    Route::get('/get/renewal/list', [RenewalController::class, 'getAllRenewal'])->name('renewal.list');
-    Route::get('/get/appDetails/details', [BusinessApplicationController::class, 'getApplicationDetails'])->name('appDetails.details');
-    Route::post('/add/addNewBusiness', [BusinessApplicationController::class, 'store']);
+    
+    //fetch data
     Route::get('/get/appDetails/getdet', [BusinessApplicationController::class, 'getAppDet'])->name('appDetails.getdet');
+    Route::get('/get/businessapplication/list', [BusinessApplicationController::class, 'getBusinessApplication'])->name('businessapplication.list');
+    Route::get('/get/appDetails/details', [BusinessApplicationController::class, 'getApplicationDetails'])->name('appDetails.details');
+    
+    //actions new
+    Route::post('/add/addNewBusiness', [BusinessApplicationController::class, 'store']);
     Route::post('/upload/requirements/new', [UploadingController::class, 'store'])->name('upload.requirements.new');
     Route::post('/edit/business', [BusinessApplicationController::class, 'patch'])->name('edit.business');
-    Route::post('/add/renewal', [RenewalController::class, 'store'])->name('add.renewal');
+    Route::post('/delete/business', [BusinessApplicationController::class, 'delete'])->name('delete.business');
+    
+    //fetch data
+    Route::get('/get/renewal/list', [RenewalController::class, 'getAllRenewal'])->name('renewal.list');
     Route::get('/get/renewal/details', [RenewalController::class, 'getReview'])->name('get.review.renewal');
+
+    //actions renewal
+    Route::post('/add/renewal', [RenewalController::class, 'store'])->name('add.renewal');
+
 });

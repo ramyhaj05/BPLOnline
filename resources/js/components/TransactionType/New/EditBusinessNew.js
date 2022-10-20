@@ -10,6 +10,7 @@ const EditBusinessNew = () =>{
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
     const {id} = useParams();
+    const [saveSuccess, setSaveSuccess] = useState(0)
     const [disclaimer, setDisclaimer] = useState(0);
     const brgy = ["Aplaya","Balibago","Caingin","Dila","Dita","Don Jose","Ibaba","Kanluran","Labas","Macabling","Malitlit","Malusak","Market Area","Pooc","Pulong Santa Cruz","Sinalhan","Sto. Domingo","Tagapo"];
     const [newData, setNewData] = useState([{id: "",businesname: "", business_address: "",barangay: "",type: "",franchise: "",leasing: "",capital: "",description: "", owners_name: "",owners_address: "",contact: "",email: ""}]);
@@ -54,7 +55,9 @@ const EditBusinessNew = () =>{
                 headers: { "Content-Type": "multipart/form-data" },
               }).then((response)=>{
                   setDisclaimer(0)
-                navigate('/new-business/upload/'+newData.id);
+                // navigate('/new-business/upload/'+newData.id);
+              }).then(()=>{
+                setSaveSuccess(1)
               })
         } catch(error) {
             alert(error);
@@ -69,6 +72,13 @@ const EditBusinessNew = () =>{
                         <div className="card-header text-lg font-semibold text-gray-700">Edit Application Information</div>
                         <div className="card-body">
                             <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={saveEdit}>
+                            {saveSuccess === 1 ? <div className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-gray-500/70 bg-opacity-1">
+                                <div className="flex flex-col align-items-center bg-gray-100 rounded border-4 border-emerald-500 w-3/4 md:w-1/2 p-4 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg bg-white">
+                                    <span className="font-bold text-xl text-emerald-500 p-3">Application Details Successfully Updated!</span>
+                                    <span className="text-sm text-rose-500">Please click continue to start upload of necessary requirements.</span>
+                                    <div onClick={()=>{navigate(`/new-business/upload/`+id)}} className="p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-emerald-500 cursor-pointer">Continue</div>
+                                </div>
+                            </div> : ""}
                             {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
                                 <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
                                     <ScaleLoader
@@ -94,7 +104,7 @@ const EditBusinessNew = () =>{
                                                 </select>
                                             </div>
                                             <div className="p-2">
-                                                <input type="text" className={inputField+" tracking-widest"} value={newData.business_address} name="business_address" id="" placeholder="Unit/Sub/Blk/Lot" onChange={(e)=>{setNewData({...newData, businessaddress: e.target.value})}} required/>
+                                                <input type="text" className={inputField+" tracking-widest"} value={newData.business_address} name="business_address" id="" placeholder="Unit/Sub/Blk/Lot" onChange={(e)=>{setNewData({...newData, business_address: e.target.value})}} required/>
                                             </div>
                                         </div>
                                         <div className="py-1 block">

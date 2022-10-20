@@ -33,6 +33,7 @@ class UploadingController extends Controller
             $request->file('franchise') ? Storage::putFileAs($directory, $request->file('franchise'), 'franchise.pdf') : "";
             $update = BusinessApplication::find($appID);
             $update->status = "1";
+            $update->trans_id = $request->trans_id;
             $update->update();
             return "Success";
        } catch (error $e) {

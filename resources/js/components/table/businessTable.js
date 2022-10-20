@@ -83,9 +83,13 @@ const BusinessTable = () =>{
                 </tr>
             </thead>
             <tbody className="">
-                {businessApplicationList.map((business)=>{
-                    return <BusinessTableContent key={business.id} business={business}/>
-                })}
+                {
+                    businessApplicationList.map((business)=>{
+                        return business ?
+                         <BusinessTableContent key={business.id} business={business}/>
+                        : <tr><td colSpan={4} className="text-gray-500">No Record(s) Found!</td></tr>
+                    })
+                }
             </tbody>
         </table>
     </div>

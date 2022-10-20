@@ -14,7 +14,7 @@ const Uploading = () =>{
     const [leasing, setLeasing] = useState(null);
     const [franchise, setFranchise] = useState(null);
     const [insurance, setInsurance] = useState(null);
-    const [cedula, setCedula] = useState(null);
+    // const [cedula, setCedula] = useState(null);
     const [referenceID, setreferenceID] = useState();
     const [disclaimer, setDisclaimer] = useState(0);
     const [saveSuccess, setSaveSuccess] = useState(0)
@@ -58,6 +58,7 @@ const Uploading = () =>{
         franchise ? data.append('franchise', franchise) : "";
         data.append('appID', id);
         data.append('year', year);
+        data.append('trans_id', referenceID);
         setDisclaimer(1);
         try {
             const response = await axios({

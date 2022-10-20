@@ -18,6 +18,7 @@ class BusinessApplicationController extends Controller
     {
         return Validator::make($data, [
             'business_name' => ['required', 'string', 'max:255'],
+            'trans_id' => ['string', 'max:255'],
             'capital_investment' => ['required', 'string'],
             'business_address' => ['required', 'string', 'max:255'],
             'barangay' => ['required', 'string', 'max:255'],
@@ -40,7 +41,7 @@ class BusinessApplicationController extends Controller
         $mergedData = "";
         try 
         {
-            $businessapplications =  BusinessApplication::where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
+            $businessapplications =  BusinessApplication::withTrashed()->where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
             $businessapplications = response()->json($businessapplications);
             // $mergedData = $businessapplications->merge($renewalapplications);
             return $businessapplications;
@@ -114,6 +115,7 @@ class BusinessApplicationController extends Controller
                     'user_id' => $user_id,
                     'status' => '0',
                     'trans_type' => '1',
+                    'trans_id' => '',
                 ])->id;
                 return $insert;
             } catch (Exception $e) {
@@ -141,6 +143,20 @@ class BusinessApplicationController extends Controller
             return "Success";
         } catch (Error $e) {
             return $e;
+        }
+    }
+
+    public function delete(Request $request){
+        try {
+            $business = BusinessApplication::find($request->app_id);
+            $business->status = "3";
+            $business->update();
+
+            $delete = BusinessApplication::find( $request->app_id );
+            $delete->delete();
+            return "Successfully Deleted";
+        } catch (Error $e) {
+            return $e; 
         }
     }
 
