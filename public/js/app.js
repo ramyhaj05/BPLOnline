@@ -6969,7 +6969,7 @@ var NewForm = function NewForm(_ref) {
               className: inputLabel,
               children: "Contact Number"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "contact",
+              type: "number",
               className: inputField,
               name: "",
               id: "",
@@ -7899,7 +7899,7 @@ var RenewalForm = function RenewalForm() {
             className: inputLabel,
             children: "Contact Number"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "contact",
+            type: "number",
             className: inputField,
             name: "contact",
             id: "",
@@ -8185,7 +8185,7 @@ var Review = function Review() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col flex-wrap",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "w-full md:w-1/2 p-2",
+            className: "w-full p-2",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: reviewDetails,
               children: ["Account Number: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
@@ -8199,7 +8199,7 @@ var Review = function Review() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: reviewDetails,
               children: ["Owner's/Representative Name: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-                children: det.name
+                children: det.owners_name
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: reviewDetails,
@@ -8222,7 +8222,7 @@ var Review = function Review() {
         className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
         children: "Edit"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-        to: "/upload/renewal/" + id,
+        to: "/upload/renewal/" + appID,
         className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
         children: "Proceed"
       })]

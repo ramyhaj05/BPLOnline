@@ -42,10 +42,10 @@ const Review = () =>{
                 <div className="w-full flex justify-around bg-gray-100 flex-wrap" key={det.id}>
                     <div className="w-full text-center p-3 text-xl font-black text-gray-700">Please review information before proceeding.</div>
                     <div className="w-full md:w-2/3 rounded p-3 flex md:flex-row flex-col flex-wrap">
-                        <div className="w-full md:w-1/2 p-2">
+                        <div className="w-full p-2">
                             <div className={reviewDetails}>Account Number: <b>{det.account_number}</b></div>
                             <div className={reviewDetails}>Gross Income: <b>{det.gross_income}</b></div>
-                            <div className={reviewDetails}>Owner's/Representative Name: <b>{det.name}</b></div>
+                            <div className={reviewDetails}>Owner's/Representative Name: <b>{det.owners_name}</b></div>
                             <div className={reviewDetails}>Contact: <b>{det.contact}</b></div>
                             <div className={reviewDetails}>email: <b>{det.email}</b></div>
 
@@ -56,7 +56,7 @@ const Review = () =>{
             
             <div className="w-full p-1 flex flex-row justify-between">
                 <Link to={`/edit/`+id} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Edit</Link>
-                <Link to={`/upload/renewal/`+id} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
+                <Link to={`/upload/renewal/`+appID} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</Link>
             </div>
         </div>
     )

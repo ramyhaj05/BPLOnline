@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Renewal;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class RenewalController extends Controller
 {
@@ -26,10 +28,11 @@ class RenewalController extends Controller
     }
 
     public function store(Request $request){
-        $user = $request->user();
-        if ($user->tokenCan('server:update')) {
-            $user = User::pluck('id');
-            $user_id = trim($user,'[]');
+        // $user = $request->user();
+        // if ($user->tokenCan('server:update')) {
+            $id = optional(Auth::user())->id;
+            
+            
             try {
                 $insert = Renewal::create([
                     'account_number' => $request->account_number,
@@ -38,13 +41,13 @@ class RenewalController extends Controller
                     'contact' => $request->contact,
                     'email' => $request->email,
                     'status' => "0",
-                    'user_id' => $user_id,
+                    'user_id' => $id,
                 ])->id;
                 return $insert;
-            } catch (Exception $e) {
+            } catch (Error $e) {
                 Log::error($e);
             }
-        }
+        // }
     }
 
     public function getReview(Request $request){
@@ -60,7 +63,7 @@ class RenewalController extends Controller
             
             return response()->json($businessapplications);
         } 
-        catch (Exception $e) 
+        catch (Error $e) 
         {
             Log::error($e);
         }
@@ -71,8 +74,12 @@ class RenewalController extends Controller
         $user = User::pluck('id');
         $user_id = trim($user,'[]');
 
-        $renewalapplications = Renewal::where('id',$user_id)->whereYear('created_at', $request->year)->orderBy('created_at', 'desc')->get();
-        $renewalapplications = response()->json($renewalapplications);
-        return $renewalapplications;
+        try {
+            $renewalapplications = Renewal::where('id',$user_id)->whereYear('created_at', $request->year)->orderBy('created_at', 'desc')->get();
+            $renewalapplications = response()->json($renewalapplications);
+            return $renewalapplications;
+        } catch (Error $e) {
+            Log::error($e);
+        }
     }
 }

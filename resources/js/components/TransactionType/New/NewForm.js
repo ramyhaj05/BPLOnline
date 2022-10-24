@@ -95,7 +95,7 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                     </div>
                     <div className="py-1">
                         <div className={inputLabel}>Contact Number</div>
-                        <input type="contact" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, contact: e.target.value})}} required/>
+                        <input type="number" className={inputField} name="" id="" onChange={(e)=>{setNewData({...newData, contact: e.target.value})}} required/>
                     </div>
                     <div className="py-1">
                         <div className={inputLabel}>E-mail Address</div>

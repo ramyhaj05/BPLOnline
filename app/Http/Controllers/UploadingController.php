@@ -36,9 +36,9 @@ class UploadingController extends Controller
             $update->trans_id = $request->trans_id;
             $update->update();
             return "Success";
-       } catch (error $e) {
+       } catch (Error $e) {
             return $e;
        }
     
-}
+    }
 }

@@ -46,7 +46,7 @@ class BusinessApplicationController extends Controller
             // $mergedData = $businessapplications->merge($renewalapplications);
             return $businessapplications;
         } 
-        catch (Exception $e) 
+        catch (Error $e) 
         {
             Log::error($e);
         }
@@ -66,7 +66,7 @@ class BusinessApplicationController extends Controller
             
             return response()->json($businessapplications);
         } 
-        catch (Exception $e) 
+        catch (Error $e) 
         {
             Log::error($e);
         }
@@ -85,7 +85,7 @@ class BusinessApplicationController extends Controller
             $businessapplications = response()->json($businessapplications);
             return $businessapplications;
         } 
-        catch (Exception $e) 
+        catch (Error $e) 
         {
             Log::error($e);
         }
@@ -94,7 +94,7 @@ class BusinessApplicationController extends Controller
     //store data 
     public function store(Request $request){
         $user = $request->user();
-        if ($user->tokenCan('server:update')) {
+        // if ($user->tokenCan('server:update')) {
             
             $user = User::pluck('id');
             $user_id = trim($user,'[]');
@@ -118,10 +118,10 @@ class BusinessApplicationController extends Controller
                     'trans_id' => '',
                 ])->id;
                 return $insert;
-            } catch (Exception $e) {
+            } catch (Error $e) {
                 Log::error($e);
             }
-        }
+        // }
     }
 
     public function patch(Request $request){
@@ -142,7 +142,7 @@ class BusinessApplicationController extends Controller
             $updateDetails->update();
             return "Success";
         } catch (Error $e) {
-            return $e;
+            Log::error($e);
         }
     }
 
@@ -156,7 +156,7 @@ class BusinessApplicationController extends Controller
             $delete->delete();
             return "Successfully Deleted";
         } catch (Error $e) {
-            return $e; 
+            Log::error($e);
         }
     }
 
