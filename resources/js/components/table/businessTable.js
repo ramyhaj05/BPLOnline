@@ -3,6 +3,8 @@ import React,{useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import BusinessTableContent from './BusinessTableContent';
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { FaAppStoreIos } from "react-icons/fa";
+import apiClient from '../services/api';
 const BusinessTable = () =>{
     const tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5";
     const [businessApplicationList, setbusinessApplicationList] = useState([]);
@@ -24,12 +26,56 @@ const BusinessTable = () =>{
 
     const getBusinesApplications = async()=>{
         setTypeOfTable(1);
-        setDisclaimer(1)
-        const newBusiness = await axios.get('/api/get/businessapplication/list',{params:{year: year}}).then(function(response){
-           setbusinessApplicationList(response.data)
-        }).then(()=>{
-            setDisclaimer(0)
+        setDisclaimer(1);
+
+        // const response = await axios({
+        //     method: "post",
+        //     url: "/api/edit/business",
+        //     data: {params:{year:year}},
+        //     headers: { 
+        //         "Content-Type": "multipart/form-data" ,
+        //         "xsrfHeaderName": "X-XSRF-TOKEN", // change the name of the header to "X-XSRF-TOKEN" and it should works
+        //         "withCredentials": true
+        //     },
+        //   }).then((response)=>{
+        //       setDisclaimer(0)
+        //     // navigate('/new-business/upload/'+newData.id);
+        //   })
+        const veri = await axios.get("/sanctum/csrf-cookie").then(()=>{
+            axios.get('/api/get/businessapplication/list',{params:{year: year}}).then((response)=>{
+                setbusinessApplicationList(response.data)
+            }).then(()=>{
+                setDisclaimer(0)
+            }).catch((res)=>{
+                alert(res)
+            })
+
+            // axios.get('/api/get/businessapplication/list',{params:{year: year}},
+            // {
+            //     headers:{
+            //         "Content-Type": "multipart/form-data" ,
+            //         "method": 'GET',
+            //         "data":{params:{year: year}},
+            //         "withCredentials": true,
+            //     }
+            // }).then((response)=>{
+            //     console.log(response);
+            //     setbusinessApplicationList(response.data)
+            // }).then(()=>{
+            //     setDisclaimer(0)
+            // }).catch((error)=>{
+            //     alert(error)
+            // })
+
+
+            // const newBusiness = axios.get('/api/get/businessapplication/list',{params:{year: year}            }).then(function(response){
+            //     console.log(response);
+            //     setbusinessApplicationList(response.data)
+            //  }).then(()=>{
+            //      setDisclaimer(0)
+            //  })
         })
+        
     }
 
     const getRenewals = async()=>{

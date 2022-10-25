@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     
     //fetch data
     Route::get('/get/appDetails/getdet', [BusinessApplicationController::class, 'getAppDet'])->name('appDetails.getdet');
@@ -41,4 +41,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     //actions renewal
     Route::post('/add/renewal', [RenewalController::class, 'store'])->name('add.renewal');
 
-// });
+});

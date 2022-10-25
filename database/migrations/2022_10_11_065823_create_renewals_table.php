@@ -22,6 +22,7 @@ class CreateRenewalsTable extends Migration
             $table->string('email');
             $table->string('status');
             $table->string('user_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

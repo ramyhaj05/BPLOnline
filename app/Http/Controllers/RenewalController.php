@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Log;
 use Exception;
@@ -30,8 +29,9 @@ class RenewalController extends Controller
     public function store(Request $request){
         // $user = $request->user();
         // if ($user->tokenCan('server:update')) {
-            $id = optional(Auth::user())->id;
-            
+            // $id = User::id;
+            // $user = Auth::user();
+            // $id = $user->id;
             
             try {
                 $insert = Renewal::create([
@@ -41,7 +41,7 @@ class RenewalController extends Controller
                     'contact' => $request->contact,
                     'email' => $request->email,
                     'status' => "0",
-                    'user_id' => $id,
+                    'user_id' => auth('sanctum')->user()->id,
                 ])->id;
                 return $insert;
             } catch (Error $e) {
@@ -51,10 +51,7 @@ class RenewalController extends Controller
     }
 
     public function getReview(Request $request){
-        $user = $request->user();
-            
-        $user = User::pluck('id');
-        $user_id = trim($user,'[]');
+        $user_id = auth('sanctum')->user()->id;
         try 
         {
             $businessapplications =  Renewal::where('account_number', $request->account_number)->where("user_id", $user_id)->orderBy('id', 'desc')->limit(1)->get();
@@ -69,13 +66,14 @@ class RenewalController extends Controller
         }
     }
 
+    
     public function getAllRenewal(Request $request){
-        $user = $request->user();
-        $user = User::pluck('id');
-        $user_id = trim($user,'[]');
-
+        $year = $request->year;
+        $user_id = auth('sanctum')->user()->id;
         try {
-            $renewalapplications = Renewal::where('id',$user_id)->whereYear('created_at', $request->year)->orderBy('created_at', 'desc')->get();
+            // withTrashed()->where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
+            // where('id',$user_id)->whereYear('created_at', $request->year)->orderBy('created_at', 'desc')->get();
+            $renewalapplications = Renewal::withTrashed()->where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
             $renewalapplications = response()->json($renewalapplications);
             return $renewalapplications;
         } catch (Error $e) {

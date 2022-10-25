@@ -8,6 +8,7 @@ use App\Models\Uploading;
 use App\Models\BusinessApplication;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class UploadingController extends Controller
 {
@@ -24,7 +25,9 @@ class UploadingController extends Controller
        try {
             $appID = $request->appID;
             $year = $request->year;
-            $directory = "/Files"."/".$year."/".$appID;
+            $user_id = auth('sanctum')->user()->id;
+            // Files/Year/01-xxx-xx
+            $directory = "/Files"."/".$year."/"."01".$appID.$user_id;
             File::makeDirectory($directory, 0777, true, true);
             Storage::putFileAs($directory, $request->file('type'), 'DTI-SEC.pdf');
             $request->file('brgy') ? Storage::putFileAs($directory, $request->file('brgy'), 'brgy.pdf') : "";

@@ -11,6 +11,7 @@ use App\Models\Renewal;
 use Illuminate\Support\Facades\Storage;
 // use Illuminate\Http\File;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class BusinessApplicationController extends Controller
 {
@@ -34,36 +35,30 @@ class BusinessApplicationController extends Controller
         ]);
     }
     public function getBusinessApplication(Request $request){
-        
         $year = $request->year;
-        $user = User::pluck('id');
-        $user_id = trim($user,'[]');
-        $mergedData = "";
-        try 
-        {
-            $businessapplications =  BusinessApplication::withTrashed()->where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
-            $businessapplications = response()->json($businessapplications);
-            // $mergedData = $businessapplications->merge($renewalapplications);
-            return $businessapplications;
-        } 
-        catch (Error $e) 
-        {
-            Log::error($e);
-        }
+        $user = $request->user();
+        $user_id = auth('sanctum')->user()->id;
+        // if ($user->tokenCan('server:update')) {
+            try 
+            {
+                $businessapplications =  BusinessApplication::withTrashed()->where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
+                $businessapplications = response()->json($businessapplications);
+                return $businessapplications;
+            } 
+            catch (Error $e) 
+            {
+                Log::error($e);
+            }
+        // }
     }
 
     public function getApplicationDetails(Request $request){
         // dd($request->all());
         $businessname = $request->businessname;
-        $user = $request->user();
-        $user = User::pluck('id');
-        $user_id = trim($user,'[]');
+        $user_id = auth('sanctum')->user()->id;
         try 
         {
             $businessapplications =  BusinessApplication::where('business_name', $businessname)->where("user_id", $user_id)->orderBy('id', 'desc')->limit(1)->get();
-            // dd($businessapplications);
-            // throw new Exception($businessapplications);
-            
             return response()->json($businessapplications);
         } 
         catch (Error $e) 
@@ -75,8 +70,7 @@ class BusinessApplicationController extends Controller
     public function getAppDet(Request $request){
         
         $app_id = $request->app_id;
-        $user = User::pluck('id');
-        $user_id = trim($user,'[]');
+        $user_id = auth('sanctum')->user()->id;
         try 
         {
             $businessapplications =  BusinessApplication::where('id', $app_id)
@@ -95,9 +89,7 @@ class BusinessApplicationController extends Controller
     public function store(Request $request){
         $user = $request->user();
         // if ($user->tokenCan('server:update')) {
-            
-            $user = User::pluck('id');
-            $user_id = trim($user,'[]');
+        $user_id = auth('sanctum')->user()->id;
             try {
                 $insert = BusinessApplication::create([
                     'business_name' => $request->businessname,
