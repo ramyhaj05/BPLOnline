@@ -9,6 +9,7 @@ const Review = () =>{
     const [disclaimer, setDisclaimer] = useState(0);
     const [appID, setAppID] = useState()
     const {id} = useParams();
+    const user_id = localStorage.getItem('auth_id');
     
     useEffect(()=>{
         getApplicationDetails(id)
@@ -16,9 +17,9 @@ const Review = () =>{
 
     function getApplicationDetails(id){
         setDisclaimer(1)
-        axios.get('/api/get/renewal/details',{params:{account_number: id}}).then(function(response){
-            setAppDetails(response.data);
-            const key = response.data.map((det)=>{
+        axios.get('/api/get/renewal/details',{params:{account_number: id, user_id:user_id}}).then(function(response){
+            setAppDetails(response.data.result);
+            const key = response.data.result.map((det)=>{
                 setAppID(det.id)
             })
         }).then(()=>{

@@ -5371,94 +5371,106 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ App)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+ // import BusinessTable from './table/businessTable';
+
+ // export default class App extends Component {
+//     render(
+//     ){
+//     const navigate = useNavigate();
+//     const proceed = () =>{
+//         navigate('/dashboard')
+//     }
+
+
+
+
+var App = function App() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+
+  var proceed = function proceed() {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/sanctum/csrf-cookie').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth/proceed').then(function (res) {
+        localStorage.setItem('auth_token', res.data.token);
+        localStorage.setItem('auth_name', res.data.username);
+        localStorage.setItem('auth_id', res.data.user_id);
+      }).then(function () {
+        navigate('/dashboard');
+      });
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "container w-full",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "row justify-content-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "w-full",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-gray-500 pb-5",
+          children: "Welcome to Business Permit and Licensing Office Online Application"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "w-full text-center tracking-widest shadow-md text-lg p-2 bg-white",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "flex flex-col w-full justify-items-center align-items-center text-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+              src: "/images/Homebg.png",
+              alt: "",
+              className: "w-1/3"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "w-full font-bold text-xl text-gray-400",
+              children: ["For your convenience, you can now apply for Business Permit online through our new and improved website!", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "There are a number of advantages to applying for the permit online. You can save time, money, and effort.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Please click proceed to continue.."]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "w-full flex flex-col align-items-end",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              onClick: proceed,
+              className: "p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm hover:cursor-pointer",
+              children: "Proceed"
+            })
+          })]
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App); //     ;}
+// }
+
+/***/ }),
+
+/***/ "./resources/js/components/Authenticate/Login.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Authenticate/Login.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _table_businessTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./table/businessTable */ "./resources/js/components/table/businessTable.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
+var UserLogin = function UserLogin() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "bg-red-500 p-2",
+    children: "login"
+  });
+};
 
-
-
-
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
-
-  var _super = _createSuper(App);
-
-  function App() {
-    _classCallCheck(this, App);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(App, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "container w-full",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "row justify-content-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "w-full",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-gray-500 pb-5",
-              children: "Welcome to Business Permit and Licensing Office Online Application"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "w-full text-center tracking-widest shadow-md text-lg p-2 bg-white",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "flex flex-col w-full justify-items-center align-items-center text-center",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                  src: "/images/Homebg.png",
-                  alt: "",
-                  className: "w-1/3"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "w-full font-bold text-xl text-gray-400",
-                  children: ["For your convenience, you can now apply for Business Permit online through our new and improved website!", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "There are a number of advantages to applying for the permit online. You can save time, money, and effort.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Please click proceed to continue.."]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "w-full flex flex-col align-items-end",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                  to: "/dashboard",
-                  className: "p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm",
-                  children: "Proceed"
-                })
-              })]
-            })]
-          })
-        })
-      });
-    }
-  }]);
-
-  return App;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserLogin);
 
 /***/ }),
 
@@ -5599,6 +5611,7 @@ var DeleteBusinessNew = function DeleteBusinessNew() {
       confirmed = _useState10[0],
       setConfirmed = _useState10[1];
 
+  var user_id = localStorage.getItem('auth_id');
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getData();
   }, []);
@@ -5607,10 +5620,11 @@ var DeleteBusinessNew = function DeleteBusinessNew() {
     setDisclaimer(1);
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/get/appDetails/getdet", {
       params: {
-        app_id: id
+        app_id: id,
+        user_id: user_id
       }
     }).then(function (response) {
-      var keys = response.data.map(function (key) {
+      var keys = response.data.result.map(function (key) {
         setNewData(_objectSpread(_objectSpread({}, newData), {}, {
           id: key.id,
           businessname: key.business_name,
@@ -5646,7 +5660,8 @@ var DeleteBusinessNew = function DeleteBusinessNew() {
               setDisclaimer(1);
               _context.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/delete/business/", {
-                app_id: id
+                app_id: id,
+                user_id: user_id
               }).then(function () {
                 setDisclaimer(0);
                 setDeletePopUp(0);
@@ -5660,7 +5675,7 @@ var DeleteBusinessNew = function DeleteBusinessNew() {
               break;
 
             case 7:
-              alert("Incorrect Confirmation");
+              alert("Invalid Confirmation");
 
             case 8:
             case "end":
@@ -5941,6 +5956,7 @@ var EditBusinessNew = function EditBusinessNew() {
       newData = _useState6[0],
       setNewData = _useState6[1];
 
+  var user_id = localStorage.getItem('auth_id');
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getData();
   }, []);
@@ -5949,10 +5965,11 @@ var EditBusinessNew = function EditBusinessNew() {
     setDisclaimer(1);
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/get/appDetails/getdet", {
       params: {
-        app_id: id
+        app_id: id,
+        user_id: user_id
       }
     }).then(function (response) {
-      var keys = response.data.map(function (key) {
+      var keys = response.data.result.map(function (key) {
         setNewData(_objectSpread(_objectSpread({}, newData), {}, {
           id: key.id,
           businessname: key.business_name,
@@ -5995,9 +6012,10 @@ var EditBusinessNew = function EditBusinessNew() {
               editData.append('owners_address', newData.owners_address);
               editData.append('contact', newData.contact);
               editData.append('email', newData.email);
+              editData.append('user_id', user_id);
               setDisclaimer(1);
-              _context.prev = 16;
-              _context.next = 19;
+              _context.prev = 17;
+              _context.next = 20;
               return axios__WEBPACK_IMPORTED_MODULE_0___default()({
                 method: "post",
                 url: "/api/edit/business",
@@ -6006,28 +6024,27 @@ var EditBusinessNew = function EditBusinessNew() {
                   "Content-Type": "multipart/form-data"
                 }
               }).then(function (response) {
-                setDisclaimer(0); // navigate('/new-business/upload/'+newData.id);
+                setDisclaimer(0);
               }).then(function () {
                 setSaveSuccess(1);
               });
 
-            case 19:
+            case 20:
               response = _context.sent;
               _context.next = 26;
               break;
 
-            case 22:
-              _context.prev = 22;
-              _context.t0 = _context["catch"](16);
+            case 23:
+              _context.prev = 23;
+              _context.t0 = _context["catch"](17);
               alert(_context.t0);
-              console.log(_context.t0);
 
             case 26:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[16, 22]]);
+      }, _callee, null, [[17, 23]]);
     }));
 
     return function saveEdit(_x) {
@@ -6741,6 +6758,8 @@ var NewForm = function NewForm(_ref) {
   var inputLabel = "text-gray-500 text-md";
   var brgy = ["Aplaya", "Balibago", "Caingin", "Dila", "Dita", "Don Jose", "Ibaba", "Kanluran", "Labas", "Macabling", "Malitlit", "Malusak", "Market Area", "Pooc", "Pulong Santa Cruz", "Sinalhan", "Sto. Domingo", "Tagapo"]; // const [disabled, setDisabled] = useState("1");
 
+  var user_id = localStorage.getItem('auth_id');
+
   var proceed = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
       var newApplication, addData;
@@ -6763,7 +6782,8 @@ var NewForm = function NewForm(_ref) {
               newApplication.append('leasing', leasing);
               newApplication.append('franchise', franchise);
               newApplication.append('bType', bType);
-              _context.next = 17;
+              newApplication.append('user_id', user_id);
+              _context.next = 18;
               return axios__WEBPACK_IMPORTED_MODULE_0___default()({
                 method: "post",
                 url: "/api/add/addNewBusiness",
@@ -6771,19 +6791,24 @@ var NewForm = function NewForm(_ref) {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
-              }).then(function () {
-                setTimeout(function () {
+              }).then(function (response) {
+                if (response.data.status === 'exists') {
+                  alert(response.data.message);
+                } else if (response.data.status === 'success') {
                   setReview(1);
-                  setDisclaimer(0);
-                }, 3000);
+                } else {
+                  alert(response.data.message);
+                }
+              }).then(function () {
+                setDisclaimer(0);
               })["catch"](function (error) {
                 console.log(error);
               });
 
-            case 17:
+            case 18:
               addData = _context.sent;
 
-            case 18:
+            case 19:
             case "end":
               return _context.stop();
           }
@@ -7068,8 +7093,9 @@ var Review = function Review(_ref) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       appDetails = _useState2[0],
-      setAppDetails = _useState2[1]; // const [businessApplicationList, setbusinessApplicationList] = useState([]);
+      setAppDetails = _useState2[1];
 
+  var user_id = localStorage.getItem('auth_id'); // const [businessApplicationList, setbusinessApplicationList] = useState([]);
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getApplicationDetails();
@@ -7078,13 +7104,19 @@ var Review = function Review(_ref) {
   function getApplicationDetails() {
     axios.get('/api/get/appDetails/details', {
       params: {
-        businessname: newData.businessname
+        businessname: newData.businessname,
+        user_id: user_id
       }
     }).then(function (response) {
-      setAppDetails(response.data);
-      var key = response.data.map(function (det) {
-        setAppID(det.id);
-      });
+      if (response.data.status === 'success') {
+        console.log(response.data);
+        setAppDetails(response.data.result);
+        var key = response.data.result.map(function (det) {
+          setAppID(det.id);
+        });
+      } else {
+        alert(response.data.message);
+      }
     });
   }
 
@@ -7308,6 +7340,7 @@ var Uploading = function Uploading() {
       setSaveSuccess = _useState18[1];
 
   var currentYear = new Date().getFullYear();
+  var user_id = localStorage.getItem('auth_id');
   var inputFile = "bg-white p-1 rounded-md font-bold text-gray-700 border-2 border-gray-500 tracking-widest hover:cursor-pointer"; // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt getAppDet
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
@@ -7321,11 +7354,11 @@ var Uploading = function Uploading() {
     id.length === 4 ? setreferenceID("01" + currentYear + id) : "";
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/get/appDetails/getdet", {
       params: {
-        app_id: id
+        app_id: id,
+        user_id: user_id
       }
     }).then(function (response) {
-      setAppDet(response.data);
-      console.log(response.data);
+      setAppDet(response.data.result);
     });
   }
 
@@ -7356,9 +7389,10 @@ var Uploading = function Uploading() {
               data.append('appID', id);
               data.append('year', year);
               data.append('trans_id', referenceID);
+              data.append('user_id', user_id);
               setDisclaimer(1);
-              _context.prev = 12;
-              _context.next = 15;
+              _context.prev = 13;
+              _context.next = 16;
               return axios__WEBPACK_IMPORTED_MODULE_0___default()({
                 method: "post",
                 url: "/api/upload/requirements/new",
@@ -7373,23 +7407,23 @@ var Uploading = function Uploading() {
                 }, 1000);
               });
 
-            case 15:
+            case 16:
               response = _context.sent;
-              _context.next = 22;
+              _context.next = 23;
               break;
 
-            case 18:
-              _context.prev = 18;
-              _context.t0 = _context["catch"](12);
+            case 19:
+              _context.prev = 19;
+              _context.t0 = _context["catch"](13);
               alert(_context.t0);
               console.log(_context.t0);
 
-            case 22:
+            case 23:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[12, 18]]);
+      }, _callee, null, [[13, 19]]);
     }));
 
     return function uploadReqs(_x) {
@@ -7743,6 +7777,7 @@ var RenewalForm = function RenewalForm() {
       setDisclaimer = _useState2[1];
 
   var current_year = new Date().getFullYear();
+  var user_id = localStorage.getItem('auth_id');
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
     account_number: "",
@@ -7770,7 +7805,8 @@ var RenewalForm = function RenewalForm() {
               renewalForm.append("name", newData.name);
               renewalForm.append("contact", newData.contact);
               renewalForm.append("email", newData.email);
-              _context.next = 10;
+              renewalForm.append("user_id", user_id);
+              _context.next = 11;
               return axios({
                 method: "post",
                 url: "/api/add/renewal",
@@ -7778,17 +7814,24 @@ var RenewalForm = function RenewalForm() {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
+              }).then(function (response) {
+                if (response.data.status === "exist") {
+                  alert(response.data.message);
+                } else if (response.data.status === 'success') {
+                  navigate('/review/renewal/' + newData.account_number);
+                } else {
+                  alert(response.data.message);
+                }
               }).then(function () {
                 setDisclaimer(0);
-                navigate('/review/renewal/' + newData.account_number);
               })["catch"](function (error) {
                 console.log(error);
               });
 
-            case 10:
+            case 11:
               renewal = _context.sent;
 
-            case 11:
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -7996,17 +8039,35 @@ var RenewalUpload = function RenewalUpload() {
       disclaimer = _useState2[0],
       setDisclaimer = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      gross = _useState4[0],
-      setGross = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      appDet = _useState6[0],
-      setAppDet = _useState6[1];
-
   var current_year = new Date().getFullYear();
+  var user_id = localStorage.getItem('auth_id');
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      appDetails = _useState4[0],
+      setAppDetails = _useState4[1]; // docs to submit
+
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      gross = _useState6[0],
+      setGross = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      itr = _useState8[0],
+      setItr = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      brgy = _useState10[0],
+      setBrgy = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState12 = _slicedToArray(_useState11, 2),
+      insurance = _useState12[0],
+      setInsurance = _useState12[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDisclaimer(0);
   }, []);
@@ -8014,7 +8075,15 @@ var RenewalUpload = function RenewalUpload() {
   function handleFile(e) {
     var selectedFile = e.target.files[0];
     e.target.name === "gross" ? setGross(selectedFile) : "";
+    e.target.name === "ITR" ? setItr(selectedFile) : "";
+    e.target.name === "brgy" ? setBrgy(selectedFile) : "";
+    e.target.name === "insurance" ? setInsurance(selectedFile) : "";
   }
+
+  var uploadRenewal = function uploadRenewal(event) {
+    event.preventDefault();
+    alert("di pa tapos");
+  };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "container w-full",
@@ -8041,16 +8110,13 @@ var RenewalUpload = function RenewalUpload() {
             }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
               className: "pl-5 pt-3",
               encType: "multipart/form-data",
+              onSubmit: uploadRenewal,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                type: "hidden",
-                name: "account_number",
-                value: det.account_number
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
                 type: "hidden",
                 name: "year",
                 value: current_year
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "font-xl font-black",
+                className: "font-xl font-black pt-3",
                 children: ["Gross Income of ", current_year - 1]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
                 type: "file",
@@ -8058,7 +8124,7 @@ var RenewalUpload = function RenewalUpload() {
                 id: "gross",
                 onChange: handleFile,
                 accept: "application/pdf,application",
-                className: "text-transparent p-2",
+                className: "text-transparent",
                 required: true
               }), gross ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
                 className: "flex flex-row p-1",
@@ -8076,8 +8142,95 @@ var RenewalUpload = function RenewalUpload() {
                   className: "pl-3 font-bold text-red-500",
                   children: "No File/s Selected.(REQUIRED)"
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "font-xl font-black pt-3",
+                children: ["Annual Tax Return of ", current_year - 1]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                type: "file",
+                name: "ITR",
+                id: "ITR",
+                onChange: handleFile,
+                accept: "application/pdf,application",
+                className: "text-transparent",
+                required: true
+              }), itr ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex flex-row p-1",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaCheckSquare, {
+                  className: "text-green-500 text-lg"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "pl-2 font-bold text-green-500",
+                  children: itr.name
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex flex-row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaTimes, {
+                  className: "text-red-500 text-lg"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "pl-3 font-bold text-red-500",
+                  children: "No File/s Selected.(REQUIRED)"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "font-xl font-black pt-3",
+                children: ["Business Barangay Clearance(", current_year, ")"]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                type: "file",
+                name: "brgy",
+                id: "brgy",
+                onChange: handleFile,
+                accept: "application/pdf,application",
+                className: "text-transparent"
+              }), brgy ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex flex-row p-1",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaCheckSquare, {
+                  className: "text-green-500 text-lg"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "pl-2 font-bold text-green-500",
+                  children: brgy.name
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex flex-row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaTimes, {
+                  className: "text-red-500 text-lg"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "pl-3 font-bold text-red-500",
+                  children: "No File/s Selected."
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "font-xl font-black pt-3",
+                children: "CGL Insurance"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                type: "file",
+                name: "insurance",
+                id: "insurance",
+                onChange: handleFile,
+                accept: "application/pdf,application",
+                className: "text-transparent",
+                required: true
+              }), insurance ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex flex-row p-1",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaCheckSquare, {
+                  className: "text-green-500 text-lg"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "pl-2 font-bold text-green-500",
+                  children: insurance.name
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex flex-row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaTimes, {
+                  className: "text-red-500 text-lg"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "pl-3 font-bold text-red-500",
+                  children: "No File/s Selected.(REQUIRED)"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "w-full flex flex-row justify-end p-1",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                  type: "submit",
+                  className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
+                  children: "Upload"
+                })
               })]
-            }, det.id)]
+            })]
           })]
         })
       })
@@ -8146,6 +8299,7 @@ var Review = function Review() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)(),
       id = _useParams.id;
 
+  var user_id = localStorage.getItem('auth_id');
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getApplicationDetails(id);
   }, []);
@@ -8154,11 +8308,12 @@ var Review = function Review() {
     setDisclaimer(1);
     axios.get('/api/get/renewal/details', {
       params: {
-        account_number: id
+        account_number: id,
+        user_id: user_id
       }
     }).then(function (response) {
-      setAppDetails(response.data);
-      var key = response.data.map(function (det) {
+      setAppDetails(response.data.result);
+      var key = response.data.result.map(function (det) {
         setAppID(det.id);
       });
     }).then(function () {
@@ -8579,66 +8734,39 @@ var BusinessTable = function BusinessTable() {
 
   var getBusinesApplications = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var veri;
+      var user_token, user_id, headers;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               setTypeOfTable(1);
-              setDisclaimer(1); // const response = await axios({
-              //     method: "post",
-              //     url: "/api/edit/business",
-              //     data: {params:{year:year}},
-              //     headers: { 
-              //         "Content-Type": "multipart/form-data" ,
-              //         "xsrfHeaderName": "X-XSRF-TOKEN", // change the name of the header to "X-XSRF-TOKEN" and it should works
-              //         "withCredentials": true
-              //     },
-              //   }).then((response)=>{
-              //       setDisclaimer(0)
-              //     // navigate('/new-business/upload/'+newData.id);
-              //   })
-
-              _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/sanctum/csrf-cookie").then(function () {
-                axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/get/businessapplication/list', {
-                  params: {
-                    year: year
-                  }
-                }).then(function (response) {
-                  setbusinessApplicationList(response.data);
-                }).then(function () {
-                  setDisclaimer(0);
-                })["catch"](function (res) {
-                  alert(res);
-                }); // axios.get('/api/get/businessapplication/list',{params:{year: year}},
-                // {
-                //     headers:{
-                //         "Content-Type": "multipart/form-data" ,
-                //         "method": 'GET',
-                //         "data":{params:{year: year}},
-                //         "withCredentials": true,
-                //     }
-                // }).then((response)=>{
-                //     console.log(response);
-                //     setbusinessApplicationList(response.data)
-                // }).then(()=>{
-                //     setDisclaimer(0)
-                // }).catch((error)=>{
-                //     alert(error)
-                // })
-                // const newBusiness = axios.get('/api/get/businessapplication/list',{params:{year: year}            }).then(function(response){
-                //     console.log(response);
-                //     setbusinessApplicationList(response.data)
-                //  }).then(()=>{
-                //      setDisclaimer(0)
-                //  })
+              setDisclaimer(1);
+              user_token = localStorage.getItem('auth_token');
+              user_id = localStorage.getItem('auth_id');
+              headers = {
+                'accept': 'application/json',
+                'Authorization': 'Bearer ' + user_token
+              };
+              axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/get/businessapplication/list', {
+                params: {
+                  year: year,
+                  user_id: user_id
+                }
+              }, {
+                headers: headers
+              }).then(function (response) {
+                if (response.data.status === 'success') {
+                  setbusinessApplicationList(response.data.result.original);
+                } else {
+                  alert(response.data.message);
+                }
+              }).then(function () {
+                setDisclaimer(0);
+              })["catch"](function (res) {
+                alert(res);
               });
 
-            case 4:
-              veri = _context.sent;
-
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -8653,28 +8781,34 @@ var BusinessTable = function BusinessTable() {
 
   var getRenewals = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-      var renewal;
+      var user_id, renewal;
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               setTypeOfTable(2);
               setDisclaimer(1);
-              _context2.next = 4;
+              user_id = localStorage.getItem('auth_id');
+              _context2.next = 5;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/get/renewal/list', {
                 params: {
-                  year: year
+                  year: year,
+                  user_id: user_id
                 }
               }).then(function (response) {
-                setbusinessApplicationList(response.data);
+                if (response.data.status === 'success') {
+                  setbusinessApplicationList(response.data.result.original);
+                } else {
+                  alert(response.data.message);
+                }
               }).then(function () {
                 setDisclaimer(0);
               });
 
-            case 4:
+            case 5:
               renewal = _context2.sent;
 
-            case 5:
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -8802,8 +8936,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 /* harmony import */ var _components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Transaction/NewApplication */ "./resources/js/components/Transaction/NewApplication.js");
 /* harmony import */ var _components_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TransactionType/New/NewBusiness */ "./resources/js/components/TransactionType/New/NewBusiness.js");
@@ -8814,7 +8948,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TransactionType_Renewal_RenewalUpload__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/TransactionType/Renewal/RenewalUpload */ "./resources/js/components/TransactionType/Renewal/RenewalUpload.js");
 /* harmony import */ var _components_TransactionType_Renewal_Review__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/TransactionType/Renewal/Review */ "./resources/js/components/TransactionType/Renewal/Review.js");
 /* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/components/Dashboard.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Authenticate_Login__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Authenticate/Login */ "./resources/js/components/Authenticate/Login.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8853,6 +8988,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var MyApp = /*#__PURE__*/function (_Component) {
   _inherits(MyApp, _Component);
 
@@ -8867,49 +9003,53 @@ var MyApp = /*#__PURE__*/function (_Component) {
   _createClass(MyApp, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
         className: "",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/home",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/addNew",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Transaction_NewApplication__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/new-business",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_New_NewBusiness__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/new-business/upload/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_New_Uploading__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_New_Uploading__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/edit/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_New_EditBusinessNew__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_New_EditBusinessNew__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/cancel/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_New_DeleteBusinessNew__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_New_DeleteBusinessNew__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/renewal",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_Renewal_Renewal__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_Renewal_Renewal__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/upload/renewal/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_Renewal_RenewalUpload__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_Renewal_RenewalUpload__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/review/renewal/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TransactionType_Renewal_Review__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TransactionType_Renewal_Review__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             exact: true,
             path: "/dashboard",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Dashboard__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Dashboard__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+            exact: true,
+            path: "/user-login",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Authenticate_Login__WEBPACK_IMPORTED_MODULE_12__["default"], {})
           })]
         })
       });
@@ -8922,8 +9062,8 @@ var MyApp = /*#__PURE__*/function (_Component) {
 
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(MyApp, {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(MyApp, {})
   }), document.getElementById('app'));
 }
 

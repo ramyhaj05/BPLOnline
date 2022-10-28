@@ -11,10 +11,10 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
+Route::get('/user-login', [App\Http\Controllers\HomeController::class, 'index'])->name('user-login');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+// Route::middleware(['auth:sanctum', 'verified'])->group (function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -30,11 +30,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
     
-});
+// });
+
+Route::get('/auth/proceed',[App\Http\Controllers\HomeController::class, 'AuthProceed'])->name('auth.proceed');
 
 Route::post('/tokens/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
  
     return ['token' => $token->plainTextToken];
 });
-

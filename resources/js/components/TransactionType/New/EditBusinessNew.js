@@ -14,13 +14,14 @@ const EditBusinessNew = () =>{
     const [disclaimer, setDisclaimer] = useState(0);
     const brgy = ["Aplaya","Balibago","Caingin","Dila","Dita","Don Jose","Ibaba","Kanluran","Labas","Macabling","Malitlit","Malusak","Market Area","Pooc","Pulong Santa Cruz","Sinalhan","Sto. Domingo","Tagapo"];
     const [newData, setNewData] = useState([{id: "",businesname: "", business_address: "",barangay: "",type: "",franchise: "",leasing: "",capital: "",description: "", owners_name: "",owners_address: "",contact: "",email: ""}]);
+    const user_id = localStorage.getItem('auth_id');
     useEffect(()=>{
         getData();
     },[])
     const getData = () =>{
         setDisclaimer(1);
-        axios.get("/api/get/appDetails/getdet",{params:{app_id:id}}).then(function(response){
-            const keys = response.data.map((key)=>{
+        axios.get("/api/get/appDetails/getdet",{params:{app_id:id,user_id:user_id}}).then(function(response){
+            const keys = response.data.result.map((key)=>{
                 setNewData({...newData, id: key.id, businessname: key.business_name, business_address: key.business_address,
                     type: key.business_type, barangay: key.barangay, franchise: key.franchise, leasing: key.leasing, 
                     capital: key.capital_investment, description: key.description, owners_name: key.owners_name, owners_address: key.owners_address,
@@ -46,6 +47,7 @@ const EditBusinessNew = () =>{
         editData.append('owners_address', newData.owners_address);
         editData.append('contact', newData.contact);
         editData.append('email', newData.email);
+        editData.append('user_id', user_id);
         setDisclaimer(1)
         try {
             const response = await axios({
@@ -55,13 +57,11 @@ const EditBusinessNew = () =>{
                 headers: { "Content-Type": "multipart/form-data" },
               }).then((response)=>{
                   setDisclaimer(0)
-                // navigate('/new-business/upload/'+newData.id);
               }).then(()=>{
                 setSaveSuccess(1)
               })
         } catch(error) {
             alert(error);
-            console.log(error)
         }
     }
     return(

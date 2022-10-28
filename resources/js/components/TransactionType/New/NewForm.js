@@ -7,6 +7,7 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
     const inputLabel = "text-gray-500 text-md";
     const brgy = ["Aplaya","Balibago","Caingin","Dila","Dita","Don Jose","Ibaba","Kanluran","Labas","Macabling","Malitlit","Malusak","Market Area","Pooc","Pulong Santa Cruz","Sinalhan","Sto. Domingo","Tagapo"];
     // const [disabled, setDisabled] = useState("1");
+    const user_id = localStorage.getItem('auth_id');
     const proceed = async event =>{
         event.preventDefault();
             setDisclaimer(1);
@@ -23,16 +24,24 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
             newApplication.append('leasing', leasing)
             newApplication.append('franchise', franchise)
             newApplication.append('bType', bType)
+            newApplication.append('user_id', user_id)
             const addData = await axios({
                 method: "post",
                 url: "/api/add/addNewBusiness",
                 data: newApplication,
                 headers: { "Content-Type": "multipart/form-data" },
-              }).then(()=>{
-                setTimeout(() => {
+              }).then((response)=>{
+                if(response.data.status === 'exists'){
+                    alert(response.data.message);
+                }
+                else if(response.data.status === 'success'){
                     setReview(1);
-                    setDisclaimer(0)
-                }, 3000);
+                }
+                else{
+                    alert(response.data.message);
+                }
+            }).then(()=>{
+                setDisclaimer(0)
             }).catch((error)=>{
                 console.log(error);
             });

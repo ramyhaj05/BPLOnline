@@ -6,6 +6,7 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
     const reviewDetails = "text-gray-600 text-lg tracking-widest";
     const [appDetails, setAppDetails] = useState([]);
+    const user_id = localStorage.getItem('auth_id');
 
     // const [businessApplicationList, setbusinessApplicationList] = useState([]);
 
@@ -14,11 +15,17 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
     },[review]);
 
     function getApplicationDetails(){
-        axios.get('/api/get/appDetails/details',{params:{businessname: newData.businessname}}).then(function(response){
-            setAppDetails(response.data);
-            const key = response.data.map((det)=>{
-                setAppID(det.id)
-            })
+        axios.get('/api/get/appDetails/details',{params:{businessname: newData.businessname, user_id: user_id}}).then(function(response){
+            if(response.data.status === 'success'){
+                console.log(response.data)
+                setAppDetails(response.data.result);
+                const key = response.data.result.map((det)=>{
+                    setAppID(det.id)
+                })
+            }
+            else{
+                alert(response.data.message);
+            }
         })
     }
     return(

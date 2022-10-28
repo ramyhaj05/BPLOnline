@@ -42,7 +42,11 @@ class LoginController extends Controller
  
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+            $user = Auth::attempt($credentials);
+            "<script>
+                localStorage.setItem('user_id', {$user->id});
+            </script>";
+            
             return redirect()->intended('dashboard');
         }
  

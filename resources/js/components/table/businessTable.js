@@ -27,62 +27,39 @@ const BusinessTable = () =>{
     const getBusinesApplications = async()=>{
         setTypeOfTable(1);
         setDisclaimer(1);
-
-        // const response = await axios({
-        //     method: "post",
-        //     url: "/api/edit/business",
-        //     data: {params:{year:year}},
-        //     headers: { 
-        //         "Content-Type": "multipart/form-data" ,
-        //         "xsrfHeaderName": "X-XSRF-TOKEN", // change the name of the header to "X-XSRF-TOKEN" and it should works
-        //         "withCredentials": true
-        //     },
-        //   }).then((response)=>{
-        //       setDisclaimer(0)
-        //     // navigate('/new-business/upload/'+newData.id);
-        //   })
-        const veri = await axios.get("/sanctum/csrf-cookie").then(()=>{
-            axios.get('/api/get/businessapplication/list',{params:{year: year}}).then((response)=>{
-                setbusinessApplicationList(response.data)
+        const user_token = localStorage.getItem('auth_token');
+        const user_id = localStorage.getItem('auth_id');
+        const headers = {
+            'accept': 'application/json',
+            'Authorization': 'Bearer ' + user_token
+        }
+            axios.get('/api/get/businessapplication/list',{params:{year: year, user_id:user_id}},{
+                headers:headers
+            }).then((response)=>{
+                if(response.data.status === 'success'){
+                    setbusinessApplicationList(response.data.result.original)
+                }
+                else{
+                    alert(response.data.message)
+                }
             }).then(()=>{
                 setDisclaimer(0)
             }).catch((res)=>{
                 alert(res)
             })
-
-            // axios.get('/api/get/businessapplication/list',{params:{year: year}},
-            // {
-            //     headers:{
-            //         "Content-Type": "multipart/form-data" ,
-            //         "method": 'GET',
-            //         "data":{params:{year: year}},
-            //         "withCredentials": true,
-            //     }
-            // }).then((response)=>{
-            //     console.log(response);
-            //     setbusinessApplicationList(response.data)
-            // }).then(()=>{
-            //     setDisclaimer(0)
-            // }).catch((error)=>{
-            //     alert(error)
-            // })
-
-
-            // const newBusiness = axios.get('/api/get/businessapplication/list',{params:{year: year}            }).then(function(response){
-            //     console.log(response);
-            //     setbusinessApplicationList(response.data)
-            //  }).then(()=>{
-            //      setDisclaimer(0)
-            //  })
-        })
-        
     }
 
     const getRenewals = async()=>{
         setTypeOfTable(2);
         setDisclaimer(1)
-        const renewal = await axios.get('/api/get/renewal/list',{params:{year: year}}).then(function(response){
-           setbusinessApplicationList(response.data)
+        const user_id = localStorage.getItem('auth_id');
+        const renewal = await axios.get('/api/get/renewal/list',{params:{year: year, user_id:user_id}}).then(function(response){
+           if(response.data.status === 'success'){
+            setbusinessApplicationList(response.data.result.original)
+           }
+           else{
+            alert(response.data.message);
+           }
         }).then(()=>{
             setDisclaimer(0)
         })

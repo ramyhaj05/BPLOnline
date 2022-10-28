@@ -19,6 +19,7 @@ const Uploading = () =>{
     const [disclaimer, setDisclaimer] = useState(0);
     const [saveSuccess, setSaveSuccess] = useState(0)
     const currentYear = new Date().getFullYear()
+    const user_id = localStorage.getItem('auth_id');
     const inputFile = "bg-white p-1 rounded-md font-bold text-gray-700 border-2 border-gray-500 tracking-widest hover:cursor-pointer";
     // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt getAppDet
     useEffect(() => {
@@ -32,9 +33,8 @@ const Uploading = () =>{
         id.length === 2 ? setreferenceID("01"+currentYear+"00"+id) : "";
         id.length === 3 ? setreferenceID("01"+currentYear+"0"+id) : "";
         id.length === 4 ? setreferenceID("01"+currentYear+id) : "";
-        axios.get("/api/get/appDetails/getdet",{params:{app_id:id}}).then(function(response){
-            setAppDet(response.data);
-            console.log(response.data);
+        axios.get("/api/get/appDetails/getdet",{params:{app_id:id, user_id:user_id}}).then(function(response){
+            setAppDet(response.data.result);
         });
     }
 
@@ -59,6 +59,7 @@ const Uploading = () =>{
         data.append('appID', id);
         data.append('year', year);
         data.append('trans_id', referenceID);
+        data.append('user_id', user_id);
         setDisclaimer(1);
         try {
             const response = await axios({
@@ -84,7 +85,6 @@ const Uploading = () =>{
                 <div className="w-full">
                     <div className="card">
                         <div className="card-header text-lg font-semibold text-gray-700">List of Requirements - New</div>
-                        
                         <div className="card-body">
                             {saveSuccess === 1 ? <div className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-gray-500/70 bg-opacity-1">
                                 <div className="flex flex-col align-items-center bg-gray-100 rounded border-4 border-emerald-500 w-3/4 md:w-1/2 p-4 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg bg-white">

@@ -14,13 +14,14 @@ const DeleteBusinessNew = () =>{
     const reviewDetails = "text-gray-600 text-lg tracking-widest";
     const [deletePopUp, setDeletePopUp] = useState(0)
     const [confirmed, setConfirmed] = useState("")
+    const user_id = localStorage.getItem('auth_id');
     useEffect(()=>{
         getData();
     },[])
     const getData = () =>{
         setDisclaimer(1);
-        axios.get("/api/get/appDetails/getdet",{params:{app_id:id}}).then(function(response){
-            const keys = response.data.map((key)=>{
+        axios.get("/api/get/appDetails/getdet",{params:{app_id:id, user_id:user_id}}).then(function(response){
+            const keys = response.data.result.map((key)=>{
                 setNewData({...newData, id: key.id, businessname: key.business_name, business_address: key.business_address,
                     type: key.business_type, barangay: key.barangay, franchise: key.franchise, leasing: key.leasing, 
                     capital: key.capital_investment, description: key.description, owners_name: key.owners_name, owners_address: key.owners_address,
@@ -35,7 +36,7 @@ const DeleteBusinessNew = () =>{
         // event.preventDefault();
         if(confirmed == "CONFIRM"){
             setDisclaimer(1);
-            const deleteBusiness = await axios.post("/api/delete/business/",{app_id:id}).then(()=>{
+            const deleteBusiness = await axios.post("/api/delete/business/",{app_id:id, user_id:user_id}).then(()=>{
                 setDisclaimer(0);
                 setDeletePopUp(0)
             }).then(()=>{
@@ -43,7 +44,7 @@ const DeleteBusinessNew = () =>{
             })
         }
         else{
-            alert("Incorrect Confirmation")
+            alert("Invalid Confirmation")
         }
 
     }

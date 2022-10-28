@@ -12,6 +12,7 @@ import DeleteBusinessNew from './components/TransactionType/New/DeleteBusinessNe
 import RenewalUpload from './components/TransactionType/Renewal/RenewalUpload';
 import Review from './components/TransactionType/Renewal/Review';
 import Dashboard from './components/Dashboard';
+import Login from './components/Authenticate/Login';
 
 export default class MyApp extends Component{
     render(){return(
@@ -28,6 +29,7 @@ export default class MyApp extends Component{
                     <Route exact path="/upload/renewal/:id" element={<RenewalUpload/> } />
                     <Route exact path="/review/renewal/:id" element={<Review/> } />
                     <Route exact path="/dashboard" element={<Dashboard/> } />
+                    <Route exact path="/user-login" element={<Login/> } />
                 </Routes>
         </div>
     )}

@@ -8,6 +8,7 @@ const RenewalForm = () =>{
     const inputLabel = "text-gray-500 text-md";
     const [disclaimer, setDisclaimer] = useState(0);
     const current_year = new Date().getFullYear();
+    const user_id = localStorage.getItem('auth_id');
     const [newData, setNewData] = useState([
         {
             account_number: "",
@@ -27,14 +28,24 @@ const RenewalForm = () =>{
         renewalForm.append("name", newData.name)
         renewalForm.append("contact", newData.contact)
         renewalForm.append("email", newData.email)
+        renewalForm.append("user_id", user_id)
         const renewal = await axios({
             method: "post",
             url: "/api/add/renewal",
             data: renewalForm,
             headers: { "Content-Type": "multipart/form-data" },
-          }).then(()=>{
+          }).then((response)=>{
+            if(response.data.status === "exist"){
+                alert(response.data.message);
+            }
+            else if(response.data.status === 'success'){
+                navigate('/review/renewal/'+newData.account_number);
+            }
+            else{
+                alert(response.data.message);
+            }
+        }).then(()=>{
             setDisclaimer(0)
-            navigate('/review/renewal/'+newData.account_number);
         }).catch((error)=>{
             console.log(error);
         });

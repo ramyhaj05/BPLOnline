@@ -1,8 +1,31 @@
-import React, { Component } from 'react';
-import BusinessTable from './table/businessTable';
-import {Link} from 'react-router-dom';
-export default class App extends Component {
-    render(){return (
+import axios from 'axios';
+import React from 'react';
+// import BusinessTable from './table/businessTable';
+import {useNavigate} from 'react-router-dom';
+
+// export default class App extends Component {
+    
+//     render(
+//     ){
+//     const navigate = useNavigate();
+//     const proceed = () =>{
+//         navigate('/dashboard')
+//     }
+const App = () =>{
+        const navigate = useNavigate();
+        const proceed = () =>{
+            axios.get('/sanctum/csrf-cookie').then(response => {
+                axios.get('/auth/proceed').then((res)=>{
+                    localStorage.setItem('auth_token', res.data.token)
+                    localStorage.setItem('auth_name', res.data.username)
+                    localStorage.setItem('auth_id', res.data.user_id)
+                }).then(()=>{
+                    navigate('/dashboard')
+                })
+            });
+        }
+    
+        return (
         <div className="container w-full">
                 <div className="row justify-content-center">
                     <div className="w-full">
@@ -19,7 +42,7 @@ export default class App extends Component {
                             Please click proceed to continue..
                                 </div>
                             </div>
-                            <div className="w-full flex flex-col align-items-end"><Link to="/dashboard"className='p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm'>Proceed</Link></div>
+                            <div className="w-full flex flex-col align-items-end"><div onClick={proceed} className='p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm hover:cursor-pointer'>Proceed</div></div>
                         </div>
                         {/* <div className="card">
                             <div className="card-header text-lg font-semibold text-gray-700">List of Submitted Application</div>
@@ -32,7 +55,11 @@ export default class App extends Component {
                     </div>
                 </div>
         </div>
-    );}
+    )
 }
+
+export default App
+//     ;}
+// }
 
 

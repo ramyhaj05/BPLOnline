@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="">
+<body class="" id="">
     <div class="bg-gradient-to-t from-emerald-200 via-white to-white min-h-screen">
         <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-emerald-500 to-emerald-200">
             <div class="container">

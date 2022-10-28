@@ -25,7 +25,7 @@ class UploadingController extends Controller
        try {
             $appID = $request->appID;
             $year = $request->year;
-            $user_id = auth('sanctum')->user()->id;
+            $user_id = $request->user_id;
             // Files/Year/01-xxx-xx
             $directory = "/Files"."/".$year."/"."01".$appID.$user_id;
             File::makeDirectory($directory, 0777, true, true);
