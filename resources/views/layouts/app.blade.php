@@ -62,10 +62,12 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
+                                        {{ Auth::user()->id  }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
+                                        <input id="id" name="id" type="text" class="hidden" value="{{ Auth::user()->id }}">
                                     </form>
                                 </div>
                             </li>

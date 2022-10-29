@@ -3,8 +3,9 @@ import React,{useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import BusinessTableContent from './BusinessTableContent';
 import ScaleLoader from "react-spinners/ScaleLoader";
-import { FaAppStoreIos } from "react-icons/fa";
-import apiClient from '../services/api';
+import LoadingScreen from "../Layout/loadingScreen";
+// import { FaAppStoreIos } from "react-icons/fa";
+// import apiClient from '../services/api';
 const BusinessTable = () =>{
     const tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5";
     const [businessApplicationList, setbusinessApplicationList] = useState([]);
@@ -66,14 +67,8 @@ const BusinessTable = () =>{
     }
     return(
         <div className="w-full md:p-5 p-1">
-            {disclaimer === 1 ?<div className="fixed z-100 left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-black/50 bg-opacity-1">
-                <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
-                    <ScaleLoader
-                    color="#36d7b7"
-                    margin={10}
-                    />
-                </div>
-            </div> : ""}
+            
+            {disclaimer === 1 ? <LoadingScreen/> : ""}
             <div className="w-full p-2 pt-3 flex flex-row justify-between">
                 <div className="font-bold tracking-widest text-gray-600">Permit Application: 
                     <select name="" id="" onChange={(e)=>{setYear(e.target.value)}}>

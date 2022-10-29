@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react";
-import ScaleLoader from "react-spinners/ScaleLoader";
+import React, {useState} from "react";
+import LoadingScreen from "../../Layout/loadingScreen";
 import {useNavigate} from 'react-router-dom';
+import PopUpMessage from "../../Layout/popUp";
 
 const RenewalForm = () =>{
     const navigate = useNavigate();
@@ -9,6 +10,11 @@ const RenewalForm = () =>{
     const [disclaimer, setDisclaimer] = useState(0);
     const current_year = new Date().getFullYear();
     const user_id = localStorage.getItem('auth_id');
+    const [popper, setPopper] = useState([{
+        'status': '',
+        'message': '',
+    }]);
+    const [enablePopper, setEnablePopper] = useState(0);
     const [newData, setNewData] = useState([
         {
             account_number: "",
@@ -29,6 +35,7 @@ const RenewalForm = () =>{
         renewalForm.append("contact", newData.contact)
         renewalForm.append("email", newData.email)
         renewalForm.append("user_id", user_id)
+        renewalForm.append("year", current_year)
         const renewal = await axios({
             method: "post",
             url: "/api/add/renewal",
@@ -36,16 +43,19 @@ const RenewalForm = () =>{
             headers: { "Content-Type": "multipart/form-data" },
           }).then((response)=>{
             if(response.data.status === "exist"){
-                alert(response.data.message);
+                setPopper({...popper, status:response.data.status, message:response.data.message})
+                setEnablePopper(1)
+                setDisclaimer(0);
             }
             else if(response.data.status === 'success'){
-                navigate('/review/renewal/'+newData.account_number);
+                setDisclaimer(0)
+                navigate('/review/renewal/'+response.data.result);
             }
             else{
-                alert(response.data.message);
+                setPopper({...popper, status:response.data.status, message:response.data.message})
+                setEnablePopper(1)
+                setDisclaimer(0);
             }
-        }).then(()=>{
-            setDisclaimer(0)
         }).catch((error)=>{
             console.log(error);
         });
@@ -53,14 +63,8 @@ const RenewalForm = () =>{
 
     return(
         <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={renewalSubmit}>
-            {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
-                <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
-                    <ScaleLoader
-                    color="#36d7b7"
-                    margin={10}
-                    />
-                </div>
-            </div> : ""}
+            {enablePopper === 1 ? <PopUpMessage popper={popper} setEnablePopper={setEnablePopper}/> : ""}
+            {disclaimer === 1 ? <LoadingScreen></LoadingScreen> : ""}
             <div className="w-full flex md:flex-row flex-col flex-wrap">
             <div className="w-full md:w-1/2">
                     <span className="text-gray-400 text-xl underline">Business Information</span>

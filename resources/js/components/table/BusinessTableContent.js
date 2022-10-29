@@ -19,8 +19,9 @@ const businessTableContent = ({business}) =>{
                 </td>
                 <td className={tableB + " md:w-1/4 w-1/4 text-center"}>
                     <div className="flex flex-row justify-around text-2xl">
-                        <Link to={business.status !== "3" ? `/edit/`+business.id : ""}><FaEdit className="text-gray-500"></FaEdit></Link>
-                        <Link to={business.status !== "3" ? `/cancel/`+business.id : ""}><FaTrashAlt className="text-red-500"></FaTrashAlt></Link>
+                        {business.business_name ? <Link to={business.status !== "3" ? `/edit/`+business.id : ""}><FaEdit className="text-gray-500"></FaEdit></Link> : <Link to={business.status !== "3" ? `/edit/renewal/`+business.id : ""}><FaEdit className="text-gray-500"></FaEdit></Link>}
+                        {business.business_name ? <Link to={business.status !== "3" ? `/cancel/`+business.id : ""}><FaTrashAlt className="text-red-500"></FaTrashAlt></Link> : <Link to={business.status !== "3" ? `/cancel/renewal/`+business.id : ""}><FaTrashAlt className="text-red-500"></FaTrashAlt></Link>}
+                        
                     </div>
                 </td>
             </tr>

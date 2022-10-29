@@ -36,10 +36,7 @@ class BusinessApplicationController extends Controller
     }
     public function getBusinessApplication(Request $request){
         $year = $request->year;
-        // $user = $request->user();
-        // $user_id = auth('sanctum')->user()->id;
         $user_id = $request->user_id;
-        // if ($user->tokenCan('server:update')) {
             try 
             {
                 $businessapplications =  BusinessApplication::withTrashed()->where('user_id', $user_id)->whereYear('created_at', $year)->orderBy('created_at', 'desc')->get();
@@ -95,9 +92,12 @@ class BusinessApplicationController extends Controller
         $user = $request->user();
         $user_id = $request->user_id;
             try {
-            $check = BusinessApplication::where('business_name', $request->businessname)->where('barangay',$request->barangay)->where('capital_investment',$request->capital)->first();
+            $check = BusinessApplication::where('business_name', $request->businessname)->
+            where('barangay',$request->barangay)->
+            where('business_address', $request->business_address)
+            ->first();
             if($check !== null){
-                return response()->json(['status'=>'exist','message'=>"Business Application with the name $request->businessname Already Exists!"]);
+                return response()->json(['status'=>'exist','message'=>"Business Application with the name $request->businessname located at $request->business_address, $request->barangay Already Exists!"]);
             }
             else{
                 $insert = BusinessApplication::create([

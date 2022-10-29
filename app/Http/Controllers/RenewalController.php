@@ -28,9 +28,11 @@ class RenewalController extends Controller
 
     public function store(Request $request){
             try {
-                $check = Renewal::where('account_number', $request->account_number)->where('gross_income',$request->gross_income)->first();
+                $check = Renewal::where('account_number', $request->account_number)->
+                where('gross_income',$request->gross_income)->
+                where('year',$request->year)->first();
                 if($check !== null){
-                    return response()->json(['status'=>'exsist','message'=>"Re-newal Application with Account Number $request->account_number Already Exists!"]);
+                    return response()->json(['status'=>'exsist','message'=>"The Re-Newal application of Account Number $request->account_number for the year $request->year Already Exists!"]);
                 }
                 else{$insert = Renewal::create([
                     'account_number' => $request->account_number,
@@ -39,6 +41,7 @@ class RenewalController extends Controller
                     'contact' => $request->contact,
                     'email' => $request->email,
                     'status' => "0",
+                    'year'=>$request->year,
                     'user_id' => $request->user_id,
                 ])->id;
                 return response()->json(['status'=>'success','message'=>'Success!','result'=>$insert]);}
@@ -48,10 +51,25 @@ class RenewalController extends Controller
         // }
     }
 
+    public function patch (Request $request){
+        try {
+            $updateDetails = Renewal::find($request->id);
+            $updateDetails->account_number = $request->account_number;
+            $updateDetails->gross_income = $request->gross_income;
+            $updateDetails->owners_name = $request->name;
+            $updateDetails->contact = $request->contact;
+            $updateDetails->email = $request->email;
+            $updateDetails->update();
+            return response()->json(['status'=>'success', 'message'=>'Success']);
+        } catch (Error $e) {
+            return response()->json(['status'=>'error','message'=>'$e']);
+        }
+    }
+
     public function getReview(Request $request){
         try 
         {
-            $businessapplications =  Renewal::where('account_number', $request->account_number)->where("user_id", $request->user_id)->orderBy('id', 'desc')->limit(1)->get();
+            $businessapplications =  Renewal::where('id', $request->id)->where("user_id", $request->user_id)->orderBy('id', 'desc')->limit(1)->get();
             return response()->json(['status'=>'success','message'=>'Success!','result'=>$businessapplications]);
         } 
         catch (Error $e) 

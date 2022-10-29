@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
-import ScaleLoader from "react-spinners/ScaleLoader";
+import LoadingScreen from "../../Layout/loadingScreen";
 
-const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
+const Review = ({newData, disclaimer, setAppID, appID, review, setDisclaimer}) =>{
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
     const reviewDetails = "text-gray-600 text-lg tracking-widest";
     const [appDetails, setAppDetails] = useState([]);
@@ -11,6 +11,7 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
     // const [businessApplicationList, setbusinessApplicationList] = useState([]);
 
     useEffect(()=>{
+        setDisclaimer(1)
         getApplicationDetails();
     },[review]);
 
@@ -26,18 +27,13 @@ const Review = ({newData, disclaimer, setAppID, appID, review}) =>{
             else{
                 alert(response.data.message);
             }
+        }).then(()=>{
+            setDisclaimer(0);
         })
     }
     return(
         <div className="w-full md:p-5 p-1">
-            {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
-                <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
-                    <ScaleLoader
-                    color="#36d7b7"
-                    margin={10}
-                    />
-                </div>
-            </div> : ""}
+            {disclaimer === 1 ?<LoadingScreen/>: ""}
             {/* {appDetails.map((det)=>{return <div key={det.id}>{det.id}</div>})} */}
             {appDetails.map((det)=>{
                 

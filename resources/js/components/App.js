@@ -1,16 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-// import BusinessTable from './table/businessTable';
 import {useNavigate} from 'react-router-dom';
-
-// export default class App extends Component {
-    
-//     render(
-//     ){
-//     const navigate = useNavigate();
-//     const proceed = () =>{
-//         navigate('/dashboard')
-//     }
 const App = () =>{
         const navigate = useNavigate();
         const proceed = () =>{
@@ -44,14 +34,6 @@ const App = () =>{
                             </div>
                             <div className="w-full flex flex-col align-items-end"><div onClick={proceed} className='p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm hover:cursor-pointer'>Proceed</div></div>
                         </div>
-                        {/* <div className="card">
-                            <div className="card-header text-lg font-semibold text-gray-700">List of Submitted Application</div>
-
-                            <div className="card-body">
-                                You can now apply your Business Permit Online!
-                                <BusinessTable />
-                            </div>
-                        </div> */}
                     </div>
                 </div>
         </div>

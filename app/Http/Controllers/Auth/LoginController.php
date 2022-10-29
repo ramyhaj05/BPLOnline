@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Http\Request;
+
 
 class LoginController extends Controller
 {
@@ -55,8 +59,13 @@ class LoginController extends Controller
         ]);
     }
     
-    public function __construct()
+    public function __construct(Request $request)
     {
+        if($request->id){
+            $userid = $request->id;
+            $user = User::find($userid);
+            $user->tokens()->where('tokenable_id', $userid)->delete();
+        }
         $this->middleware('guest')->except('logout');
     }
 }

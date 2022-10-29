@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
-
+import LoadingScreen from "../Layout/loadingScreen";
 const NewApplication= ()=>{
     const TranButtons = "w-full border-4 p-2 rounded font-bold text-md tracking-widest text-center ";
     const ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
+    const [disclaimer, setDisclaimer] = useState(1);
+
+    useEffect(()=>{
+        setDisclaimer(0);
+    })
     return(
     <div className="w-full  ">
+        
+        {disclaimer === 1 ? <LoadingScreen/> : ""}
         <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">ADD NEW TRANSACTION</div>
         <div className="card bg-white">
             <div className="card-header text-lg font-semibold text-gray-700">Please select transaction</div>

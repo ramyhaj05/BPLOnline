@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, {useState, useEffect}  from "react";
-import ScaleLoader from "react-spinners/ScaleLoader";
 import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
+import LoadingScreen from "../../Layout/loadingScreen";
 
 const EditBusinessNew = () =>{
     const navigate = useNavigate();
@@ -79,14 +79,7 @@ const EditBusinessNew = () =>{
                                     <div onClick={()=>{navigate(`/new-business/upload/`+id)}} className="p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-emerald-500 cursor-pointer">Continue</div>
                                 </div>
                             </div> : ""}
-                            {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
-                                <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
-                                    <ScaleLoader
-                                    color="#36d7b7"
-                                    margin={10}
-                                    />
-                                </div>
-                            </div> : ""}
+                            {disclaimer === 1 ? <LoadingScreen/> : ""}
                                 <div className="w-full flex md:flex-row flex-col flex-wrap" key={newData.id}>
                                     <div className="w-full md:w-1/2">
                                         <div className="py-1 block">

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaCheckSquare, FaTimes } from 'react-icons/fa';
-import ScaleLoader from "react-spinners/ScaleLoader";
+import LoadingScreen from "../../Layout/loadingScreen";
 import {useNavigate, Link} from 'react-router-dom';
 
 const Uploading = () =>{
@@ -16,7 +16,7 @@ const Uploading = () =>{
     const [insurance, setInsurance] = useState(null);
     // const [cedula, setCedula] = useState(null);
     const [referenceID, setreferenceID] = useState();
-    const [disclaimer, setDisclaimer] = useState(0);
+    const [disclaimer, setDisclaimer] = useState(1);
     const [saveSuccess, setSaveSuccess] = useState(0)
     const currentYear = new Date().getFullYear()
     const user_id = localStorage.getItem('auth_id');
@@ -35,6 +35,8 @@ const Uploading = () =>{
         id.length === 4 ? setreferenceID("01"+currentYear+id) : "";
         axios.get("/api/get/appDetails/getdet",{params:{app_id:id, user_id:user_id}}).then(function(response){
             setAppDet(response.data.result);
+        }).then(()=>{
+            setDisclaimer(0)
         });
     }
 
@@ -96,14 +98,7 @@ const Uploading = () =>{
                                     <Link to="/dashboard" className="p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-emerald-500">Done</Link>
                                 </div>
                             </div> : ""}
-                        {disclaimer === 1 ?<div className="fixed z-100 left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-black/50 bg-opacity-1">
-                            <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
-                                <ScaleLoader
-                                color="#36d7b7"
-                                margin={10}
-                                />
-                            </div>
-                        </div> : ""}
+                        {disclaimer === 1 ? <LoadingScreen/> : ""}
                             <h1 className="text-red-500 font-black text-md">Disclaimer: Please be advised that we only accept PDF Format file/s or else the application will be invalid.</h1>
                             <h1 className="text-red-500 font-black text-xs">MAXIMUM FILES SIZE - 12MB</h1>
                             {appDet.map((det)=>{

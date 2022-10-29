@@ -16,6 +16,7 @@ class Renewal extends Model
         'contact',
         'email',
         'status',
+        'year',
         'user_id',
     ];
 }

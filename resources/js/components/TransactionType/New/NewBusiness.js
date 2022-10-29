@@ -2,12 +2,13 @@ import React,{useState} from "react";
 import NewForm from "./NewForm";
 import Review from "./Review";
 import {Link} from 'react-router-dom';
+import LoadingScreen from "../../Layout/loadingScreen";
 const NewBusiness = () =>{
     const [bType, setBType] = useState(0);
     const [franchise, setFranchise] = useState(0);
     const [leasing, setLeasing] = useState(0);
     const [review, setReview] = useState(0);
-    const [disclaimer, setDisclaimer] = useState(0);
+    const [disclaimer, setDisclaimer] = useState(1);
     const [appID, setAppID] = useState("");
     const [newData, setNewData] = useState([
         {
@@ -24,6 +25,7 @@ const NewBusiness = () =>{
     ]);
     return(
         <div className="w-full md:p-5 p-1">
+            {disclaimer === "1" ? <LoadingScreen/> : ""}
             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">APPLICATION FOR NEW BUSINESS PERMIT</div>
             <div className="card bg-white">
                 <div className="card-header  text-lg font-semibold text-gray-700">APPLICATION FOR NEW BUSINESS</div>

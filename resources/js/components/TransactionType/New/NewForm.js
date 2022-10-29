@@ -1,13 +1,24 @@
 import axios from "axios";
-import React from "react";
-import ScaleLoader from "react-spinners/ScaleLoader";
+import React,{useEffect, useState} from "react";
+import PopUpMessage from "../../Layout/popUp";
+import LoadingScreen from "../../Layout/loadingScreen";
 
 const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise, bType}) =>{
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
+    const [popper, setPopper] = useState([{
+        'status': '',
+        'message': '',
+    }]);
+    const [enablePopper, setEnablePopper] = useState(0);
     const brgy = ["Aplaya","Balibago","Caingin","Dila","Dita","Don Jose","Ibaba","Kanluran","Labas","Macabling","Malitlit","Malusak","Market Area","Pooc","Pulong Santa Cruz","Sinalhan","Sto. Domingo","Tagapo"];
     // const [disabled, setDisabled] = useState("1");
     const user_id = localStorage.getItem('auth_id');
+
+    useEffect(()=>{
+        setDisclaimer(0);
+    })
+
     const proceed = async event =>{
         event.preventDefault();
             setDisclaimer(1);
@@ -32,13 +43,15 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                 headers: { "Content-Type": "multipart/form-data" },
               }).then((response)=>{
                 if(response.data.status === 'exists'){
-                    alert(response.data.message);
+                    setPopper({...popper, status:response.data.status, message:response.data.message})
+                    setEnablePopper(1)
                 }
                 else if(response.data.status === 'success'){
                     setReview(1);
                 }
                 else{
-                    alert(response.data.message);
+                    setPopper({...popper, status:response.data.status, message:response.data.message})
+                    setEnablePopper(1)
                 }
             }).then(()=>{
                 setDisclaimer(0)
@@ -49,14 +62,8 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
     return(
     <div className="w-full md:p-5 p-1">
         <form method="post" id="newApp" name='newApp' className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={proceed}>
-            {disclaimer === 1 ?<div className="fixed left-0 top-0 w-full h-full transparent flex flex-col items-center justify-center bg-white/50 bg-opacity-1">
-                <div className="bg-gray-100 rounded ring ring-white w-3/4 md:w-1/2 p-2 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg">
-                    <ScaleLoader
-                    color="#36d7b7"
-                    margin={10}
-                    />
-                </div>
-            </div> : ""}
+            {enablePopper === 1 ? <PopUpMessage popper={popper} setEnablePopper={setEnablePopper}/> : ""}
+            {disclaimer === 1 ? <LoadingScreen/> : ""}
             
             <div className="w-full flex md:flex-row flex-col flex-wrap">
                 <div className="w-full md:w-1/2 pt-4 md:pt-0">
