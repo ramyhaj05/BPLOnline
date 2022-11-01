@@ -2,7 +2,6 @@ import axios from "axios";
 import React,{useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import BusinessTableContent from './BusinessTableContent';
-import ScaleLoader from "react-spinners/ScaleLoader";
 import LoadingScreen from "../Layout/loadingScreen";
 // import { FaAppStoreIos } from "react-icons/fa";
 // import apiClient from '../services/api';

@@ -5552,7 +5552,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -5567,20 +5569,20 @@ var PopUpMessage = function PopUpMessage(_ref) {
 
   var color = popper.status === "exist" ? "text-orange-500" : "text-gray-500";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "fixed w-full h-full bg-black/50 left-0 top-0 flex flex-col items-center justify-center",
+    className: "fixed w-full h-full bg-white/70 left-0 top-0 flex flex-col items-center justify-center",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "w-3/4 md:w-1/3 min-h-[30%] bg-white rounded flex flex-col p-3 mb-32 text-center",
+      className: "w-3/4 md:w-1/3 min-h-[30%] bg-white rounded flex flex-col p-4 mb-32 text-center shadow-md shadow-orange-500/30",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "w-full text-2xl font-bold capitalized py-2 " + color,
-        children: "Warning!"
+        className: "w-full flex flex-col justify-items-center align-items-center text-center text-6xl text-orange-500 p-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaExclamationCircle, {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "w-full text-lg font-bold capitalized text-gray-500 py-2",
         children: popper.message
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "w-full",
+        className: "w-full p-2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           onClick: clickOk,
-          className: "font-bold p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-orange-500 tracking-widest text-gray-500",
+          className: "font-bold p-1 px-3 bg-white border-2 rounded-md border-orange-300 shadow-md shadow-orange-500/30 hover:text-orange-500 tracking-widest text-gray-500 font-bold",
           children: "OK"
         })
       })]
@@ -9159,7 +9161,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
