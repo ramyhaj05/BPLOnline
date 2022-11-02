@@ -20,8 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="" id="">
-    <div class="bg-gradient-to-t from-emerald-200 via-white to-white min-h-screen">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-emerald-500 to-emerald-200">
+    <!-- from-red-700 to-red-500 -->
+    <div class="bg-gradient-to-t from-emerald-400 via-white to-white min-h-screen">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-emerald-500 to-emerald-300">
             <div class="container">
                 <a class="navbar-brand font-black text-white text-2xl tracking-widest hover:text-pink-500" href="{{ url('/dashboard') }}">
                     {{ config('app.name', 'Laravel') }}

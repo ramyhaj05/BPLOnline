@@ -20,7 +20,7 @@ const App = () =>{
                 <div className="row justify-content-center">
                     <div className="w-full">
                         <div className="w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-gray-500 pb-5">Welcome to Business Permit and Licensing Office Online Application</div>
-                        <div className="w-full text-center tracking-widest shadow-md text-lg p-2 bg-white">
+                        <div className="w-full text-center tracking-widest shadow text-lg p-2 bg-white rounded">
                             <div className="flex flex-col w-full justify-items-center align-items-center text-center">
                                 {/* <image src="../../../../public/images/Homebg.png" alt="" class="w-1/3"/> */}
                                 <img src="/images/Homebg.png" alt="" className='w-1/3'/>

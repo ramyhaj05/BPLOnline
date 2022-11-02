@@ -42,5 +42,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::post('/add/renewal', [RenewalController::class, 'store'])->name('add.renewal');
     Route::post('/edit/renewal/info', [RenewalController::class, 'patch'])->name('edit.renewal.info');
+    Route::post('/delete/renewal', [RenewalController::class, 'delete'])->name('delete.renewal');
 
 // });

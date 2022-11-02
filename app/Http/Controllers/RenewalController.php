@@ -88,4 +88,18 @@ class RenewalController extends Controller
             return response()->json(['status'=>'error','message'=>$e]);
         }
     }
+
+    public function delete(Request $request){
+        try {
+            $deleteRenewal = Renewal::find($request->app_id);
+            $deleteRenewal->status = "3";
+            $deleteRenewal->update();
+
+            $delete = Renewal::find( $request->app_id );
+            $delete->delete();
+            return response()->json(['status'=>'success', 'message'=>'Successfully Deleted!']);
+        } catch (Error $e) {
+            return response()->json(['status'=>'error', 'message'=>$e]);
+        }
+    }
 }
