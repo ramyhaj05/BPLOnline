@@ -5406,16 +5406,16 @@ var App = function App() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "w-full",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-gray-500 pb-5",
+          className: "w-full text-center tracking-widest text-2xl p-3 font-bold text-gold-1 bg-redwine shadow",
           children: "Welcome to Business Permit and Licensing Office Online Application"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "w-full text-center tracking-widest shadow text-lg p-2 bg-white rounded",
+          className: "w-full text-center tracking-widest shadow text-lg p-3 bg-white rounded",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "flex flex-col w-full justify-items-center align-items-center text-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               src: "/images/Homebg.png",
               alt: "",
-              className: "w-1/3"
+              className: "md:w-1/3 w-2/3"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "w-full font-bold text-xl text-gray-400",
               children: ["For your convenience, you can now apply for Business Permit online through our new and improved website!", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "There are a number of advantages to applying for the permit online. You can save time, money, and effort.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Please click proceed to continue.."]
@@ -5492,7 +5492,7 @@ var Dashboard = function Dashboard() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "w-full",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "card-body bg-gray-100 rounded shadow p-3",
+          className: "card-body bg-gray-100 rounded shadow px-3",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_table_businessTable__WEBPACK_IMPORTED_MODULE_1__["default"], {})
         })
       })
@@ -5887,7 +5887,7 @@ var DeleteBusinessNew = function DeleteBusinessNew() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: "Cancel Application"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "card-body",
@@ -6193,7 +6193,7 @@ var EditBusinessNew = function EditBusinessNew() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: "Edit Application Information"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "card-body",
@@ -6606,7 +6606,7 @@ var NewBusiness = function NewBusiness() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "card bg-white",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "card-header  text-lg font-semibold text-gray-700",
+        className: "card-header  text-lg font-semibold  text-white  bg-cloudygrey",
         children: "APPLICATION FOR NEW BUSINESS"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "p-2 md:p-3 flex flex-col w-full ",
@@ -6650,7 +6650,7 @@ var BusinessType = function BusinessType(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "w-full flex flex-col justify-content-center items-center",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-      className: "font-black tracking-widest text-xl text-gray-500",
+      className: "font-black tracking-widest text-xl",
       children: "PLEASE SELECT BUSINESS TYPE:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "w-full flex flex-wrap",
@@ -7592,7 +7592,7 @@ var Uploading = function Uploading() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: "List of Requirements - New"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "card-body",
@@ -7985,7 +7985,7 @@ var DeleteBusinessRenewal = function DeleteBusinessRenewal() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: "Cancel Application"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "card-body",
@@ -8106,7 +8106,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var EditRenewal = function EditRenewal() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
   var inputLabel = "text-gray-500 text-md";
   var inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
 
@@ -8232,7 +8234,7 @@ var EditRenewal = function EditRenewal() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: ["Re-newal of Business for ", current_year]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "card-body",
@@ -8368,7 +8370,7 @@ var EditRenewal = function EditRenewal() {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                     className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
                     onClick: function onClick() {
-                      navigate('/addNew');
+                      navigate('/dashboard');
                     },
                     children: "Back"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
@@ -8446,7 +8448,7 @@ var Renewal = function Renewal() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: ["Re-newal of Business for ", current_year]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "card-body",
@@ -8855,7 +8857,7 @@ var RenewalUpload = function RenewalUpload() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "card-header text-lg font-semibold text-gray-700",
+            className: "card-header text-lg font-semibold text-white bg-cloudygrey",
             children: "List of Requirements - Renewal"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "card-body",
@@ -9144,7 +9146,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout/loadingScreen */ "./resources/js/components/Layout/loadingScreen.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -9166,8 +9169,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var NewApplication = function NewApplication() {
-  var TranButtons = "w-full border-4 p-2 rounded font-bold text-md tracking-widest text-center ";
-  var ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+  var TranButtons = "w-full text-redwine border-4 p-2 rounded font-bold text-xl tracking-widest text-center flex flex-col bg-pastelgrey ";
+  var ButtonContainer = "w-full md:w-1/5 p-3 md:p-2 hover:cursor-pointer hover:scale-105 transition ";
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
       _useState2 = _slicedToArray(_useState, 2),
@@ -9178,150 +9182,59 @@ var NewApplication = function NewApplication() {
     setDisclaimer(0);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "w-full  ",
+    className: "w-full rounded",
     children: [disclaimer === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_1__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500",
       children: "ADD NEW TRANSACTION"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "card bg-white",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "card-header text-lg font-semibold text-gray-700",
+        className: "card-header text-lg tracking-widest text-gray-700 bg-cloudygrey text-white",
         children: "Please select transaction"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "p-2 md:p-3 flex flex-col md:flex-row md:justify-around",
+        className: "p-2 md:p-3 flex flex-col md:flex-row md:justify-around bg-gray-100 flex-wrap",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             to: "/new-business",
-            className: "border-green-400 text-green-500",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: TranButtons + "border-green-400 text-green-500",
-              children: "New"
+            className: "",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: TranButtons + "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "New"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Business"
+              })]
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             to: "/renewal",
-            className: "border-teal-500 text-teal-600",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: TranButtons + "border-teal-500 text-teal-600",
-              children: "Re-newal"
+            className: "",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: TranButtons + "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Business"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Renewal"
+              })]
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-            to: "/change",
-            className: "border-orange-500 text-orange-600",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: TranButtons + "border-orange-500 text-orange-600",
-              children: "Change"
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: ButtonContainer,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-            to: "/closure",
-            className: "border-red-500 text-red-600",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: TranButtons + "border-red-500 text-red-600",
-              children: "Closure"
-            })
+          className: "w-full flex flex-col flex-wrap justify-content-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center",
+            onClick: function onClick() {
+              navigate('/dashboard');
+            },
+            children: "Back"
           })
         })]
       })]
     })]
   });
-}; // const NewApplication = () =>{
-//     const [transactiontype, setTransactionType] = useState(0);
-//     return(
-//         <div className="container w-full">
-//             <div className="row justify-content-center">
-//                 {transactiontype === 0 ? <Select setTransactionType={setTransactionType}/> : ""}
-//                 {transactiontype === 1 ? <NewBusiness setTransactionType={setTransactionType} transactiontype={transactiontype} /> : ""}
-//                 {transactiontype === 2 ? <Renew setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
-//                 {transactiontype === 3 ? <Change setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
-//                 {transactiontype === 4 ? <Closure setTransactionType={setTransactionType} transactiontype={transactiontype}/> : ""}
-//             </div>
-//         </div>
-//     );
-// }
-// const Select= ({setTransactionType})=>{
-//     const TranButtons = "border-4 w-full p-2 rounded font-bold text-md tracking-widest text-center ";
-//     const ButtonContainer = "w-full md:w-1/4 p-3 md:p-2 hover:cursor-pointer";
-//     return(
-//     <div className="w-full  ">
-//         <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">ADD NEW TRANSACTION</div>
-//         <div className="card bg-white">
-//             <div className="card-header text-lg font-semibold text-gray-700">Please select transaction</div>
-//             <div className="p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
-//                 <div className={ButtonContainer}>
-//                     <div className="w-full" onClick={(e)=>{setTransactionType(1);}}><button className={TranButtons +"border-green-400 text-green-500"}>New</button></div>
-//                 </div>
-//                 <div className={ButtonContainer}>
-//                     <div className="w-full" onClick={(e)=>{setTransactionType(2);}}><button className={TranButtons +"border-teal-500 text-teal-600"}>Re-newal</button></div>
-//                 </div>
-//                 <div className={ButtonContainer}>
-//                     <div className="w-full" onClick={(e)=>{setTransactionType(3);}}><button className={TranButtons +"border-orange-500 text-orange-600"}>Change</button></div>
-//                 </div>
-//                 <div className={ButtonContainer}>
-//                     <div className="w-full" onClick={(e)=>{setTransactionType(4);}}><button className={TranButtons +"border-red-500 text-red-600"}>Closure</button></div>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-//     );
-// }
-// const Renew = ({transactiontype, setTransactionType}) =>{
-//     return(
-//         <div className="w-full  ">
-//             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">RE-NEWAL OF BUSINESS PERMIT</div>
-//             <div className="card bg-white">
-//                 <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
-//             <div className="card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
-//                     <div className="w-full flex flex-col justify-start"><button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button></div>
-//                     <form action="" method="post">
-//                         <input type="hidden" name="" value={transactiontype}/>
-//                     </form>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-// const Change = ({transactiontype, setTransactionType}) =>{
-//     return(
-//         <div className="w-full  ">
-//             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">CHANGE BUSINESS INFO</div>
-//             <div className="card bg-white">
-//                 <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
-//             <div className="card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
-//                     <div className="w-full flex flex-col justify-start"><button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button></div>
-//                     <form action="" method="post">
-//                         <input type="hidden" name="" value={transactiontype}/>
-//                     </form>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-// const Closure = ({transactiontype, setTransactionType}) =>{
-//     return(
-//         <div className="w-full  ">
-//             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-pink-500">CLOSURE</div>
-//             <div className="card bg-white">
-//                 <div className="card-header  text-lg font-semibold text-gray-700">FILL UP THE INFORMATION NEEDED</div>
-//                 <div className="card-body p-2 md:p-3 flex flex-col md:flex-row md:justify-around">
-//                     <div className="w-full flex flex-col justify-start"><button onClick={(e)=>{setTransactionType(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button></div>
-//                     <form action="" method="post">
-//                         <input type="hidden" name="" value={transactiontype}/>
-//                     </form>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewApplication);
 
@@ -9355,45 +9268,57 @@ var businessTableContent = function businessTableContent(_ref) {
   var second = business.status === "1" ? "text-blue-500" : "";
   var third = business.status === "2" ? "text-green-500" : "";
   var fourth = business.status === "3" ? "text-red-500" : "";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-    className: first + second + third + fourth + " p-2 hover:cursor-pointer hover:bg-blue-400 hover:text-white text-gray-500",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " md:w-2/4 w-2/4",
-      children: business.business_name ? business.business_name : business.account_number
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " w-2/4 md:table-cell hidden capitalize",
-      children: business.owners_name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("td", {
-      className: tableB + " md:w-1/4 w-2/4",
-      children: [business.status === "0" ? "Incomplete" : "", business.status === "1" ? "For Verification" : "", business.status === "2" ? "Verified" : "", business.status === "3" ? "Cancelled" : ""]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-      className: tableB + " md:w-1/4 w-1/4 text-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "flex flex-row justify-around text-2xl",
-        children: [business.business_name ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-          to: business.status !== "3" ? "/edit/" + business.id : "",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEdit, {
-            className: "text-gray-500"
-          })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-          to: business.status !== "3" ? "/edit/renewal/" + business.id : "",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEdit, {
-            className: "text-gray-500"
-          })
-        }), business.business_name ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-          to: business.status !== "3" ? "/cancel/" + business.id : "",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaTrashAlt, {
-            className: "text-red-500"
-          })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-          to: business.status !== "3" ? "/cancel/renewal/" + business.id : "",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaTrashAlt, {
-            className: "text-red-500"
-          })
-        })]
-      })
-    })]
-  });
+  var cancelledStat = business.status === "3" ? " hover:cursor-not-allowed" : "";
+  var editButton = business.business_name ? "/edit/" + business.id : "/edit/renewal/" + business.id;
+  var deleteButton = business.business_name ? "/cancel/" + business.id : "/cancel/renewal/" + business.id;
+  var deletedEditButton = business.status === "3" ? "" : editButton;
+
+  var editOrView = function editOrView() {
+    if (business.status === "2") {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: deletedEditButton,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEdit, {
+          className: "text-gray-500" + cancelledStat
+        }), ";"]
+      });
+    } else {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: deletedEditButton,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {
+          className: "text-gray-500" + cancelledStat
+        })
+      });
+    }
+  };
+
+  return (
+    /*#__PURE__*/
+    // hover:bg-gray-600 hover:text-white
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
+      className: first + second + third + fourth + " p-2 hover:cursor-pointer hover:bg-gray-100 text-gray-500 transition hover:scale-105",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+        className: tableB + " md:w-2/4 w-2/4 text-center",
+        children: business.business_name ? business.business_name : business.account_number
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+        className: tableB + " w-2/4 md:table-cell hidden capitalize",
+        children: business.owners_name
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("td", {
+        className: tableB + " md:w-1/4 w-2/4",
+        children: [business.status === "0" ? "Incomplete" : "", business.status === "1" ? "For Verification" : "", business.status === "2" ? "Verified" : "", business.status === "3" ? "Cancelled" : ""]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+        className: tableB + " md:w-1/4 w-1/4 text-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "flex flex-row justify-around text-2xl",
+          children: [editOrView(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+            to: business.status === "3" ? "" : deleteButton,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaTrashAlt, {
+              className: "text-red-500" + cancelledStat
+            })
+          })]
+        })
+      })]
+    })
+  );
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (businessTableContent);
@@ -9417,6 +9342,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _BusinessTableContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BusinessTableContent */ "./resources/js/components/table/BusinessTableContent.js");
 /* harmony import */ var _Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layout/loadingScreen */ "./resources/js/components/Layout/loadingScreen.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -9442,14 +9368,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import { FaAppStoreIos } from "react-icons/fa";
-// import apiClient from '../services/api';
+
+ // import apiClient from '../services/api';
 
 
 
 
 var BusinessTable = function BusinessTable() {
-  var tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5";
+  var tableH = "p-2 text-center border border-white border-2 truncate h5 bg-redwine font-semibold text-yellow-400";
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -9469,8 +9395,9 @@ var BusinessTable = function BusinessTable() {
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1),
       _useState8 = _slicedToArray(_useState7, 2),
       disclaimer = _useState8[0],
-      setDisclaimer = _useState8[1]; //lifecycle method.
+      setDisclaimer = _useState8[1];
 
+  var transButton = "p-1 px-3 rounded-sm bg-redwine text-gray-100"; //lifecycle method.
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     setDisclaimer(0);
@@ -9575,7 +9502,7 @@ var BusinessTable = function BusinessTable() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "w-full md:p-5 p-1",
     children: [disclaimer === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "w-full p-2 pt-3 flex flex-row justify-between",
+      className: "w-full p-2 flex flex-row justify-between",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "font-bold tracking-widest text-gray-600",
         children: ["Permit Application:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
@@ -9597,22 +9524,22 @@ var BusinessTable = function BusinessTable() {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
         to: "../addNew",
-        className: "w-8 rounded font-bold text-xl text-center text-green-500 ring ring-green-500 hover:bg-green-400 hover:ring-green-400 hover:text-white",
-        children: "+"
+        className: "p-2 px-3 rounded text-gray-100 text-lg text-center bg-redwine hover:text-red-500 border-2 hover:bg-white hover:border-red-700 transition hover:scale-110",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaPlus, {})
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "w-full p-1 flex flex-row justify-left",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "px-1",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "px-2 rounded-sm bg-gray-200",
+          className: transButton,
           onClick: getBusinesApplications,
           children: "New"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "px-1",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "px-2 rounded-sm bg-gray-200",
+          className: transButton,
           onClick: getRenewals,
           children: "Renewal"
         })
@@ -9620,14 +9547,14 @@ var BusinessTable = function BusinessTable() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "w-full p-1 flex flex-row justify-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "text-xl text-gray-600",
+        className: "text-cloudygrey text-2xl font-bold",
         children: ["List of ", typeOfTable === 1 ? "New" : "Renewal of", " Business Permit Application(s) Submitted."]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("table", {
       border: "2",
-      className: "w-full table-fixed ring ring-4 ring-gray-500 text-white font-normal tracking-widest rounded-sm",
+      className: "overflow-hidden w-full table-fixed outline outline-4 outline-offset-1 outline-red-800 ring-gray-500 text-white font-normal tracking-widest",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
-        className: "bg-gray-500 ",
+        className: "",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
           className: "p-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {

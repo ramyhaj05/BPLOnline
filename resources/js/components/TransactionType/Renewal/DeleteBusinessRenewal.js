@@ -55,7 +55,7 @@ const DeleteBusinessRenewal = () =>{
             <div className="row justify-content-center">
                 <div className="w-full">
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">Cancel Application</div>
+                        <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Cancel Application</div>
                         <div className="card-body">
                             {deletePopUp === 1 ? <ConfirmDelete deleteNewApp={deleteNewApp} setConfirmed={setConfirmed} /> : ""}
                             {deleteConfirm === 1 ? <PopupDelete/> : ""}
@@ -80,18 +80,6 @@ const DeleteBusinessRenewal = () =>{
                                     </div>
 
                                 </div>
-                                {/* <div className="w-full md:w-1/2 p-2">
-                                    {dataNew.franchise === "1" ? <div className={reviewDetails}>Franchise: <b>Yes</b></div> : ""}
-                                    {dataNew.leasing === "1" ? <div className={reviewDetails}>Leasing: <b>Yes</b></div> : ""}
-                                    <div className={reviewDetails+" flex flex-col"}>
-                                        <span>Owner's/Company Name:</span> 
-                                        <div className={reviewData}>{dataNew.owners_name}</div>
-                                    </div>
-                                    <div className={reviewDetails}><span>Owner's/Company Address:</span> 
-                                        <div className={reviewData}>{dataNew.owners_address}</div>
-                                    </div>
-                                    <div className={reviewDetails}>Contact #: <b>{dataNew.contact}</b></div>
-                                </div> */}
                                
                                 <div className="w-full flex flex-row justify-content-between">
                                     <Link  to="/dashboard" className="p-1 px-2 bg-white border-2 tracking-widest border-gray-400 shadow-lg rounded-md text-gray-500 font-black">Back</Link>

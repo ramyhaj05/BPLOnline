@@ -19,11 +19,12 @@ const App = () =>{
         <div className="container w-full">
                 <div className="row justify-content-center">
                     <div className="w-full">
-                        <div className="w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-gray-500 pb-5">Welcome to Business Permit and Licensing Office Online Application</div>
-                        <div className="w-full text-center tracking-widest shadow text-lg p-2 bg-white rounded">
+                        
+                        <div className="w-full text-center tracking-widest text-2xl p-3 font-bold text-gold-1 bg-redwine shadow">Welcome to Business Permit and Licensing Office Online Application</div>
+                        <div className="w-full text-center tracking-widest shadow text-lg p-3 bg-white rounded">
                             <div className="flex flex-col w-full justify-items-center align-items-center text-center">
                                 {/* <image src="../../../../public/images/Homebg.png" alt="" class="w-1/3"/> */}
-                                <img src="/images/Homebg.png" alt="" className='w-1/3'/>
+                                <img src="/images/Homebg.png" alt="" className='md:w-1/3 w-2/3'/>
                                 <div className="w-full font-bold text-xl text-gray-400">
                                 For your convenience, you can now apply for Business Permit online through our new and improved website!<br></br>
                             There are a number of advantages to applying for the permit online.

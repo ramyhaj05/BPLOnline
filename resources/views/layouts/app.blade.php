@@ -20,15 +20,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="" id="">
-    <!-- from-red-700 to-red-500 -->
-    <div class="bg-gradient-to-t from-emerald-400 via-white to-white min-h-screen">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-emerald-500 to-emerald-300">
+    <!--bg-gradient-to-t from-emerald-400 via-white to-white -->
+    <div class=" bg-orange-50 min-h-screen">
+    <!-- <div class="bg-gradient-to-t from-red-800 via-red-400 to-white min-h-screen"> -->
+        <!-- bg-gradient-to-t from-emerald-500 to-emerald-300 -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-red-800 to-red-600">
             <div class="container">
-                <a class="navbar-brand font-black text-white text-2xl tracking-widest hover:text-pink-500" href="{{ url('/dashboard') }}">
+                <a class="navbar-brand text-white text-2xl tracking-widest hover:text-pink-500" href="{{ url('/dashboard') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler bg-pink-100 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler bg-red-700 border-2 border-red-400 shadow " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <div class="py-2 space-y-1">
+                        <span class="block w-6 h-0.5 bg-gray-300 "></span>
+                        <span class="block w-6 h-0.5 bg-gray-300 "></span>
+                        <span class="block w-6 h-0.5 bg-gray-300"></span>
+                    </div>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,13 +49,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white font-bold tracking-widest" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white tracking-widest" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white font-bold tracking-widest" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white tracking-widest" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -78,7 +84,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-1 md:py-4 ">
             @yield('content')
         </main>
     </div>

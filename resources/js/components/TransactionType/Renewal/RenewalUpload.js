@@ -35,7 +35,7 @@ const RenewalUpload = () =>{
             <div className="row justify-content-center">
                 <div className="w-full">
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">List of Requirements - Renewal</div>
+                        <div className="card-header text-lg font-semibold text-white bg-cloudygrey">List of Requirements - Renewal</div>
                         <div className="card-body">
                             {disclaimer === 1 ? <LoadingScreen/> : ""}
                             {

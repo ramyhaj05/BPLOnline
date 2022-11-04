@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { FaEdit, FaTrashAlt, FaEye } from 'react-icons/fa';
 import {Link} from 'react-router-dom'
 const businessTableContent = ({business}) =>{
     const tableB = "p-2 border border-white border-2 truncate font-bold";
@@ -7,9 +7,30 @@ const businessTableContent = ({business}) =>{
     const second = business.status === "1" ? "text-blue-500" : "";
     const third = business.status === "2" ? "text-green-500" : "";
     const fourth = business.status === "3" ? "text-red-500" : "";
+    const cancelledStat = business.status === "3" ? " hover:cursor-not-allowed" : "";
+    const editButton = business.business_name ? `/edit/`+business.id :  `/edit/renewal/`+business.id ;
+    const deleteButton = business.business_name ? `/cancel/`+business.id : `/cancel/renewal/`+business.id;
+
+    const deletedEditButton = business.status === "3" ? "" : editButton;
+
+    const editOrView = () =>{
+        if(business.status === "2"){
+            return(
+                <Link to={deletedEditButton}>
+                    <FaEdit className={"text-gray-500"+cancelledStat}></FaEdit>;
+                 </Link>);
+        }
+        else{
+            return (
+                <Link to={deletedEditButton}>
+                    <FaEye className={"text-gray-500"+cancelledStat}></FaEye>
+                </Link>)
+        }
+    }
     return(
-            <tr className={first+second+third+fourth+" p-2 hover:cursor-pointer hover:bg-blue-400 hover:text-white text-gray-500"}>
-                <td className={tableB +" md:w-2/4 w-2/4"}>{business.business_name ? business.business_name : business.account_number}</td>
+        // hover:bg-gray-600 hover:text-white
+            <tr className={first+second+third+fourth+" p-2 hover:cursor-pointer hover:bg-gray-100 text-gray-500 transition hover:scale-105"}>
+                <td className={tableB +" md:w-2/4 w-2/4 text-center"}>{business.business_name ? business.business_name : business.account_number}</td>
                 <td className={tableB +" w-2/4 md:table-cell hidden capitalize"}>{business.owners_name}</td>
                 <td className={tableB + " md:w-1/4 w-2/4"}>
                     {business.status === "0" ? "Incomplete" : ""}
@@ -19,9 +40,10 @@ const businessTableContent = ({business}) =>{
                 </td>
                 <td className={tableB + " md:w-1/4 w-1/4 text-center"}>
                     <div className="flex flex-row justify-around text-2xl">
-                        {business.business_name ? <Link to={business.status !== "3" ? `/edit/`+business.id : ""}><FaEdit className="text-gray-500"></FaEdit></Link> : <Link to={business.status !== "3" ? `/edit/renewal/`+business.id : ""}><FaEdit className="text-gray-500"></FaEdit></Link>}
-                        {business.business_name ? <Link to={business.status !== "3" ? `/cancel/`+business.id : ""}><FaTrashAlt className="text-red-500"></FaTrashAlt></Link> : <Link to={business.status !== "3" ? `/cancel/renewal/`+business.id : ""}><FaTrashAlt className="text-red-500"></FaTrashAlt></Link>}
-                        
+                            {editOrView()}
+                        <Link to={business.status === "3" ? "" : deleteButton}>
+                            <FaTrashAlt className={"text-red-500"+cancelledStat}></FaTrashAlt>
+                        </Link>
                     </div>
                 </td>
             </tr>

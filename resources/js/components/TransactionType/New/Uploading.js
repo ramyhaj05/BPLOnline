@@ -86,7 +86,7 @@ const Uploading = () =>{
             <div className="row justify-content-center">
                 <div className="w-full">
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">List of Requirements - New</div>
+                        <div className="card-header text-lg font-semibold text-white bg-cloudygrey">List of Requirements - New</div>
                         <div className="card-body">
                             {saveSuccess === 1 ? <div className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-gray-500/70 bg-opacity-1">
                                 <div className="flex flex-col align-items-center bg-gray-100 rounded border-4 border-emerald-500 w-3/4 md:w-1/2 p-4 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg bg-white">

@@ -3,14 +3,15 @@ import React,{useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import BusinessTableContent from './BusinessTableContent';
 import LoadingScreen from "../Layout/loadingScreen";
-// import { FaAppStoreIos } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 // import apiClient from '../services/api';
 const BusinessTable = () =>{
-    const tableH = "p-2 text-center border border-white border-2 truncate tracking-widest h5";
+    const tableH = "p-2 text-center border border-white border-2 truncate h5 bg-redwine font-semibold text-yellow-400";
     const [businessApplicationList, setbusinessApplicationList] = useState([]);
     const [year, setYear] = useState("2022");
     const [typeOfTable, setTypeOfTable] = useState(1);
     const [disclaimer, setDisclaimer] = useState(1)
+    const transButton = "p-1 px-3 rounded-sm bg-redwine text-gray-100";
     //lifecycle method.
     useEffect(()=>{
         setDisclaimer(0)
@@ -68,7 +69,7 @@ const BusinessTable = () =>{
         <div className="w-full md:p-5 p-1">
             
             {disclaimer === 1 ? <LoadingScreen/> : ""}
-            <div className="w-full p-2 pt-3 flex flex-row justify-between">
+            <div className="w-full p-2 flex flex-row justify-between">
                 <div className="font-bold tracking-widest text-gray-600">Permit Application: 
                     <select name="" id="" onChange={(e)=>{setYear(e.target.value)}}>
                         <option value="2022">2022</option>
@@ -77,21 +78,21 @@ const BusinessTable = () =>{
                     </select> 
                 
                 </div>
-                <Link to='../addNew' className="w-8 rounded font-bold text-xl text-center text-green-500 ring ring-green-500 hover:bg-green-400 hover:ring-green-400 hover:text-white">+</Link>
+                <Link to='../addNew' className="p-2 px-3 rounded text-gray-100 text-lg text-center bg-redwine hover:text-red-500 border-2 hover:bg-white hover:border-red-700 transition hover:scale-110"><FaPlus/></Link>
             </div>
             <div className="w-full p-1 flex flex-row justify-left">
                 <div className="px-1" >
-                    <button className="px-2 rounded-sm bg-gray-200" onClick={getBusinesApplications}>New</button>
+                    <button className={transButton} onClick={getBusinesApplications}>New</button>
                 </div>
                 <div className="px-1">
-                    <button className="px-2 rounded-sm bg-gray-200" onClick={getRenewals}>Renewal</button>
+                    <button className={transButton} onClick={getRenewals}>Renewal</button>
                 </div>
             </div>
             <div className="w-full p-1 flex flex-row justify-center">
-                <div className="text-xl text-gray-600">List of {typeOfTable === 1 ? "New" : "Renewal of"} Business Permit Application(s) Submitted.</div>
+                <div className="text-cloudygrey text-2xl font-bold">List of {typeOfTable === 1 ? "New" : "Renewal of"} Business Permit Application(s) Submitted.</div>
             </div>
-        <table border="2" className="w-full table-fixed ring ring-4 ring-gray-500 text-white font-normal tracking-widest rounded-sm">
-            <thead className="bg-gray-500 ">
+        <table border="2" className="overflow-hidden w-full table-fixed outline outline-4 outline-offset-1 outline-red-800 ring-gray-500 text-white font-normal tracking-widest">
+            <thead className="">
                 <tr className="p-3">
                     <th className={tableH + " md:w-3/4 w-2/5"}>{typeOfTable === 1 ? "Business Name" : "Account Number"}</th>
                     <th className={tableH + " w-2/4 md:table-cell hidden"}>Owner/Representative Name</th>

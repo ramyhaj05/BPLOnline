@@ -58,7 +58,7 @@ const DeleteBusinessNew = () =>{
             <div className="row justify-content-center">
                 <div className="w-full">
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">Cancel Application</div>
+                        <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Cancel Application</div>
                         <div className="card-body">
                             {deletePopUp === 1 ? <ConfirmDelete deleteNewApp={deleteNewApp} setConfirmed={setConfirmed} /> : ""}
                             {deleteConfirm === 1 ? <PopupDelete/> : ""}

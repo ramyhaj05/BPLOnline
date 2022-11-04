@@ -28,7 +28,7 @@ const NewBusiness = () =>{
             {disclaimer === "1" ? <LoadingScreen/> : ""}
             <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">APPLICATION FOR NEW BUSINESS PERMIT</div>
             <div className="card bg-white">
-                <div className="card-header  text-lg font-semibold text-gray-700">APPLICATION FOR NEW BUSINESS</div>
+                <div className="card-header  text-lg font-semibold  text-white  bg-cloudygrey">APPLICATION FOR NEW BUSINESS</div>
                 <div className="p-2 md:p-3 flex flex-col w-full ">
                     {bType === 0 ? <BusinessType setBType={setBType} /> : ""}
                     
@@ -56,7 +56,7 @@ const BusinessType = ({setBType}) =>{
     const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
     return(
         <div className="w-full flex flex-col justify-content-center items-center">
-            <span className="font-black tracking-widest text-xl text-gray-500">PLEASE SELECT BUSINESS TYPE:</span>
+            <span className="font-black tracking-widest text-xl">PLEASE SELECT BUSINESS TYPE:</span>
             <div className="w-full flex flex-wrap">
                 <div className={bTypeContainer}>
                     <div className={bTypeButton} onClick={(e)=>{setBType(1)}}>Association</div>

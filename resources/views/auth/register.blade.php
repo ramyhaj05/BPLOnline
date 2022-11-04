@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-7">
-            <div class="card border-none">
+        <div class="w-full md:w-1/3 md:p-0 p-4 pt-16">
+            <div class="card bg-white rounded-md border-0 drop-shadow">
 
                 <div class="text-center p-5 rounded shadow-md">
                     <span class="text-xl font-bold tracking-widest mt-3">{{ __('Registration Form') }}</span><br><br>

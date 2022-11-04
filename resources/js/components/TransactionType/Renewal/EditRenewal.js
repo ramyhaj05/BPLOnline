@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import PopUpMessage from "../../Layout/popUp";
 import LoadingScreen from "../../Layout/loadingScreen";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const EditRenewal = () =>{
+    const navigate = useNavigate();
     const inputLabel = "text-gray-500 text-md";
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const {id} = useParams();
@@ -77,7 +79,7 @@ const EditRenewal = () =>{
                 <div className="w-full">
                     {/* <div className="w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-pink-500 pb-5">Welcome to BPLO - Santa Rosa Online Application</div> */}
                     <div className="card">
-                        <div className="card-header text-lg font-semibold text-gray-700">Re-newal of Business for {current_year}</div>
+                        <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Re-newal of Business for {current_year}</div>
                         <div className="card-body">
                             <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={renewalEditSubmit} >
                                 {enablePopper === 1 ? <PopUpMessage popper={popper} setEnablePopper={setEnablePopper}/> : ""}
@@ -112,7 +114,7 @@ const EditRenewal = () =>{
                                         </div>
                                     </div>
                                     <div className="w-full p-1 flex flex-row justify-between">
-                                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/addNew')}}>Back</div>
+                                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/dashboard')}}>Back</div>
                                         <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</button>
                                     </div>
                                 </div>
