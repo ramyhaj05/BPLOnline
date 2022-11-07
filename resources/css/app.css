@@ -4,6 +4,7 @@
 
 *{
     letter-spacing: 0.1em;
+    caret-color: #a4040a ;
 }
 .bg-redwine{
     background-color: #a4040a;
@@ -11,6 +12,9 @@
 }
 .text-redwine{
     color: #a4040a;
+}
+.scalehover:hover{
+    transform: scale(1.005);
 }
 .bg-gold-1{
     background-color: #fdc020;
@@ -42,6 +46,9 @@
 }
 .text-flamingo{
     color: #fea3a3;
+}
+.border-flamingo{
+    border-color: #fea3a3;
 }
 
 

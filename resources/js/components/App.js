@@ -20,7 +20,7 @@ const App = () =>{
                 <div className="row justify-content-center">
                     <div className="w-full">
                         
-                        <div className="w-full text-center tracking-widest text-2xl p-3 font-bold text-gold-1 bg-redwine shadow">Welcome to Business Permit and Licensing Office Online Application</div>
+                        <div className="w-full text-center tracking-widest text-2xl p-3 font-bold text-gold-1 bg-cloudygrey shadow">Welcome to Business Permit and Licensing Office Online Application</div>
                         <div className="w-full text-center tracking-widest shadow text-lg p-3 bg-white rounded">
                             <div className="flex flex-col w-full justify-items-center align-items-center text-center">
                                 {/* <image src="../../../../public/images/Homebg.png" alt="" class="w-1/3"/> */}
@@ -33,7 +33,7 @@ const App = () =>{
                             Please click proceed to continue..
                                 </div>
                             </div>
-                            <div className="w-full flex flex-col align-items-end"><div onClick={proceed} className='p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm hover:cursor-pointer'>Proceed</div></div>
+                            <div className="w-full flex flex-col align-items-end"><div onClick={proceed} className='p-1 bg-white shadow rounded text-gray-400 px-2 border-2 border-gray-500 font-bold tracking-widest text-sm hover:cursor-pointer hover:scale-105 hover:border-red-300 hover:text-red-300'>Proceed</div></div>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ const NewApplication= ()=>{
     return(
     <div className="w-full rounded">
         {disclaimer === 1 ? <LoadingScreen/> : ""}
-        <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">ADD NEW TRANSACTION</div>
+        {/* <div className="w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500">ADD NEW TRANSACTION</div> */}
         <div className="card bg-white">
             <div className="card-header text-lg tracking-widest text-gray-700 bg-cloudygrey text-white">Please select transaction</div>
             <div className="p-2 md:p-3 flex flex-col md:flex-row md:justify-around bg-gray-100 flex-wrap">

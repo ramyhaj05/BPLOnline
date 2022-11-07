@@ -5406,7 +5406,7 @@ var App = function App() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "w-full",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "w-full text-center tracking-widest text-2xl p-3 font-bold text-gold-1 bg-redwine shadow",
+          className: "w-full text-center tracking-widest text-2xl p-3 font-bold text-gold-1 bg-cloudygrey shadow",
           children: "Welcome to Business Permit and Licensing Office Online Application"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "w-full text-center tracking-widest shadow text-lg p-3 bg-white rounded",
@@ -5424,7 +5424,7 @@ var App = function App() {
             className: "w-full flex flex-col align-items-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               onClick: proceed,
-              className: "p-1 bg-white shadow rounded text-gray-400 px-2 border border-2 font-bold tracking-widest text-sm hover:cursor-pointer",
+              className: "p-1 bg-white shadow rounded text-gray-400 px-2 border-2 border-gray-500 font-bold tracking-widest text-sm hover:cursor-pointer hover:scale-105 hover:border-red-300 hover:text-red-300",
               children: "Proceed"
             })
           })]
@@ -6600,10 +6600,7 @@ var NewBusiness = function NewBusiness() {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "w-full md:p-5 p-1",
-    children: [disclaimer === "1" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500",
-      children: "APPLICATION FOR NEW BUSINESS PERMIT"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [disclaimer === "1" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "card bg-white",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "card-header  text-lg font-semibold  text-white  bg-cloudygrey",
@@ -8440,12 +8437,9 @@ var Renewal = function Renewal() {
     className: "container w-full",
     children: [disclaimer === "1" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_1__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "row justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "w-full",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "w-full text-center tracking-widest text-2xl py-0 md:py-4 font-bold text-pink-500 pb-5",
-          children: "Welcome to BPLO - Santa Rosa Online Application"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "card",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "card-header text-lg font-semibold text-white bg-cloudygrey",
@@ -8454,7 +8448,7 @@ var Renewal = function Renewal() {
             className: "card-body",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RenewalForm__WEBPACK_IMPORTED_MODULE_2__["default"], {})
           })]
-        })]
+        })
       })
     })]
   });
@@ -9183,10 +9177,7 @@ var NewApplication = function NewApplication() {
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "w-full rounded",
-    children: [disclaimer === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_1__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "w-full text-center tracking-widest text-2xl py-1 md:py-4 font-bold text-gray-500",
-      children: "ADD NEW TRANSACTION"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [disclaimer === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layout_loadingScreen__WEBPACK_IMPORTED_MODULE_1__["default"], {}) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "card bg-white",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "card-header text-lg tracking-widest text-gray-700 bg-cloudygrey text-white",
@@ -9275,16 +9266,16 @@ var businessTableContent = function businessTableContent(_ref) {
 
   var editOrView = function editOrView() {
     if (business.status === "2") {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         to: deletedEditButton,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEdit, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {
           className: "text-gray-500" + cancelledStat
-        }), ";"]
+        })
       });
     } else {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         to: deletedEditButton,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEdit, {
           className: "text-gray-500" + cancelledStat
         })
       });
@@ -9295,7 +9286,7 @@ var businessTableContent = function businessTableContent(_ref) {
     /*#__PURE__*/
     // hover:bg-gray-600 hover:text-white
     (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-      className: first + second + third + fourth + " p-2 hover:cursor-pointer hover:bg-gray-100 text-gray-500 transition hover:scale-105",
+      className: first + second + third + fourth + " p-2 hover:cursor-pointer hover:bg-gray-200 text-gray-500 transition scalehover",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
         className: tableB + " md:w-2/4 w-2/4 text-center",
         children: business.business_name ? business.business_name : business.account_number

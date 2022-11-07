@@ -15,21 +15,21 @@ const businessTableContent = ({business}) =>{
 
     const editOrView = () =>{
         if(business.status === "2"){
-            return(
-                <Link to={deletedEditButton}>
-                    <FaEdit className={"text-gray-500"+cancelledStat}></FaEdit>;
-                 </Link>);
-        }
-        else{
             return (
                 <Link to={deletedEditButton}>
                     <FaEye className={"text-gray-500"+cancelledStat}></FaEye>
                 </Link>)
         }
+        else{
+            return(
+                <Link to={deletedEditButton}>
+                    <FaEdit className={"text-gray-500"+cancelledStat}></FaEdit>
+                 </Link>)
+        }
     }
     return(
         // hover:bg-gray-600 hover:text-white
-            <tr className={first+second+third+fourth+" p-2 hover:cursor-pointer hover:bg-gray-100 text-gray-500 transition hover:scale-105"}>
+            <tr className={first+second+third+fourth+" p-2 hover:cursor-pointer hover:bg-gray-200 text-gray-500 transition scalehover"}>
                 <td className={tableB +" md:w-2/4 w-2/4 text-center"}>{business.business_name ? business.business_name : business.account_number}</td>
                 <td className={tableB +" w-2/4 md:table-cell hidden capitalize"}>{business.owners_name}</td>
                 <td className={tableB + " md:w-1/4 w-2/4"}>
