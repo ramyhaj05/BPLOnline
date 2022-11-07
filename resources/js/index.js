@@ -17,6 +17,7 @@ import Review from './components/TransactionType/Renewal/Review';
 
 import Dashboard from './components/Dashboard';
 import Login from './components/Authenticate/Login';
+import RenewalStatus from './components/TransactionType/Renewal/RenewalStatus';
 
 export default class MyApp extends Component{
     render(){return(
@@ -40,6 +41,7 @@ export default class MyApp extends Component{
                     <Route exact path="/review/renewal/:id" element={<Review/> } />
                     <Route exact path="/edit/renewal/:id" element={<EditRenewal/> } />
                     <Route exact path="/cancel/renewal/:id" element={<DeleteBusinessRenewal/> } />
+                    <Route exact path="/status/renewal/:id" element={<RenewalStatus/> } />
 
                 </Routes>
         </div>

@@ -11,12 +11,14 @@ const businessTableContent = ({business}) =>{
     const editButton = business.business_name ? `/edit/`+business.id :  `/edit/renewal/`+business.id ;
     const deleteButton = business.business_name ? `/cancel/`+business.id : `/cancel/renewal/`+business.id;
 
+    const applicationStatus = business.business_name ? `/status/new/`+business.id : `/status/renewal/`+business.id;
+
     const deletedEditButton = business.status === "3" ? "" : editButton;
 
     const editOrView = () =>{
         if(business.status === "2"){
             return (
-                <Link to={deletedEditButton}>
+                <Link to={applicationStatus}>
                     <FaEye className={"text-gray-500"+cancelledStat}></FaEye>
                 </Link>)
         }
