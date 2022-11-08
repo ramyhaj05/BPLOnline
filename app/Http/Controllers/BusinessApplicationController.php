@@ -23,6 +23,7 @@ class BusinessApplicationController extends Controller
             'capital_investment' => ['required', 'string'],
             'business_address' => ['required', 'string', 'max:255'],
             'barangay' => ['required', 'string', 'max:255'],
+            'brgyClearance' => ['string'],
             'description' => ['required', 'string', 'max:255'],
             'franchise' => ['required', 'string', 'max:1'],
             'business_type' => ['required', 'string', 'max:1'],
@@ -51,15 +52,11 @@ class BusinessApplicationController extends Controller
     }
 
     public function getApplicationDetails(Request $request){
-        // dd($request->all());
-        $businessname = $request->businessname;
+        $appID = $request->appID;
         $user_id = $request->user_id;
-        // $user_id = auth('sanctum')->user()->id;
-        // $user_id = "<script>localStorage.getItem('auth_id')</script>";
         try 
         {
-            $businessapplications =  BusinessApplication::where('business_name', $businessname)->where("user_id", $user_id)->orderBy('id', 'desc')->limit(1)->get();
-            // return response()->json($businessapplications);
+            $businessapplications =  BusinessApplication::where('id', $appID)->where("user_id", $user_id)->limit(1)->get();
             return response()->json(['status'=>'success', 'message'=>'Success!', 'result'=>$businessapplications]);
         } 
         catch (Error $e) 
@@ -71,14 +68,11 @@ class BusinessApplicationController extends Controller
     public function getAppDet(Request $request){
         
         $app_id = $request->app_id;
-        // $user_id = auth('sanctum')->user()->id;
         $user_id = $request->user_id;
         try 
         {
             $businessapplications =  BusinessApplication::where('id', $app_id)
             ->where('user_id', $user_id)->get();
-            // dd($businessapplications);
-            // $businessapplications = response()->json($businessapplications);
             return response()->json(['status'=>'success', 'message'=>'Success!', 'result'=>$businessapplications]);
         } 
         catch (Error $e) 
@@ -115,6 +109,7 @@ class BusinessApplicationController extends Controller
                     'email' => $request->email,
                     'user_id' => $user_id,
                     'status' => '0',
+                    'brgyClearance' => '0',
                     'trans_type' => '1',
                     'trans_id' => '',
                 ])->id;

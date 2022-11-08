@@ -27,14 +27,28 @@ class UploadingController extends Controller
             $year = $request->year;
             $user_id = $request->user_id;
             // Files/Year/01-xxx-xx
-            $directory = "/Files"."/".$year."/"."01".$appID.$user_id;
+            $directory = "/Files"."/".$year."/"."new/".$appID.$user_id;
+
             File::makeDirectory($directory, 0777, true, true);
-            Storage::putFileAs($directory, $request->file('type'), 'DTI-SEC.pdf');
-            $request->file('brgy') ? Storage::putFileAs($directory, $request->file('brgy'), 'brgy.pdf') : "";
-            Storage::putFileAs($directory, $request->file('leasing'), 'CLease-TaxDec.pdf');
-            Storage::putFileAs($directory, $request->file('insurance'), 'Insurance.pdf');
-            $request->file('franchise') ? Storage::putFileAs($directory, $request->file('franchise'), 'franchise.pdf') : "";
+            $dtisec = $request->file('type')->move(public_path($directory), 'DTI-SEC.pdf');
+            $brgy = $request->file('brgy') ? $request->file('brgy')->move(public_path($directory), 'brgy.pdf') : "";
+            $cleasetaxdec = $request->file('leasing')->move(public_path($directory), 'CLease-TaxDec.pdf');
+            $insurance = $request->file('insurance')->move(public_path($directory), 'Insurance.pdf');
+            $franchise = $request->file('franchise')->move(public_path($directory), 'Franchise.pdf');
+
+            // $dtisec = $request->file('type')->disk('public')->storeAs($directory, 'DTI-SEC.pdf');
+            // $brgy = $request->file('brgy')->disk('public')->storeAs($directory, 'brgy.pdf');
+            // $cleasetaxdec = $request->file('leasing')->disk('public')->storeAs($directory, 'CLease-TaxDec.pdf');
+            // $insurance = $request->file('insurance')->disk('public')->storeAs($directory, 'Insurance.pdf');
+            // $franchise = $request->file('franchise')->disk('public')->storeAs($directory, 'franchise.pdf');
+
+            // Storage::storeAs($directory, $request->file('type'), 'DTI-SEC.pdf');
+            // $request->file('brgy') ? Storage::putFileAs($directory, $request->file('brgy'), 'brgy.pdf') : "";
+            // Storage::putFileAs($directory, $request->file('leasing'), 'CLease-TaxDec.pdf');
+            // Storage::putFileAs($directory, $request->file('insurance'), 'Insurance.pdf');
+            // $request->file('franchise') ? Storage::putFileAs($directory, $request->file('franchise'), 'franchise.pdf') : "";
             $update = BusinessApplication::find($appID);
+            $request->file('brgy') ? $update->brgyClearance = "1": "0";
             $update->status = "1";
             $update->trans_id = $request->trans_id;
             $update->update();

@@ -23,6 +23,7 @@ Route::get('/user-login', [App\Http\Controllers\HomeController::class, 'index'])
     Route::get('/new-business/upload/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('new-business.upload');
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('edit.new');
     Route::get('/cancel/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('cancel.new');
+    Route::get('/status/new/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('new.renewal');
     
     // renewal
     Route::get('/renewal', [App\Http\Controllers\HomeController::class, 'index'])->name('renewal');
@@ -31,6 +32,7 @@ Route::get('/user-login', [App\Http\Controllers\HomeController::class, 'index'])
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::get('/edit/renewal/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('edit.renewal');
     Route::get('/cancel/renewal/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('cancel.renewal');
+    Route::get('/status/renewal/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('status.renewal');
 
     
 // });

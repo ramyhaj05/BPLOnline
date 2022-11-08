@@ -11476,6 +11476,9 @@ video {
 .mb-32 {
   margin-bottom: 8rem;
 }
+.mt-4 {
+  margin-top: 1rem;
+}
 .block {
   display: block;
 }
@@ -11803,6 +11806,9 @@ video {
 .pt-4 {
   padding-top: 1rem;
 }
+.pl-3 {
+  padding-left: 0.75rem;
+}
 .pl-5 {
   padding-left: 1.25rem;
 }
@@ -11811,9 +11817,6 @@ video {
 }
 .pl-2 {
   padding-left: 0.5rem;
-}
-.pl-3 {
-  padding-left: 0.75rem;
 }
 .pb-5 {
   padding-bottom: 1.25rem;
@@ -11871,6 +11874,9 @@ video {
 }
 .capitalize {
   text-transform: capitalize;
+}
+.italic {
+  font-style: italic;
 }
 .tracking-widest {
   letter-spacing: 0.1em;

@@ -19,6 +19,7 @@ class BusinessApplication extends Model
         'business_type',
         'franchise',
         'leasing',
+        'brgyClearance',
         'owners_name',
         'owners_address',
         'contact',

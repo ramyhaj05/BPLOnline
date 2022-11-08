@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
 import LoadingScreen from "../../Layout/loadingScreen";
 
-const Review = ({newData, disclaimer, setAppID, appID, review, setDisclaimer}) =>{
+const Review = ({disclaimer, setAppID, appID, review, setDisclaimer}) =>{
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
     const reviewDetails = "text-gray-600 text-lg tracking-widest";
     const [appDetails, setAppDetails] = useState([]);
@@ -16,7 +16,7 @@ const Review = ({newData, disclaimer, setAppID, appID, review, setDisclaimer}) =
     },[review]);
 
     function getApplicationDetails(){
-        axios.get('/api/get/appDetails/details',{params:{businessname: newData.businessname, user_id: user_id}}).then(function(response){
+        axios.get('/api/get/appDetails/details',{params:{appID: appID, user_id: user_id}}).then(function(response){
             if(response.data.status === 'success'){
                 console.log(response.data)
                 setAppDetails(response.data.result);

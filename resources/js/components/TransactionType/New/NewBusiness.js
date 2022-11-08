@@ -40,7 +40,7 @@ const NewBusiness = () =>{
                     <NewForm setLeasing={setLeasing} setReview={setReview} 
                     setDisclaimer={setDisclaimer} disclaimer={disclaimer} 
                     setNewData={setNewData} newData={newData} franchise={franchise} leasing={leasing}
-                    bType={bType}/> : ""}
+                    bType={bType} setAppID={setAppID}/> : ""}
 
                     {review === 1 ? <Review appID={appID} setAppID={setAppID}
                     setNewData={setNewData} newData={newData} 

@@ -18,6 +18,7 @@ import Review from './components/TransactionType/Renewal/Review';
 import Dashboard from './components/Dashboard';
 import Login from './components/Authenticate/Login';
 import RenewalStatus from './components/TransactionType/Renewal/RenewalStatus';
+import NewStatus from './components/TransactionType/New/NewStatus';
 
 export default class MyApp extends Component{
     render(){return(
@@ -34,6 +35,7 @@ export default class MyApp extends Component{
                     <Route exact path="/new-business/upload/:id" element={<Uploading/> } />
                     <Route exact path="/edit/:id" element={<EditBusinessNew/> } />
                     <Route exact path="/cancel/:id" element={<DeleteBusinessNew/> } />
+                    <Route exact path="/status/new/:id" element={<NewStatus/> } />
 
                     {/* Renewal */}
                     <Route exact path="/renewal" element={<Renewal/> } />

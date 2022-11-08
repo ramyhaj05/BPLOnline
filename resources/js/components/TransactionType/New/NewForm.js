@@ -3,7 +3,7 @@ import React,{useEffect, useState} from "react";
 import PopUpMessage from "../../Layout/popUp";
 import LoadingScreen from "../../Layout/loadingScreen";
 
-const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise, bType}) =>{
+const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, setDisclaimer, newData, setNewData, franchise, bType, setAppID}) =>{
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
     const [popper, setPopper] = useState([{
@@ -47,6 +47,7 @@ const NewForm = ({setLeasing, leasing, transactiontype, setReview, disclaimer, s
                     setEnablePopper(1)
                 }
                 else if(response.data.status === 'success'){
+                    setAppID(response.data.result);
                     setReview(1);
                 }
                 else{

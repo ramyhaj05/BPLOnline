@@ -25,6 +25,7 @@ class CreateBusinessApplicationsTable extends Migration
             $table->string('franchise');
             $table->string('business_type');
             $table->string('leasing');
+            $table->string('brgyClearance');
             $table->string('owners_name');
             $table->string('owners_address');
             $table->string('contact');
