@@ -14,6 +14,7 @@ const EditRenewal = () =>{
     const [disclaimer, setDisclaimer] = useState(1);
     const current_year = new Date().getFullYear();
     const [enablePopper, setEnablePopper] = useState(0);
+    const navigateLink = `/upload/renewal/`+id;
     const [popper, setPopper] = useState([{
         'status': '',
         'message': '',
@@ -63,13 +64,10 @@ const EditRenewal = () =>{
             data: editRenewalForm,
             headers: { "Content-Type": "multipart/form-data" },
         }).then((response)=>{
-        //   axios.post('/edit/renewal/info',editRenewalForm).then((response)=>{
-            if(response.data.status === "success"){
-                alert("success")
-            }
-            else{
-                alert("failed")
-            }
+            setPopper({...popper, status:response.data.status, message:response.data.message})
+            setDisclaimer(0)
+        }).then(()=>{
+            setEnablePopper(1);
         })
     }
     return(
@@ -82,7 +80,7 @@ const EditRenewal = () =>{
                         <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Re-newal of Business for {current_year}</div>
                         <div className="card-body">
                             <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={renewalEditSubmit} >
-                                {enablePopper === 1 ? <PopUpMessage popper={popper} setEnablePopper={setEnablePopper}/> : ""}
+                                {enablePopper === 1 ? <PopUpMessage popper={popper} setEnablePopper={setEnablePopper} navigateLink={navigateLink}/> : ""}
                                 {disclaimer === 1 ? <LoadingScreen></LoadingScreen> : ""}
                                 <div className="w-full flex md:flex-row flex-col flex-wrap">
                                 <div className="w-full md:w-1/2">

@@ -34,7 +34,7 @@ class UploadingController extends Controller
             $brgy = $request->file('brgy') ? $request->file('brgy')->move(public_path($directory), 'brgy.pdf') : "";
             $cleasetaxdec = $request->file('leasing')->move(public_path($directory), 'CLease-TaxDec.pdf');
             $insurance = $request->file('insurance')->move(public_path($directory), 'Insurance.pdf');
-            $franchise = $request->file('franchise')->move(public_path($directory), 'Franchise.pdf');
+            $franchise = $request->file('franchise') ? $request->file('franchise')->move(public_path($directory), 'Franchise.pdf') : "";
 
             // $dtisec = $request->file('type')->disk('public')->storeAs($directory, 'DTI-SEC.pdf');
             // $brgy = $request->file('brgy')->disk('public')->storeAs($directory, 'brgy.pdf');

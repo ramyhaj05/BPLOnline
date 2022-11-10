@@ -1,8 +1,13 @@
 import React,{useState} from "react";
 import {FaExclamationCircle} from "react-icons/fa";
-const PopUpMessage = ({popper,setEnablePopper}) =>{
+import { useNavigate } from "react-router-dom";
+const PopUpMessage = ({popper,setEnablePopper, navigateLink}) =>{
+    const navigate = useNavigate();
     const clickOk = () =>{
         setEnablePopper(0);
+        if(navigateLink){
+            navigate(navigateLink);
+        }
     }
     const color = popper.status === "exist" ? "text-orange-500" : "text-gray-500";
     return(

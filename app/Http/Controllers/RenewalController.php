@@ -60,7 +60,7 @@ class RenewalController extends Controller
             $updateDetails->contact = $request->contact;
             $updateDetails->email = $request->email;
             $updateDetails->update();
-            return response()->json(['status'=>'success', 'message'=>'Success']);
+            return response()->json(['status'=>'Success', 'message'=>'Record Successfully updated!']);
         } catch (Error $e) {
             return response()->json(['status'=>'error','message'=>'$e']);
         }

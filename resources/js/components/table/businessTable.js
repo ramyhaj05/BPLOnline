@@ -3,7 +3,7 @@ import React,{useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import BusinessTableContent from './BusinessTableContent';
 import LoadingScreen from "../Layout/loadingScreen";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaPlusCircle } from "react-icons/fa";
 // import apiClient from '../services/api';
 const BusinessTable = () =>{
     const tableH = "p-2 text-center border border-white border-2 truncate h5 bg-redwine font-semibold text-yellow-400";
@@ -91,25 +91,28 @@ const BusinessTable = () =>{
             <div className="w-full p-1 flex flex-row justify-center">
                 <div className="text-cloudygrey text-2xl font-bold">List of {typeOfTable === 1 ? "New" : "Renewal of"} Business Permit Application(s) Submitted.</div>
             </div>
-        <table border="2" className="overflow-hidden w-full table-fixed outline outline-4 outline-offset-1 outline-red-800 ring-gray-500 text-white font-normal tracking-widest">
-            <thead className="">
-                <tr className="p-3">
-                    <th className={tableH + " md:w-3/4 w-2/5"}>{typeOfTable === 1 ? "Business Name" : "Account Number"}</th>
-                    <th className={tableH + " w-2/4 md:table-cell hidden"}>Owner/Representative Name</th>
-                    <th className={tableH + " md:w-2/4 w-2/5"}>Status</th>
-                    <th className={tableH + " md:w-1/4 w-1/5"}></th>
-                </tr>
-            </thead>
-            <tbody className="">
+        <div className="w-full flex flex-row flex-wrap">
+            <div className="p-1 md:p-3 w-1/2 md:w-1/4 hover:cursor-pointer">
+                <div className=" rounded-xl shadow-md border-4 border-gray-100 bg-gray-200 p-2 flex flex-col justify-content-center justify-center content-center h-36 hover:border-red-300 text-red-700  hover:bg-red-700 hover:scale-110 transition">
+                    <Link to='../addNew' className="flex justify-center p-5 text-5xl transition hover:text-white"><FaPlusCircle className=" "/></Link>
+                </div>
+            </div>
                 {
                     businessApplicationList.map((business)=>{
-                        return business ?
-                         <BusinessTableContent key={business.id} business={business}/>
-                        : <tr><td colSpan={4} className="text-gray-500">No Record(s) Found!</td></tr>
+                        return(
+                        <div className="p-1 md:p-3 w-1/2 md:w-1/4 man-h-80" key={business.id}> {business ?
+                            <BusinessTableContent key={business.id} business={business}/>
+                            : <div className=" rounded-t-xl shadow-md border-4 border-white bg-gray-200 p-2 flex flex-col">
+                                <span className="w-full text-center font-bold">Title</span>
+                                <span>Status</span>
+                                <span>Name</span>
+                                <span>Address</span>
+                            </div>
+                    }
+                        </div>)
                     })
                 }
-            </tbody>
-        </table>
+        </div>
     </div>
     )
 }

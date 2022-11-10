@@ -1,7 +1,11 @@
 import React,{useEffect,useState} from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LoadingScreen from "../../Layout/loadingScreen";
+import {BsClockHistory} from 'react-icons/bs';
+import {FaCheckCircle, FaTimes, FaFileExcel } from 'react-icons/fa';
+import { MdOutlineIncompleteCircle } from 'react-icons/md';
 const NewStatus = () =>{
+    const navigate = useNavigate();
     const [disclaimer, setDisclaimer] = useState(1);
     const {id} = useParams();
     const current_year = new Date().getFullYear();
@@ -9,7 +13,20 @@ const NewStatus = () =>{
     const [appDetails, setAppDetails] = useState([]);
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
 
-    
+    const iconColor = (x) =>{
+        if(x === "0"){
+            return "text-gray-500"
+        }
+        else if(x === "1"){
+            return "text-orange-500"
+        }
+        else if(x === "2"){
+            return "text-green-500"
+        }
+        else if(x === "3"){
+            return "text-rose-500"
+        }
+    }
     useEffect(()=>{
         getApplicationDetails();
     },[NewStatus])
@@ -34,12 +51,25 @@ const NewStatus = () =>{
                     <div className="card">
                         <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Application Status</div>
                         <div className="card-body">
+                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/dashboard')}}>Back</div>
                             {appDetails.map((res)=>{
                                     const filesDirectory = "/Files/"+current_year+"/new/"+res.id+user_id;
                                     const iFrameClass = "w-full md:w-3/4 p-2 text-center bg-gray-100 mt-4 flex flex-col";
                                 return (
                                     <div className="w-full flex flex-col font-bold" key={res.id}>
-                                        <span>Status: {res.status === "2" ? "Verified" : ""}</span>
+                                        <span className="w-full pb-1 flex justify-center block">
+                                            {res.status === "0" ? <MdOutlineIncompleteCircle className="text-7xl text-gray-500 animate-pulse"/> : ""}
+                                            {res.status === "1" ? <FaFileExcel className="text-7xl text-orange-500 animate-pulse"/> : ""}
+                                            {res.status === "2" ? <FaCheckCircle className="text-7xl text-green-500 animate-pulse"/> : ""}
+                                            {res.status === "3" ? <FaTimes className="text-7xl text-rose-500 animate-pulse"/> : ""}
+                                        </span>
+                                        <span className={"w-full text-center font-bold text-3xl " + iconColor(res.status)}>
+                                            {res.status === "0" ? "Incomplete" : ""}
+                                            {res.status === "1" ? "For Verification" : ""}
+                                            {res.status === "2" ? "Verified" : ""}
+                                            {res.status === "3" ? "Cancelled" : ""}
+                                        </span>
+
                                         <span className="">Business Type: {type[res.business_type-1]}</span>
                                         <span className="">Business Name: {res.business_name}</span>
                                         <div className="pl-3 flex flex-col text-gray-400">
