@@ -15,14 +15,17 @@ class CreateRenewalsTable extends Migration
     {
         Schema::create('renewals', function (Blueprint $table) {
             $table->id();
+            $table->string('trans_id');
             $table->string('account_number');
             $table->string('gross_income');
             $table->string('owners_name');
             $table->string('contact');
             $table->string('email');
             $table->string('status');
+            $table->string('year');
+            $table->string('brgy');
+            $table->string('itr');
             $table->string('user_id');
-            $table->integer('year');
             $table->softDeletes();
             $table->timestamps();
         });

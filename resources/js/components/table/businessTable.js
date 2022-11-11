@@ -78,7 +78,7 @@ const BusinessTable = () =>{
                     </select> 
                 
                 </div>
-                <Link to='../addNew' className="p-2 px-3 rounded text-gray-100 text-lg text-center bg-redwine hover:text-red-500 border-2 hover:bg-white hover:border-red-700 transition hover:scale-110"><FaPlus/></Link>
+                {/* <Link to='../addNew' className="p-2 px-3 rounded text-gray-100 text-lg text-center bg-redwine hover:text-red-500 border-2 hover:bg-white hover:border-red-700 transition hover:scale-110"><FaPlus/></Link> */}
             </div>
             <div className="w-full p-1 flex flex-row justify-left">
                 <div className="px-1" >
@@ -92,7 +92,7 @@ const BusinessTable = () =>{
                 <div className="text-cloudygrey text-2xl font-bold">List of {typeOfTable === 1 ? "New" : "Renewal of"} Business Permit Application(s) Submitted.</div>
             </div>
         <div className="w-full flex flex-row flex-wrap">
-            <div className="p-1 md:p-3 w-1/2 md:w-1/4 hover:cursor-pointer">
+            <div className="p-1 md:p-4 w-1/2 md:w-1/4 hover:cursor-pointer">
                 <div className=" rounded-xl shadow-md border-4 border-gray-100 bg-gray-200 p-2 flex flex-col justify-content-center justify-center content-center h-36 hover:border-red-300 text-red-700  hover:bg-red-700 hover:scale-110 transition">
                     <Link to='../addNew' className="flex justify-center p-5 text-5xl transition hover:text-white"><FaPlusCircle className=" "/></Link>
                 </div>
@@ -100,7 +100,7 @@ const BusinessTable = () =>{
                 {
                     businessApplicationList.map((business)=>{
                         return(
-                        <div className="p-1 md:p-3 w-1/2 md:w-1/4 man-h-80" key={business.id}> {business ?
+                        <div className="p-1 md:p-4 w-1/2 md:w-1/4 man-h-80" key={business.id}> {business ?
                             <BusinessTableContent key={business.id} business={business}/>
                             : <div className=" rounded-t-xl shadow-md border-4 border-white bg-gray-200 p-2 flex flex-col">
                                 <span className="w-full text-center font-bold">Title</span>

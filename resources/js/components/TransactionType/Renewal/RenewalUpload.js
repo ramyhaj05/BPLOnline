@@ -8,12 +8,17 @@ const RenewalUpload = () =>{
     const current_year = new Date().getFullYear();
     const user_id = localStorage.getItem('auth_id');
     const [appDetails, setAppDetails] = useState([]);
+    const [referenceID, setReferenceID] = useState("")
     // docs to submit
     const [gross, setGross] = useState(null);
     const [itr, setItr] = useState(null);
     const [brgy, setBrgy] = useState(null);
     const [insurance, setInsurance] = useState(null)
     useEffect(()=>{
+        id.length === 1 ? setReferenceID("01"+currentYear+"000"+id) : "";
+        id.length === 2 ? setReferenceID("01"+currentYear+"00"+id) : "";
+        id.length === 3 ? setReferenceID("01"+currentYear+"0"+id) : "";
+        id.length === 4 ? setReferenceID("01"+currentYear+id) : "";
         setDisclaimer(0);
     },[RenewalUpload])
     

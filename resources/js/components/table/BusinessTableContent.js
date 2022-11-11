@@ -10,10 +10,10 @@ const businessTableContent = ({business}) =>{
     const statusButton = business.status === "3" ? "" : applicationStatus;
     const deletedEditButton = business.status === "3" ? "" : editButton;
     return(
-            <div className=" rounded-b-xl shadow-md border-4 border-white bg-gray-200 flex flex-col hover:scale-110 transition text-gray-600 font-bold">
-                <span className="w-full text-center font-bold truncate text-xl bg-gray-500 p-1 text-white">{business.business_name ? business.business_name : business.account_number}</span>
+            <div className={"rounded-b-xl shadow-md border-4 border-white bg-gray-200 flex flex-col hover:scale-105 transition text-gray-600 font-bold"}>
+                <span className={"w-full text-center font-bold truncate text-xl bg-gray-500 p-1 text-white "}>{business.business_name ? business.business_name : business.account_number}</span>
                 <span className="truncate pl-2 pt-2">
-                    Status:
+                    Status:&nbsp;
                     {business.status === "0" ? "Incomplete" : ""}
                     {business.status === "1" ? "For Verification" : ""}
                     {business.status === "2" ? "Verified" : ""}
@@ -25,7 +25,6 @@ const businessTableContent = ({business}) =>{
                     <Link to={statusButton}>
                         <FaEye className={"text-gray-500 text-3xl p-1"+cancelledStat}></FaEye>
                     </Link>
-                    
                     <Link to={deletedEditButton}>
                         <FaEdit className={"text-gray-500 text-3xl p-1"+cancelledStat}></FaEdit>
                     </Link>

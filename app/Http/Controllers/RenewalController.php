@@ -23,6 +23,10 @@ class RenewalController extends Controller
             'email' => ['required', 'string', 'max:255'],
             'status' => ['required', 'string', 'max:255'],
             'user_id' => ['required', 'string', 'max:255'],
+            'year' => ['required', 'string', 'max:255'],
+            'itr' => ['required', 'string', 'max:255'],
+            'trans_id' => ['required', 'string', 'max:255'],
+            'brgy' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -41,6 +45,9 @@ class RenewalController extends Controller
                     'contact' => $request->contact,
                     'email' => $request->email,
                     'status' => "0",
+                    'trans_id' => "",
+                    'brgy' => "",
+                    'itr' => "",
                     'year'=>$request->year,
                     'user_id' => $request->user_id,
                 ])->id;
