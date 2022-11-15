@@ -11,6 +11,7 @@ const NewStatus = () =>{
     const current_year = new Date().getFullYear();
     const user_id = localStorage.getItem('auth_id');
     const [appDetails, setAppDetails] = useState([]);
+    const iFrameClass = "w-full md:w-3/4 p-2 text-center bg-gray-100 mt-4 flex flex-col text-gray-400 text-xl h-96";
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
 
     const iconColor = (x) =>{
@@ -54,7 +55,6 @@ const NewStatus = () =>{
                         <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/dashboard')}}>Back</div>
                             {appDetails.map((res)=>{
                                     const filesDirectory = "/Files/"+current_year+"/new/"+res.id+user_id;
-                                    const iFrameClass = "w-full md:w-3/4 p-2 text-center bg-gray-100 mt-4 flex flex-col";
                                 return (
                                     <div className="w-full flex flex-col font-bold" key={res.id}>
                                         <span className="w-full pb-1 flex justify-center block">
@@ -94,26 +94,26 @@ const NewStatus = () =>{
                                             <span>DTI Registration</span> : ""}
                                             {res.business_type === "8" ? 
                                             <span>DTI Registration/SEC Registration</span> : ""}          
-                                            <iframe src={filesDirectory+"/DTI-SEC.pdf"} className="w-full" alt="" />                             
+                                            <iframe src={filesDirectory+"/DTI-SEC.pdf"} className="w-full h-full" alt="" />                             
                                         </div>
                                         {res.franchise === "1" ? <div className={iFrameClass}>
                                             <span>Franchise Agreement</span>
-                                            <iframe src={filesDirectory+"/Franchise.pdf"} className="w-full" alt="" />                                      
+                                            <iframe src={filesDirectory+"/Franchise.pdf"} className="w-full h-full" alt="" />                                      
                                         </div> : ""}
 
                                         <div className={iFrameClass}>
                                             <span>{res.leasing === "1" ? "Contract of Lease" : "Tax Declaration"}</span>
-                                            <iframe src={filesDirectory+"/CLease-TaxDec.pdf"} className="w-full" alt="" />                                      
+                                            <iframe src={filesDirectory+"/CLease-TaxDec.pdf"} className="w-full h-full" alt="" />                                      
                                         </div>
                                         
                                         <div className={iFrameClass}>
                                             <span>Barangay Business Clearance</span>
-                                            {res.brgyClearance === "1" ? <iframe src={filesDirectory+"/brgy.pdf"} className="w-full"/> : <span className="text-red-500 italic font-bold text-xs">No Barangay Clearance Submitted.</span> }                          
+                                            {res.brgyClearance === "1" ? <iframe src={filesDirectory+"/brgy.pdf"} className="w-full h-full"/> : <span className="text-red-500 italic font-bold text-xs">No Barangay Clearance Submitted.</span> }                          
                                         </div>
 
                                         <div className={iFrameClass}>
                                             <span>CGL Insurance</span>
-                                            <iframe src={filesDirectory+"/insurance.pdf"} className="w-full" alt="" />                                      
+                                            <iframe src={filesDirectory+"/insurance.pdf"} className="w-full h-full" alt="" />                                      
                                         </div>
                                     </div>
                                 )

@@ -15,10 +15,10 @@ const RenewalUpload = () =>{
     const [brgy, setBrgy] = useState(null);
     const [insurance, setInsurance] = useState(null)
     useEffect(()=>{
-        id.length === 1 ? setReferenceID("01"+currentYear+"000"+id) : "";
-        id.length === 2 ? setReferenceID("01"+currentYear+"00"+id) : "";
-        id.length === 3 ? setReferenceID("01"+currentYear+"0"+id) : "";
-        id.length === 4 ? setReferenceID("01"+currentYear+id) : "";
+        id.length === 1 ? setReferenceID("01"+current_year+"000"+id) : "";
+        id.length === 2 ? setReferenceID("01"+current_year+"00"+id) : "";
+        id.length === 3 ? setReferenceID("01"+current_year+"0"+id) : "";
+        id.length === 4 ? setReferenceID("01"+current_year+id) : "";
         setDisclaimer(0);
     },[RenewalUpload])
     

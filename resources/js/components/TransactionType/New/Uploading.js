@@ -89,7 +89,7 @@ const Uploading = () =>{
                     <div className="card">
                         <div className="card-header text-lg font-semibold text-white bg-cloudygrey">List of Requirements - New</div>
                         <div className="card-body">
-                            <SuccessTransaction saveSuccess={saveSuccess} referenceID={referenceID}/>
+                            {saveSuccess === 1 ? <SuccessTransaction referenceID={referenceID}/> : ""}
                         {disclaimer === 1 ? <LoadingScreen/> : ""}
                             <h1 className="text-red-500 font-black text-md">Disclaimer: Please be advised that we only accept PDF Format file/s or else the application will be invalid.</h1>
                             <h1 className="text-red-500 font-black text-xs">MAXIMUM FILES SIZE - 12MB</h1>

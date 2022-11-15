@@ -27,7 +27,7 @@ const Review = () =>{
         })
     }
     return(
-        <div className="w-full md:p-5 p-1">
+        <div className="w-full md:p-5 p-2 bg-white rounded shadow">
             {disclaimer === 1 ? <LoadingScreen/> : ""}
             {appDetails.map((det)=>{
                 
