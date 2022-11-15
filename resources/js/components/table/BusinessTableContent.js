@@ -14,22 +14,22 @@ const businessTableContent = ({business}) =>{
                 <span className={"w-full text-center font-bold truncate text-xl bg-gray-500 p-1 text-white "}>{business.business_name ? business.business_name : business.account_number}</span>
                 <span className="truncate pl-2 pt-2">
                     Status:&nbsp;
-                    {business.status === "0" ? "Incomplete" : ""}
-                    {business.status === "1" ? "For Verification" : ""}
-                    {business.status === "2" ? "Verified" : ""}
-                    {business.status === "3" ? "Cancelled" : ""}
+                    {business.status === "0" ? <i className='text-gray-500 font-bold'>Incomplete</i> : ""}
+                    {business.status === "1" ? <i className='text-orange-500 font-bold'>For Verification</i> : ""}
+                    {business.status === "2" ? <i className='text-green-500 font-bold'>Verified</i> : ""}
+                    {business.status === "3" ? <i className='text-rose-500 font-bold'>Cancelled</i> : ""}
                 </span>
                 <span className="truncate pl-2">Owner: {business.owners_name}</span>
                 {business.capital_investment ? <span className="truncate pl-2">Capital: {business.capital_investment}</span>: <span className="truncate pl-2">Gross:{business.gross_income}</span>}
                 <div className="flex justify-end w-full pl-2">
                     <Link to={statusButton}>
-                        <FaEye className={"text-gray-500 text-3xl p-1"+cancelledStat}></FaEye>
+                        <FaEye className={"text-gray-500 text-3xl p-1 transition hover:scale-110"+cancelledStat}></FaEye>
                     </Link>
                     <Link to={deletedEditButton}>
-                        <FaEdit className={"text-gray-500 text-3xl p-1"+cancelledStat}></FaEdit>
+                        <FaEdit className={"text-gray-500 text-3xl p-1 transition hover:scale-110"+cancelledStat}></FaEdit>
                     </Link>
                     <Link to={business.status === "3" ? "" : deleteButton}>
-                        <FaTrashAlt className={"text-red-500 text-3xl p-1"+cancelledStat}></FaTrashAlt>
+                        <FaTrashAlt className={"text-red-500 text-3xl p-1 transition hover:scale-110"+cancelledStat}></FaTrashAlt>
                     </Link>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const ConfirmDelete = ({deleteNewApp, setConfirmed}) =>{
                 <span className="text-rose-500">Please take note that this action cannot be undo.</span>
                 <span>Type "CONFIRM" to continue deleting</span>
                 <span className="font-black text-2xl text-gray-400 p-3"><input type="text" name="confirmed" id="confirmed" className="bg-gray-200" onChange={(e)=>{setConfirmed(e.target.value)}}/></span>
-                <div onClick={deleteNewApp} className="p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-rose-500 hover:cursor-pointer">Confirm</div>
+                <div onClick={deleteNewApp} className="p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-rose-500 hover:cursor-pointer transition hover:font-bold hover:scale-105">Confirm</div>
             </div>
         </div>
     )

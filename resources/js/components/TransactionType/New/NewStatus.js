@@ -10,8 +10,9 @@ const NewStatus = () =>{
     const {id} = useParams();
     const current_year = new Date().getFullYear();
     const user_id = localStorage.getItem('auth_id');
+    const [directoryID, setdirectoryID] = useState()
     const [appDetails, setAppDetails] = useState([]);
-    const iFrameClass = "w-full md:w-3/4 p-2 text-center bg-gray-100 mt-4 flex flex-col text-gray-400 text-xl h-96";
+    const iFrameClass = "w-full md:w-3/4 p-2 text-center bg-gray-300 rounded mt-4 flex flex-col text-gray-500 text-xl h-96";
     const type = ["Association", "Cooperative", "Corporation", "Foundation", "Partnership", "PEZA", "Single Proprietor", "Tax Exempt"];
 
     const iconColor = (x) =>{
@@ -30,6 +31,10 @@ const NewStatus = () =>{
     }
     useEffect(()=>{
         getApplicationDetails();
+        id.length === 1 ? setdirectoryID("000"+id) : "";
+        id.length === 2 ? setdirectoryID("00"+id) : "";
+        id.length === 3 ? setdirectoryID("0"+id) : "";
+        id.length === 4 ? setdirectoryID(id) : "";
     },[NewStatus])
 
     function getApplicationDetails(){
@@ -52,11 +57,11 @@ const NewStatus = () =>{
                     <div className="card">
                         <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Application Status</div>
                         <div className="card-body">
-                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/dashboard')}}>Back</div>
+                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105" onClick={()=>{navigate('/dashboard')}}>Back</div>
                             {appDetails.map((res)=>{
-                                    const filesDirectory = "/Files/"+current_year+"/new/"+res.id+user_id;
+                                    const filesDirectory = "/Files/"+current_year+"/new/"+directoryID+"-"+current_year;
                                 return (
-                                    <div className="w-full flex flex-col font-bold" key={res.id}>
+                                    <div className="w-full flex flex-col font-bold bg-gray-100 rounded mt-3 p-3" key={res.id}>
                                         <span className="w-full pb-1 flex justify-center block">
                                             {res.status === "0" ? <MdOutlineIncompleteCircle className="text-7xl text-gray-500 animate-pulse"/> : ""}
                                             {res.status === "1" ? <FaFileExcel className="text-7xl text-orange-500 animate-pulse"/> : ""}
@@ -64,16 +69,18 @@ const NewStatus = () =>{
                                             {res.status === "3" ? <FaTimes className="text-7xl text-rose-500 animate-pulse"/> : ""}
                                         </span>
                                         <span className={"w-full text-center font-bold text-3xl " + iconColor(res.status)}>
-                                            {res.status === "0" ? "Incomplete" : ""}
-                                            {res.status === "1" ? "For Verification" : ""}
-                                            {res.status === "2" ? "Verified" : ""}
+                                            {res.status === "0" ? <><span>Incomplete</span><br></br><span className="text-sm italic text-red-500 font-normal">(Please upload necessary document(s).)</span></> : ""}
+                                            {res.status === "1" ? <><span>For Verification</span><br></br><span className="text-sm italic text-red-500 font-normal">(Please wait for 24hrs-48hrs to be verified.)</span></> : ""}
+                                            {res.status === "2" ? <><span>Verified</span><br></br><span className="text-sm italic font-normal">(Please check your e-mail ({res.email}) for further instructions.)</span></> : ""}
                                             {res.status === "3" ? "Cancelled" : ""}
                                         </span>
 
                                         <span className="">Business Type: {type[res.business_type-1]}</span>
                                         <span className="">Business Name: {res.business_name}</span>
                                         <div className="pl-3 flex flex-col text-gray-400">
-                                            <span className="">{res.business_address}</span>
+                                            <span>Business Address</span>
+                                            <span className="pl-3">{res.barangay}</span>
+                                            <span className="pl-3">{res.business_address}</span>
                                             <span>Owners Name: {res.owners_name}</span>
                                             <span>Owners Address: {res.owners_address}</span>
                                             <span>Contact: {res.contact}</span>

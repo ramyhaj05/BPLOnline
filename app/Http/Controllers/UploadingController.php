@@ -8,6 +8,7 @@ use App\Models\Uploading;
 use App\Models\BusinessApplication;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class UploadingController extends Controller
@@ -26,8 +27,23 @@ class UploadingController extends Controller
             $appID = $request->appID;
             $year = $request->year;
             $user_id = $request->user_id;
+            $user_id = $request->user_id;
             // Files/Year/01-xxx-xx
-            $directory = "/Files"."/".$year."/"."new/".$appID.$user_id;
+            $countappID = Str::length($appID);
+            $appIDname = $appID;
+            if($countappID === 1){
+                $appIDname = "000".$appID;
+            }
+            else if($countappID === 2){
+                $appIDname = "00".$appID;
+            }
+            else if($countappID === 3){
+                $appIDname = "0".$appID;
+            }
+            else{
+                $appIDname = "".$appID;
+            }
+            $directory = "/Files"."/".$year."/"."new/".$appIDname."-".$year;
 
             File::makeDirectory($directory, 0777, true, true);
             $dtisec = $request->file('type')->move(public_path($directory), 'DTI-SEC.pdf');

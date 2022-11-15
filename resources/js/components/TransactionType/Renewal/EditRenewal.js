@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import PopUpMessage from "../../Layout/popUp";
 import LoadingScreen from "../../Layout/loadingScreen";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PopUpEditSuccess from "../../Layout/popUpEditSuccess";
 
 const EditRenewal = () =>{
     const navigate = useNavigate();
@@ -14,7 +14,6 @@ const EditRenewal = () =>{
     const [disclaimer, setDisclaimer] = useState(1);
     const current_year = new Date().getFullYear();
     const [enablePopper, setEnablePopper] = useState(0);
-    const navigateLink = `/upload/renewal/`+id;
     const [popper, setPopper] = useState([{
         'status': '',
         'message': '',
@@ -80,7 +79,7 @@ const EditRenewal = () =>{
                         <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Re-newal of Business for {current_year}</div>
                         <div className="card-body">
                             <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={renewalEditSubmit} >
-                                {enablePopper === 1 ? <PopUpMessage popper={popper} setEnablePopper={setEnablePopper} navigateLink={navigateLink}/> : ""}
+                                {enablePopper === 1 ? <PopUpEditSuccess nav={`/upload/renewal/`+id}/> : ""}
                                 {disclaimer === 1 ? <LoadingScreen></LoadingScreen> : ""}
                                 <div className="w-full flex md:flex-row flex-col flex-wrap">
                                 <div className="w-full md:w-1/2">
@@ -112,8 +111,8 @@ const EditRenewal = () =>{
                                         </div>
                                     </div>
                                     <div className="w-full p-1 flex flex-row justify-between">
-                                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/dashboard')}}>Back</div>
-                                        <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</button>
+                                        <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105" onClick={()=>{navigate('/dashboard')}}>Back</div>
+                                        <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105">Proceed</button>
                                     </div>
                                 </div>
                             </form>

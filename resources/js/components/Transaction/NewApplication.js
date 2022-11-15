@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import LoadingScreen from "../Layout/loadingScreen";
 const NewApplication= ()=>{
     const navigate = useNavigate();
-    const TranButtons = "w-full text-redwine border-4 p-2 rounded font-bold text-xl tracking-widest text-center flex flex-col bg-pastelgrey ";
+    const TranButtons = "bg-gray-100 w-full rounded-sm text-gray-600 text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer hover:text-gray-600";
     const ButtonContainer = "w-full md:w-1/5 p-3 md:p-2 hover:cursor-pointer hover:scale-105 transition ";
     const [disclaimer, setDisclaimer] = useState(1);
 
@@ -19,7 +19,7 @@ const NewApplication= ()=>{
             <div className="p-2 md:p-3 flex flex-col md:flex-row md:justify-around bg-gray-100 flex-wrap">
                 <div className={ButtonContainer}>
                     <Link to="/new-business" className={""}>
-                        <div className={TranButtons +""}> 
+                        <div className={TranButtons +" flex flex-col"}> 
                             <span>New</span> 
                             <span>Business</span> 
                         </div>
@@ -27,7 +27,7 @@ const NewApplication= ()=>{
                     </div>
                     <div className={ButtonContainer}>
                     <Link to="/renewal" className={""}>
-                        <div className={TranButtons +""}>
+                        <div className={TranButtons +" flex flex-col"}>
                             <span>Business</span>
                             <span>Renewal</span>
                         </div>

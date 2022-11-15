@@ -91,8 +91,8 @@ const DeleteBusinessNew = () =>{
                                     <div className={reviewDetails}>Contact #: <b>{dataNew.contact}</b></div>
                                 </div>
                                 <div className="w-full flex flex-row justify-content-between">
-                                    <Link  to="/dashboard" className="p-1 px-2 bg-white border-2 tracking-widest border-gray-400 shadow-lg rounded-md text-gray-500 font-black">Back</Link>
-                                    <button className="p-1 px-2 bg-white border-2 border-rose-400 tracking-widest  shadow-md rounded-md text-rose-500 font-black">Cancel Application</button>
+                                    <Link  to="/dashboard" className="p-1 px-2 bg-white border-2 tracking-widest border-gray-400 shadow-lg rounded-md text-gray-500 font-black hover:text-gray-500 transition hover:scale-105">Back</Link>
+                                    <button className="p-1 px-2 bg-white border-2 border-rose-400 tracking-widest  shadow-md rounded-md text-rose-500 font-black transition hover:scale-105">Cancel Application</button>
                                 </div>
                             </form>
                         </div>

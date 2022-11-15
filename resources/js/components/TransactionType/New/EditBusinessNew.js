@@ -2,11 +2,10 @@ import axios from "axios";
 import React, {useState, useEffect}  from "react";
 import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom';
-import {useNavigate} from 'react-router-dom';
 import LoadingScreen from "../../Layout/loadingScreen";
+import PopUpEditSuccess from "../../Layout/popUpEditSuccess";
 
 const EditBusinessNew = () =>{
-    const navigate = useNavigate();
     const inputField = "bg-gray-100 text-md p-1 ring ring-gray-200 rounded-sm w-2/3 text-gray-600 font-bold";
     const inputLabel = "text-gray-500 text-md";
     const {id} = useParams();
@@ -72,13 +71,7 @@ const EditBusinessNew = () =>{
                         <div className="card-header text-lg font-semibold text-white bg-cloudygrey">Edit Application Information</div>
                         <div className="card-body">
                             <form method="post" className="w-full py-3 flex md:flex-col p-3 md:p-1" onSubmit={saveEdit}>
-                            {saveSuccess === 1 ? <div className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center bg-gray-500/70 bg-opacity-1">
-                                <div className="flex flex-col align-items-center bg-gray-100 rounded border-4 border-emerald-500 w-3/4 md:w-1/2 p-4 text-lg text-center tracking-widest font-medium text-gray-700 mb-32 shadow-lg bg-white">
-                                    <span className="font-bold text-xl text-emerald-500 p-3">Application Details Successfully Updated!</span>
-                                    <span className="text-sm text-rose-500">Please click continue to start upload of necessary requirements.</span>
-                                    <div onClick={()=>{navigate(`/new-business/upload/`+id)}} className="p-1 px-2 bg-white border-2 rounded-md border-gray-300 shadow-md hover:text-emerald-500 cursor-pointer">Continue</div>
-                                </div>
-                            </div> : ""}
+                            {saveSuccess === 1 ? <PopUpEditSuccess nav={`/new-business/upload/`+id}/> : ""}
                             {disclaimer === 1 ? <LoadingScreen/> : ""}
                                 <div className="w-full flex md:flex-row flex-col flex-wrap" key={newData.id}>
                                     <div className="w-full md:w-1/2">
@@ -158,8 +151,8 @@ const EditBusinessNew = () =>{
                                         </div>
                                     </div>
                                     <div className="w-full p-1 flex flex-row justify-between">
-                                        <Link to="/dashboard" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={(e)=>{setLeasing(0)}}>Back</Link>
-                                        <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Save</button>
+                                        <Link to="/dashboard" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center hover:scale-105 transition hover:text-gray-500" onClick={(e)=>{setLeasing(0)}}>Back</Link>
+                                        <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center hover:scale-105 transition">Save</button>
                                     </div>
                                 </div>
                             </form>

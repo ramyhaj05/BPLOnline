@@ -53,7 +53,7 @@ const NewBusiness = () =>{
 
 const BusinessType = ({setBType}) =>{
     const bTypeContainer = "w-1/2 md:w-1/4 p-3";
-    const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
+    const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer transition hover:scale-105";
     return(
         <div className="w-full flex flex-col justify-content-center items-center">
             <span className="font-black tracking-widest text-xl">PLEASE SELECT BUSINESS TYPE:</span>
@@ -85,7 +85,7 @@ const BusinessType = ({setBType}) =>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                    <Link to="/addNew" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</Link>
+                    <Link to="/addNew" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105">Back</Link>
                 </div>
         </div>
     )
@@ -93,7 +93,7 @@ const BusinessType = ({setBType}) =>{
 
 const Franchise = ({setFranchise,setBType})=>{
     const bTypeContainer = "w-1/2 md:w-1/6 p-3";
-    const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
+    const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer transition hover:scale-105";
     return(
         <div className="w-full flex flex-col justify-content-center items-center">
             <span className="font-black tracking-widest text-xl text-gray-500">FRANCHISING?</span>
@@ -106,7 +106,7 @@ const Franchise = ({setFranchise,setBType})=>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                    <button onClick={(e)=>{setBType(0);setFranchise(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
+                    <button onClick={(e)=>{setBType(0);setFranchise(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105">Back</button>
                 </div>
         </div>
     )
@@ -114,7 +114,7 @@ const Franchise = ({setFranchise,setBType})=>{
 
 const Leasing = ({setFranchise, setLeasing}) =>{
     const bTypeContainer = "w-1/2 md:w-1/6 p-3";
-    const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer";
+    const bTypeButton = "bg-gray-100 w-full rounded-sm text-center text-xl font-black py-3 border-4 border-white shadow-sm hover:cursor-pointer transition hover:scale-105";
     return(
         <div className="w-full flex flex-col justify-content-center items-center">
             <span className="font-black tracking-widest text-xl text-gray-500">Leasing?</span>
@@ -127,7 +127,7 @@ const Leasing = ({setFranchise, setLeasing}) =>{
                 </div>
             </div>
                 <div className="w-full flex flex-row justify-between p-1">
-                <button onClick={(e)=>{setFranchise(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Back</button>
+                <button onClick={(e)=>{setFranchise(0)}} className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center  transition hover:scale-105">Back</button>
 
                 </div>
         </div>

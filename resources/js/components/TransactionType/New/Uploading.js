@@ -9,6 +9,8 @@ import SuccessTransaction from "../../Layout/SuccessTransaction";
 const Uploading = () =>{
     const navigate = useNavigate();
     const {id} = useParams();
+    const user_id = localStorage.getItem('auth_id');
+    const currentYear = new Date().getFullYear()
     const [appDet, setAppDet] = useState([]);
     const [type, setType] = useState(null);
     const [brgy, setBrgy] = useState(null);
@@ -19,8 +21,6 @@ const Uploading = () =>{
     const [referenceID, setreferenceID] = useState();
     const [disclaimer, setDisclaimer] = useState(1);
     const [saveSuccess, setSaveSuccess] = useState(0)
-    const currentYear = new Date().getFullYear()
-    const user_id = localStorage.getItem('auth_id');
     const inputFile = "bg-white p-1 rounded-md font-bold text-gray-700 border-2 border-gray-500 tracking-widest hover:cursor-pointer";
     // 1-assoc 2-coop 3-corp 4-foundation 5-partnership 6-peza 7-single 8-taxexempt getAppDet
     useEffect(() => {
@@ -181,7 +181,7 @@ const Uploading = () =>{
                                         : ""}
                                         
                                         <div className="w-full flex flex-row justify-end p-1">
-                                            <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Upload</button>
+                                            <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105">Upload</button>
                                         </div>
                                     </form>
                                 )

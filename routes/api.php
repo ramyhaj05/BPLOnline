@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusinessApplicationController;
 use App\Http\Controllers\UploadingController;
 use App\Http\Controllers\RenewalController;
+use App\Http\Controllers\RenewalUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    
+    //NEW!!!
     //fetch data
     Route::get('/get/appDetails/getdet', [BusinessApplicationController::class, 'getAppDet'])->name('appDetails.getdet');
     Route::get('/get/businessapplication/list', [BusinessApplicationController::class, 'getBusinessApplication'])->name('businessapplication.list');
@@ -34,14 +35,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::post('/edit/business', [BusinessApplicationController::class, 'patch'])->name('edit.business');
     Route::post('/delete/business', [BusinessApplicationController::class, 'delete'])->name('delete.business');
     
+
+    //RENEWAL!!
     //fetch data
     Route::get('/get/renewal/list', [RenewalController::class, 'getAllRenewal'])->name('renewal.list');
     Route::get('/get/renewal/details', [RenewalController::class, 'getReview'])->name('get.review.renewal');
 
     //actions renewal
-
     Route::post('/add/renewal', [RenewalController::class, 'store'])->name('add.renewal');
     Route::post('/edit/renewal/info', [RenewalController::class, 'patch'])->name('edit.renewal.info');
     Route::post('/delete/renewal', [RenewalController::class, 'delete'])->name('delete.renewal');
+    Route::post('/upload/requirements/renewal', [RenewalUploadController::class, 'store'])->name('upload.requirements.renewal');
+
 
 // });

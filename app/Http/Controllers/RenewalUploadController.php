@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\RenewalUploading;
+use App\Models\Renewal;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RenewalUploadController extends Controller
 {
@@ -10,9 +17,7 @@ class RenewalUploadController extends Controller
     {
         return Validator::make($data, [
             'gross_income' => ['required'],
-            'itr' => ['required'],
-            'brgy' => ['required'],
-            'franchise' => ['required']
+            'insurance' => ['required']
         ]);
     }
     public function store(Request $request){
@@ -21,18 +26,32 @@ class RenewalUploadController extends Controller
             $year = $request->year;
             $user_id = $request->user_id;
             // Files/Year/01-xxx-xx
-            $directory = "/Files"."/".$year."/"."new/".$appID.$user_id;
+            $countappID = Str::length($appID);
+            $appIDname = $appID;
+            if($countappID === 1){
+                $appIDname = "000".$appID;
+            }
+            else if($countappID === 2){
+                $appIDname = "00".$appID;
+            }
+            else if($countappID === 3){
+                $appIDname = "0".$appID;
+            }
+            else{
+                $appIDname = "".$appID;
+            }
+            $directory = "/Files"."/".$year."/"."renewal/".$appIDname."-".$year;
 
             File::makeDirectory($directory, 0777, true, true);
-            $dtisec = $request->file('type')->move(public_path($directory), 'DTI-SEC.pdf');
+            $gross_income = $request->file('gross_income')->move(public_path($directory), 'Gross.pdf');
             $brgy = $request->file('brgy') ? $request->file('brgy')->move(public_path($directory), 'brgy.pdf') : "";
-            $cleasetaxdec = $request->file('leasing')->move(public_path($directory), 'CLease-TaxDec.pdf');
+            $ITR = $request->file('itr') ? $request->file('itr')->move(public_path($directory), 'ITR.pdf') : "";
             $insurance = $request->file('insurance')->move(public_path($directory), 'Insurance.pdf');
-            $franchise = $request->file('franchise') ? $request->file('franchise')->move(public_path($directory), 'Franchise.pdf') : "";
             
             //updating of status
-            $update = BusinessApplication::find($appID);
-            $request->file('brgy') ? $update->brgyClearance = "1": "0";
+            $update = Renewal::find($appID);
+            $request->file('brgy') ? $update->brgy = "1": "0";
+            $request->file('itr') ? $update->itr = "1": "0";
             $update->status = "1";
             $update->trans_id = $request->trans_id;
             $update->update();

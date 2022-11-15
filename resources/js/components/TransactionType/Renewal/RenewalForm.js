@@ -95,8 +95,8 @@ const RenewalForm = () =>{
                     </div>
                 </div>
                 <div className="w-full p-1 flex flex-row justify-between">
-                    <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center" onClick={()=>{navigate('/addNew')}}>Back</div>
-                    <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center">Proceed</button>
+                    <div className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center transition hover:scale-105" onClick={()=>{navigate('/addNew')}}>Back</div>
+                    <button type="submit" className="bg-gray-200 shadow border-2 border-white shadow-gray-500 p-1 rounded w-20 text-gray-500 font-bold hover:cursor-pointer text-center hover:scale-105">Proceed</button>
                 </div>
             </div>
         </form>

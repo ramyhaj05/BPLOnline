@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BusinessApplicationController;
 use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\AdminLoginController;
 
 Route::get('/', function () {
 
@@ -34,7 +35,9 @@ Route::get('/user-login', [App\Http\Controllers\HomeController::class, 'index'])
     Route::get('/cancel/renewal/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('cancel.renewal');
     Route::get('/status/renewal/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('status.renewal');
 
-    
+    //admin
+    Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
+    Route::get('/login/admin', [AdminLoginController::class, 'login'])->name('login.admin');
 // });
 
 Route::get('/auth/proceed',[App\Http\Controllers\HomeController::class, 'AuthProceed'])->name('auth.proceed');
