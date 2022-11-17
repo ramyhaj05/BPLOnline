@@ -25,7 +25,7 @@ class AdminLoginController extends Controller
             $newBusiness = BusinessApplication::where('status','=', '1')->get()->toArray();
             // dd($newBusiness);
             // return Auth::user()->usertype === "admin" ? redirect()->intended('dashboard/admin') : dd("Please contact administator!");
-            return Auth::user()->usertype === "admin" ? redirect()->intended('dashboard/admin') : dd("Please contact administator!");
+            return Auth::user()->usertype === "admin" ? redirect()->intended('dashboard/admin') : "<h1>404 page not found.</h1>";
         }
  
         return back()->withErrors([
@@ -39,8 +39,10 @@ class AdminLoginController extends Controller
 
     public function ForeVerification(){
         $newBusiness = BusinessApplication::where('status','=', '1')->get()->toArray();
+        $newbusinesscount = BusinessApplication::where('status','=', '1')->count();
         $renewal = Renewal::where('status','=', '1')->get()->toArray();
-        return view('layouts/admin/admin-list',['newBusiness'=>$newBusiness,'renewal'=>$renewal]);
+        $renewalcount = Renewal::where('status','=', '1')->count();
+        return view('layouts/admin/admin-list',['newBusiness'=>$newBusiness,'renewal'=>$renewal, 'newbusinesscount'=>$newbusinesscount, 'renewalcount'=>$renewalcount]);
     }
 
     

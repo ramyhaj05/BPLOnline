@@ -40,7 +40,10 @@ Route::get('/user-login', [App\Http\Controllers\HomeController::class, 'index'])
 
     Route::middleware(['auth','verified'])->group(function(){
         Route::get('/dashboard/admin', [App\Http\Controllers\AdminLoginController::class, 'index'])->name('dashboard.admin');
+        // list
         Route::get('/forverification/admin', [App\Http\Controllers\AdminLoginController::class, 'ForeVerification'])->name('forverification.admin');
+        Route::get('/new/verification/{id}', [App\Http\Controllers\AdminLoginController::class, 'VerificationNew'])->name('new.verification');
+        Route::get('/renew/verification/{id}', [App\Http\Controllers\AdminLoginController::class, 'VerificationRenew'])->name('renew.verification');
     });
 // });
 

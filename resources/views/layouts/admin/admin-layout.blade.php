@@ -78,8 +78,8 @@
             </div>
         </nav>
 
-        <main class="p-3 px-5 md:p-1 ">
-            <div class="w-full p-2 text-center rounded">
+        <main class="p-3 px-2 md:px-5 md:p-1 ">
+            <div class="w-full text-center rounded">
                 @yield('content-admin')
             </div>
         </main>
