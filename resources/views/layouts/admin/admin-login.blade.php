@@ -7,13 +7,24 @@
             <div class="w-full flex flex-col">
                 <form method="POST" action="{{ route('login.admin') }}" class="flex flex-col justify-content-center items-center">
                     @csrf
+                    <input type="hidden" name="type" value="1">
                     <div class="w-2/3 flex flex-col justify-content-start text-gray-400 font-bold p-2">
                         <span>Username</span>
-                        <input type="text" name="username" id="username" class="p-1 w-full">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="w-2/3 flex flex-col justify-content-start text-gray-400 font-bold p-2">
                         <span>Password</span>
-                        <input type="password" name="password" id="password" class="p-1 w-full">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="w-2/3 flex flex-col justify-content-start text-gray-400 font-bold p-2 pt-4">
                         <input type="submit" name="login" id="login" value="Login" class="p-1 w-full border-2 border-white rounded transition hover:scale-105">

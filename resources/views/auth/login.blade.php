@@ -9,12 +9,12 @@
                 <div class="card-body pt-5">
                     <form method="POST" action="{{ route('login') }}" class="flex flex-col justify-content-center items-center">
                         @csrf
-
+                        <input type="hidden" name="type" value="0">
                         <div class="row mb-3 w-2/3">
                             <div class="w-full text-center pb-3 tracking-widest font-bold font-sans text-2xl">LOGIN</div>
                             <div class="w-full">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

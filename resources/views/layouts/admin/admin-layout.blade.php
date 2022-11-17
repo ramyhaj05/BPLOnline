@@ -26,7 +26,7 @@
         <!-- bg-gradient-to-t from-emerald-500 to-emerald-300 -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-to-t from-red-800 to-red-600">
             <div class="container">
-                <a class="navbar-brand text-white text-2xl tracking-widest hover:text-pink-500" href="{{ url('/dashboard') }}">
+                <a class="navbar-brand text-white text-2xl tracking-widest hover:text-pink-500" href="{{ url('/dashboard/admin') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler bg-red-700 border-2 border-red-400 shadow " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusinessApplicationController;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\AdminLoginController;
-
 Route::get('/', function () {
 
     return view('welcome');
@@ -36,8 +35,13 @@ Route::get('/user-login', [App\Http\Controllers\HomeController::class, 'index'])
     Route::get('/status/renewal/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('status.renewal');
 
     //admin
-    Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
-    Route::get('/login/admin', [AdminLoginController::class, 'login'])->name('login.admin');
+    Route::get('/admin/login', [App\Http\Controllers\AdminLoginController::class, 'loginPage'])->name('admin.login');
+    Route::post('/login/admin', [App\Http\Controllers\AdminLoginController::class, 'login'])->name('login.admin');
+
+    Route::middleware(['auth','verified'])->group(function(){
+        Route::get('/dashboard/admin', [App\Http\Controllers\AdminLoginController::class, 'index'])->name('dashboard.admin');
+        Route::get('/forverification/admin', [App\Http\Controllers\AdminLoginController::class, 'ForeVerification'])->name('forverification.admin');
+    });
 // });
 
 Route::get('/auth/proceed',[App\Http\Controllers\HomeController::class, 'AuthProceed'])->name('auth.proceed');
